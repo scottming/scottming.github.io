@@ -39,7 +39,7 @@ timezone:      null
 
 #站点基础配置
 title: Scott
-subTitle: 
+subTitle: 记录学习与成长
 description: 
 url: http://scottming.github.io
 feed: /atom.xml
