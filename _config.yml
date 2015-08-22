@@ -63,7 +63,7 @@ nav:
     icon: icon-heart
     class: none
   - text: 博客源代码
-    url: https://github.com/pizn/iLotus
+    url: https://github.com/scottming/scottming.github.io
     icon: icon-github
     class: none
 
