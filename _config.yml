@@ -38,7 +38,7 @@ paginate_path: /page:num
 timezone:      null
 
 #站点基础配置
-title: Scott's blog
+title: Scott
 subTitle: 
 description: 
 url: http://scottming.github.io
