@@ -39,8 +39,8 @@ timezone:      null
 
 #站点基础配置
 title: Scott's blog
-subTitle: 记录我的学习与成长
-description: 这是 PIZn 的又一个博客，它是基于 Jekyll 搭建起来的。在这里，不仅仅是用来快速记录工作，学习，生活的一点一滴的地方，更是 PIZn 对 Jekyll 的学习和使用的一次有意义的实践。
+subTitle: 记录学习与成长
+description: 
 url: http://scottming.github.io
 feed: /atom.xml
 
@@ -59,7 +59,7 @@ nav:
     icon: icon-envelope-alt
     class: none
   - text: 联系我
-    url: http://www.zhanxin.info/contact.html
+    url: # 自我介绍放这里
     icon: icon-heart
     class: none
   - text: 博客源代码
