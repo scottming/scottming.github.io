@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 办公效率提升指南（软件按篇）
+title: 办公效率提升指南（软件篇）
 description: 如何提升自己的办公效率
 
 ---
@@ -9,7 +9,7 @@ description: 如何提升自己的办公效率
 |:---|:---|:---|:---|
 |快速定位与文件快速查看工具|快速定位常用软件及常用文件夹|Alfred|Wox|
 |写作工具|写作|Mou、Macdown|Markdownpad2|
-|编辑器|写代码、文本编辑|Sublime 3|Sublime 3 + 某某|
+|编辑器|写代码、文本编辑|Sublime 3|Sublime 3 + IMESupport 插件|
 |文字扩展工具|提升写作、写邮件等重复文本处理的速度|TextExpander|PhraseExpress|
 |Chrome 或 Firefox 插件|提升 Web 效率 |Evernote 剪藏、Adblock、Vimium、Copy as Markdown、|同 Mac|
 |图床|储存图片|七牛云 + Dropdone|七牛云|
@@ -55,4 +55,4 @@ description: 如何提升自己的办公效率
 
 14.科学上网工具。这个不解释，我推荐 Astrill，上 Youtube 看视频，某网看大片，基本不会卡。
 
-15.不要以软件为导向，以任务为导向。做什么事，需要什么功能，则用具备其功能的工具。若是上述工具并不能提升你的办公效率，有可能你电脑太卡了，可以选择加装块 SSD 硬盘。
+15.不要以软件为导向，以任务为导向。做什么事，需要什么功能，则用具备其功能的工具。若是上述工具并不能提升你的办公效率，有可能你电脑太卡了，可以选择加块 SSD 硬盘。
