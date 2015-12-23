@@ -10,7 +10,7 @@ description: 效率工具
 |快速定位与文件快速查看工具|快速定位常用软件及常用文件夹|Alfred|Wox|
 |写作工具|写作|Mou、Macdown|Markdownpad2|
 |编辑器|写代码、文本编辑|Sublime 3|Sublime 3 + IMESupport 插件|
-|文字扩展工具|提升写作、写邮件等重复文本处理的速度|TextExpander|PhraseExpress|
+|文字扩展工具|提升写作、写邮件等重复文本处理的速度|Atext|PhraseExpress|
 |Chrome 或 Firefox 插件|提升 Web 效率 |Evernote 剪藏、Adblock、Vimium、Copy as Markdown、|同 Mac|
 |图床|储存图片|七牛云 + Dropdone|七牛云|
 |思维导图工具|发散思维|Mindnote|Mindjet 14 / Freemind|
@@ -29,7 +29,7 @@ description: 效率工具
 
 3.编辑器。日常写代码用的较多的是 Sublime 3。
 
-4.文字扩展工具。写邮件时重复性文本比较多，传统方式 查找=》复制=》粘贴，实在太累。用TextExpander 或 PhraseExpress 把文本编好，设定缩短字符，一键搞定。
+4.文字扩展工具。写邮件时重复性文本比较多，传统方式 查找=》复制=》粘贴，实在太累。用 Atext 或 PhraseExpress 把文本编好，设定缩短字符，一键搞定。
 
 5.Chrome插件。
 - Evernote 一键剪藏，浏览网页时，遇到喜欢的内容，想保存，一键搞定。
