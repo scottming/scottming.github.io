@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 办公效率提升指南（软件篇）
-description: 如何提升自己的办公效率
+title: 我的工具清单
+description: 效率工具
 
 ---
 
