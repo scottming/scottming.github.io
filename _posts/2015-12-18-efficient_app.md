@@ -32,12 +32,12 @@ description: 效率工具
 ![](http://7xjuve.com1.z0.glb.clouddn.com/alfred.png?imageView2/2/w/800)
 
 **2.写作工具。**自从用了 Markdown，几乎没怎么碰过 Word，关于 Markdown 的优势不做阐述，这类文章太多了，Google 一下吧。这篇文章是用 Markdown 的编辑器 Macdown 写成的。
-![](http://7xjuve.com1.z0.glb.clouddn.com/macdown.png)
+![](http://7xjuve.com1.z0.glb.clouddn.com/macdown.png?imageView2/2/w/800)
 
 **3.编辑器。**日常写代码用的较多的是 Sublime 3。
 
 **4.文字扩展工具。**写邮件时重复性文本比较多，传统方式 查找=》复制=》粘贴，实在太累。用 Atext 或 PhraseExpress 把文本编好，设定缩短字符，一键搞定。
-![](http://7xjuve.com1.z0.glb.clouddn.com/atext.png)
+![](http://7xjuve.com1.z0.glb.clouddn.com/atext.png?imageView2/2/w/800)
 
 **5.Chrome插件。**
 - Evernote 一键剪藏，浏览网页时，遇到喜欢的内容，想保存，一键搞定。
@@ -47,23 +47,23 @@ description: 效率工具
 
 **6.图床。**七牛云功能很强大，Dropdone让图片上传变得 very eazy。装好七牛云插件，一键上传图片，结合 atext的缩短字符，快速输入到 Markdown 编辑器里。配置请看：[Mac OS 图床运用优化模式](http://azeril.me/blog/How-To-Use-Image-Hosting-Quickly.html)
 
-![](http://7xjuve.com1.z0.glb.clouddn.com/dropzone.png)
+![](http://7xjuve.com1.z0.glb.clouddn.com/dropzone.png?imageView2/2/w/800)
 
 **7.思维导图。**头脑风暴，想法在多，不需系统时可以用它。
 
 **8.幻灯片。**不想陷入 Keynote 与 PPT 孰优孰劣之争，相比来说，我更喜欢 Keynote 的简洁。
 下面是我自己运用 Keynote 仿微信聊天做的一个幻灯。
-![](http://7xjuve.com1.z0.glb.clouddn.com/keynote_wechat.gif)
+![](http://7xjuve.com1.z0.glb.clouddn.com/keynote_wechat.gif?imageView2/2/w/800)
 
 **9.清单工具。**之前一直用 Evernote 列清单，但 Evernote 太重，不适合用来写笔记、记录生活点滴想法。所以现在换成了 Workflowy ，足够简洁，写读书笔记时，用来整理知识点也非常不错。
-![](http://7xjuve.com1.z0.glb.clouddn.com/workflowy.png)
+![](http://7xjuve.com1.z0.glb.clouddn.com/workflowy.png?imageView2/2/w/800)
 
 **10.书签管理工具**，Decious + Delibar，「美味书签」简直不能更加美味，decious 收藏书签，设好 tag，Delibar 我设置的查找快捷键为 Shift + option + P, 正常查找一个书签不会超过 4 秒钟。
-![](http://7xjuve.com1.z0.glb.clouddn.com/delicous.png)
-![](http://7xjuve.com1.z0.glb.clouddn.com/delibar.png)
+![](http://7xjuve.com1.z0.glb.clouddn.com/delicous.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/delibar.png?imageView2/2/w/800)
 
 **11.终端**，mac 系统终端略丑，装上 iterm 2 更加美观，再装上 Oh my zsh 就更加强大了。
-![](http://7xjuve.com1.z0.glb.clouddn.com/iterm_color.png)
+![](http://7xjuve.com1.z0.glb.clouddn.com/iterm_color.png?imageView2/2/w/800)
 我的配色是 solarized_light.
 
 **12.知识整理。**博客适合输出，Wiki适合整理复用知识。用 Git + Github + Jekyll 写博客，用 Github wiki 写wiki，绝对是完美搭配。另外，用 Goolum 搭建本地的 Wiki 便于本地阅读。
@@ -76,9 +76,9 @@ description: 效率工具
 
 **16.图标隐藏工具。**强迫症患者必备。
 
-隐藏前：![](http://7xjuve.com1.z0.glb.clouddn.com/batender_show.png)
+隐藏前：![](http://7xjuve.com1.z0.glb.clouddn.com/batender_show.png?imageView2/2/w/800)
 
-隐藏后：![](http://7xjuve.com1.z0.glb.clouddn.com/%20batender_hide.png)
+隐藏后：![](http://7xjuve.com1.z0.glb.clouddn.com/%20batender_hide.png?imageView2/2/w/600)
 
 **17.词典。**欧路词典加载词库后非常好用，我的常用词库是：Collins Cobuild双解、LDOCE朗文当代5的英英版、剑桥高阶学习词典、韦伯斯特高阶学习词典。
 
