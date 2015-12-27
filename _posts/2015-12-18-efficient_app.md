@@ -56,14 +56,16 @@ description: 效率工具
 ![](http://7xjuve.com1.z0.glb.clouddn.com/keynote_wechat.gif?imageView2/2/w/800)
 
 **9.清单工具。**之前一直用 Evernote 列清单，但 Evernote 太重，不适合用来写笔记、记录生活点滴想法。所以现在换成了 Workflowy ，足够简洁，写读书笔记时，用来整理知识点也非常不错。
-![](http://7xjuve.com1.z0.glb.clouddn.com/workflowy.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/workflowy.png?imageView2/2/w/567)
 
 **10.书签管理工具**，Decious + Delibar，「美味书签」简直不能更加美味，decious 收藏书签，设好 tag，Delibar 我设置的查找快捷键为 Shift + option + P, 正常查找一个书签不会超过 4 秒钟。
 ![](http://7xjuve.com1.z0.glb.clouddn.com/delicous.png?imageView2/2/w/800)
-![](http://7xjuve.com1.z0.glb.clouddn.com/delibar.png?imageView2/2/w/800)
+
+搜索：
+![](http://7xjuve.com1.z0.glb.clouddn.com/delibar.png?imageView2/2/w/567)
 
 **11.终端**，mac 系统终端略丑，装上 iterm 2 更加美观，再装上 Oh my zsh 就更加强大了。
-![](http://7xjuve.com1.z0.glb.clouddn.com/iterm_color.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/iterm_color.png?imageView2/2/w/567)
 我的配色是 solarized_light.
 
 **12.知识整理。**博客适合输出，Wiki适合整理复用知识。用 Git + Github + Jekyll 写博客，用 Github wiki 写wiki，绝对是完美搭配。另外，用 Goolum 搭建本地的 Wiki 便于本地阅读。
@@ -76,9 +78,9 @@ description: 效率工具
 
 **16.图标隐藏工具。**强迫症患者必备。
 
-隐藏前：![](http://7xjuve.com1.z0.glb.clouddn.com/batender_show.png?imageView2/2/w/800)
+隐藏前：![](http://7xjuve.com1.z0.glb.clouddn.com/batender_show.png?imageView2/2/w/567)
 
-隐藏后：![](http://7xjuve.com1.z0.glb.clouddn.com/%20batender_hide.png?imageView2/2/w/600)
+隐藏后：![](http://7xjuve.com1.z0.glb.clouddn.com/%20batender_hide.png?imageView2/2/w/400)
 
 **17.词典。**欧路词典加载词库后非常好用，我的常用词库是：Collins Cobuild双解、LDOCE朗文当代5的英英版、剑桥高阶学习词典、韦伯斯特高阶学习词典。
 
