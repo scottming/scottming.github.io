@@ -29,7 +29,7 @@ description: 效率工具
 |科学上网工具|科学上网|Astrill|Astrill|
 
 **1.快速定位与文件快速查看工具**。日常工作中，你是否遇到这样的情况：多个软件与文件夹间频繁切换。若是全放在桌面，时间久了，桌面堆积太多快捷方式与文件夹，显得杂乱不堪，且电脑易卡；若是放在其他地方，桌面是干净了，但查找不易。Alfred 与 Wox 这类软件可以很好的解决类似问题，装上之后，妈妈再也不用担心我找不到软件了，Alfred 的工作流很有特色，Wox还可以通过自定义快捷键来快速搜索程序。
-![](http://7xjuve.com1.z0.glb.clouddn.com/alfred.png)
+![](http://7xjuve.com1.z0.glb.clouddn.com/alfred.png?imageView2/2/w/800)
 
 **2.写作工具。**自从用了 Markdown，几乎没怎么碰过 Word，关于 Markdown 的优势不做阐述，这类文章太多了，Google 一下吧。这篇文章是用 Markdown 的编辑器 Macdown 写成的。
 ![](http://7xjuve.com1.z0.glb.clouddn.com/macdown.png)
