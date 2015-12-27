@@ -62,10 +62,12 @@ description: 效率工具
 ![](http://7xjuve.com1.z0.glb.clouddn.com/delicous.png?imageView2/2/w/800)
 
 搜索：
+
 ![](http://7xjuve.com1.z0.glb.clouddn.com/delibar.png?imageView2/2/w/567)
 
 **11.终端**，mac 系统终端略丑，装上 iterm 2 更加美观，再装上 Oh my zsh 就更加强大了。
 ![](http://7xjuve.com1.z0.glb.clouddn.com/iterm_color.png?imageView2/2/w/567)
+
 我的配色是 solarized_light.
 
 **12.知识整理。**博客适合输出，Wiki适合整理复用知识。用 Git + Github + Jekyll 写博客，用 Github wiki 写wiki，绝对是完美搭配。另外，用 Goolum 搭建本地的 Wiki 便于本地阅读。
