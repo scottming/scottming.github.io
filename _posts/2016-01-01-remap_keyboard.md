@@ -47,16 +47,16 @@ Steve 提到，第三种按键方式比较正常，而第一种和第二种则�
 ![](http://7xjuve.com1.z0.glb.clouddn.com/160101-no_action.png?imageView2/2/w/720)
 
 接着，打开 [Seil](https://pqrs.org/osx/karabiner/seil.html.en)，双击「Change the capslock key」的「key codeh」那行，把默认的 51 改为 80， 80 对应 F19 键，不会跟其他键造成冲突。
-![](http://7xjuve.com1.z0.glb.clouddn.com/160101-seil.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/160101-seil.png?imageView2/2/w/720)
 
 再打开 [Karabiner](https://pqrs.org/osx/karabiner/index.html.en) 的「Misc & uninstall」，
-![](http://7xjuve.com1.z0.glb.clouddn.com/160101-karabiner01.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/160101-karabiner01.png?imageView2/2/w/720)
 
 点击 「open private.xml」，会跳出一个文件，把下方代码贴进去替换。如果没显示，请「越过城墙」。
 <script src="https://gist.github.com/scottming/a9a756a9ed35467b18a4.js"></script>
 
 回到「Change key」界面，点击「Reload XML」刷新，然后左边勾选即大功告成。
-![](http://7xjuve.com1.z0.glb.clouddn.com/160101-karabiner02.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/160101-karabiner02.png?imageView2/2/w/720)
 
 我对 [文刀漢三](http://eamesliu.com/post/101419356939/caps-lock-key-to-hyper) 的代码做了一些修改：
 
@@ -74,7 +74,7 @@ Steve 提到，第三种按键方式比较正常，而第一种和第二种则�
 ## 展望
 ### Keyboard maestro
 OX 系统有个效率软件为 Keyboard maestro, 因为有了 Hyper 键，所以也可以多设置一些不冲突的 Hotkey.例如，Astrill 没有快捷控制 ON & OFF, 于是我把 Hyper + A 设为开关。
-![](http://7xjuve.com1.z0.glb.clouddn.com/160101-keyboard_maestro.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/160101-keyboard_maestro.png?imageView2/2/w/720)
 
 当然，Keyboard maestro 还有很多好玩的地方，希望大家多挖掘，多分享。
 
