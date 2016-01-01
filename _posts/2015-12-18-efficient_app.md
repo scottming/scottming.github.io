@@ -22,9 +22,10 @@ description: 效率工具
 |Wiki|知识系统整理|Gollum + GithubWiki|GithubWiki|
 |任务管理工具|任务管理|Teambition/Worktile|Teambition/Worktile|
 |剪贴板|查看并选择复制历史|paste|暂无|
-|键盘自定义|自定义键盘|karabiner + seil|暂无|
+|键盘映射修改|提高键盘效率|Karabiner + seil|AutoHotkey|
+|键盘自定义|提高键盘效率|Keyboard maestro|AutoHotkey|
 |缩图标|把右上角图标隐藏|Bartender|无需|
-|词典|查词|欧陆|欧陆 or madir|
+|词典|查词|欧路|欧路 or madir|
 |半自动化邮箱|能创建规则自动过滤邮件|Gmail|Gmail|
 |科学上网工具|科学上网|Astrill|Astrill|
 
@@ -45,7 +46,7 @@ description: 效率工具
 - Vimium，装上后，试试全键盘操作吧。
 - Copy as Markdown，一键复制为 Markdown 链接格式。
 
-**6.图床。**七牛云功能很强大，Dropdone让图片上传变得 very eazy。装好七牛云插件，一键上传图片，结合 atext的缩短字符，快速输入到 Markdown 编辑器里。配置请看：[Mac OS 图床运用优化模式](http://azeril.me/blog/How-To-Use-Image-Hosting-Quickly.html)
+**6.图床。**七牛云功能很强大，Dropdone让图片上传变得 so eazy。装好七牛云插件，一键上传图片，结合 aText 的缩短字符，快速输入到 Markdown 编辑器里。配置请看：[Mac OS 图床运用优化模式](http://azeril.me/blog/How-To-Use-Image-Hosting-Quickly.html)
 
 ![](http://7xjuve.com1.z0.glb.clouddn.com/dropzone.png?imageView2/2/w/800)
 
@@ -76,7 +77,7 @@ description: 效率工具
 
 **14.剪贴板。**装上 paste，Command + shift + v 后可以看到所有剪贴历史。
 
-**15.键盘自定义工具，**键盘上有些键离键盘中心非常近，用的却很少，有些离得远使用却非常频繁。我经常使用 vi，所以我用 karabiner + seil 把右下角的 Shift 改成了 ESC，左下角 Shift + H/J/K/L 改成 上下左右，仿 Vim 模式，大大缩短键程。[我的自定义文件](http://7xjuve.com1.z0.glb.clouddn.com/scott_kara_private.xml)
+**15.键盘自定义工具，**键盘上有些键离键盘中心非常近，用的却很少，有些离得远使用却非常频繁。我经常使用 vi，所以我用 karabiner + seil 把右下角的 Capslock 改成了 ESC，Capslock + H/J/K/L 改成 上下左右，仿 Vim 模式，大大缩短键程。关于配置请看我另一篇文章：[让你的手指飞起来--键盘改造记](scottming.github.io/2016-01-01-remap_keyboard.html)
 
 **16.图标隐藏工具。**强迫症患者必备。
 
