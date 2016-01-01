@@ -44,7 +44,7 @@ Steve 提到，第三种按键方式比较正常，而第一种和第二种则�
 首先下载 [Seil](https://pqrs.org/osx/karabiner/seil.html.en)、[Karabiner](https://pqrs.org/osx/karabiner/index.html.en).
 
 然后到系统偏好设置里把 Capslock 键设置为「无操作」。
-![](http://7xjuve.com1.z0.glb.clouddn.com/160101-no_action.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/160101-no_action.png?imageView2/2/w/720)
 
 接着，打开 [Seil](https://pqrs.org/osx/karabiner/seil.html.en)，双击「Change the capslock key」的「key codeh」那行，把默认的 51 改为 80， 80 对应 F19 键，不会跟其他键造成冲突。
 ![](http://7xjuve.com1.z0.glb.clouddn.com/160101-seil.png?imageView2/2/w/800)
