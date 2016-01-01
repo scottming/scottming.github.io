@@ -23,9 +23,11 @@ description: 键盘重映射
 ## 键盘
 
 14 年初，我想学编程。考虑到要敲大量代码，且有了之前的惨痛教训，我得先把硬件换了。Google 上查看了大量的机械键盘知识后，锁定了 Cherry - 3000(红轴).放在家里用，于是家里很爽，公司很痛苦。
+
 ![](http://7xjuve.com1.z0.glb.clouddn.com/160101-cherry.png?imageView2/2/w/600)
 
 经过几天的煎熬后，没办法，继续购了 Filco - 104(侧刻红轴)，从此以后，我便过上了与机械键盘在一起的幸福生活。
+
 ![](http://7xjuve.com1.z0.glb.clouddn.com/160101-filco104.png?imageView2/2/w/600)
 
 办公室和家里都用机械之后，码字、敲代码的确很爽，但还有个问题一直困扰着我——Escape、方向键程太远，这导致我用 vimium 浏览网页，以及改文章都很痛苦，我可不想老离开中心键位。
@@ -73,6 +75,7 @@ Steve 提到，第三种按键方式比较正常，而第一种和第二种则�
 
 ## 展望
 ### Keyboard maestro
+
 OX 系统有个效率软件为 Keyboard maestro, 因为有了 Hyper 键，所以也可以多设置一些不冲突的 Hotkey.例如，Astrill 没有快捷控制 ON & OFF, 于是我把 Hyper + A 设为开关。
 ![](http://7xjuve.com1.z0.glb.clouddn.com/160101-keyboard_maestro.png?imageView2/2/w/720)
 
