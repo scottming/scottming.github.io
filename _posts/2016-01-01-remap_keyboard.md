@@ -74,6 +74,7 @@ Steve 提到，第三种按键方式比较正常，而第一种和第二种则�
 - 设置 Hyper 键位，不会更传统的很多快键键造成冲突，可以凭空多出20个以上的自定义「键程短」的快捷键。比如我把欧路词典的「滑词翻译」设为 Hyper + E.
 
 ## 展望
+
 ### Keyboard maestro
 
 OX 系统有个效率软件为 Keyboard maestro, 因为有了 Hyper 键，所以也可以多设置一些不冲突的 Hotkey.例如，Astrill 没有快捷控制 ON & OFF, 于是我把 Hyper + A 设为开关。
@@ -87,7 +88,4 @@ Mac 有 karabiner，可 windows 上没有啊，公司还得用 win，虽然很�
 
 <script src="https://gist.github.com/scottming/5405b12eb2c69a4e0e54.js"></script>
 如果你在 win 上也想改映射，下载 [AutoHotkey](https://autohotkey.com/) 把上方代码复制后，创建 .ank 后缀文件，右键以 AutoHotkey 运行即可。如果没显示，请「越过城墙」。
-
-
-
 
