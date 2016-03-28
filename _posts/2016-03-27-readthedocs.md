@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ReadtheDoc 折腾记
+title: ReadtheDocs 折腾记
 description: 如何快速搭建一个写书平台
 
 ---
@@ -26,10 +26,6 @@ Sphinx 是一个基于 Python 的文档生成工具，最早只是用来生成 P
 - 精确的语法高亮: 基于 Pygments 自动生成语法高亮 
 
 ## 1. 安装 Sphinx
-
-Sphinx 是一种文档工具，它可以令人轻松的撰写出清晰且优美的文档, 由 Georg Brandl 在BSD 许可证下开发. 新版的Python文档 就是由Sphinx生成的， 并且它已成为Python项目首选的文档工具。更多介绍，请看此处：[Sphinx 使用手册](https://zh-sphinx-doc.readthedocs.org/en/latest/contents.html)。
-
-### 具体安装方法
 
 Mac 系统下安装极简，一行代码搞定
 
