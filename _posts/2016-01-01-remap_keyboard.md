@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 让 CapsLock 键更实用————键盘映射改造
+title: 让 CapsLock 键更实用——键盘映射改造
 description: 键盘重映射
 
 ---
