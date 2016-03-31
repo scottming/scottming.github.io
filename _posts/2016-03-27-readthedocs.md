@@ -5,6 +5,7 @@ subtitle:   如何快速搭建一个写书平台
 date:       2016-03-27
 author:     "Scott"
 header-img: "img/home-bg-o.jpg"
+catalog:    true
 tags:
     - Python
     - 网站搭建
@@ -52,7 +53,7 @@ pip install sphinx
 
 创建工程也就是创建文档。这步很简单，到创建工程的目录，比如我的是 `/Users/Scott/Documents/2.创造乐趣`, 创建一个名为 DataBook 的文件夹，你可以用别的你想用的名字。
 
-### 创建：
+#### 创建：
 
 ``` shell
 ➜  2.创造乐趣 pwd
@@ -87,7 +88,7 @@ Makefile build    make.bat source
 
 基本完成，使用 `make html` 命令就可以生成html形式的文档了。
 
-### 配置（conf.py）
+#### 配置（conf.py）
 如果没有什么特殊需要，我觉得 Sphinx 没啥好配的，改个主题就好了，个人极其喜欢ReadtheDoc的主题。很简单，把 conf.py 里面的这句：
 
 ``` python
@@ -99,7 +100,7 @@ html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 ```
 
-### 将 Sphnix 生成的文档和配置 push 到远程 github
+#### 将 Sphnix 生成的文档和配置 push 到远程 github
 
 ``` shell
 ➜  BookData git init

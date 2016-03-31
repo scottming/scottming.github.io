@@ -5,8 +5,8 @@
     <description>cool blog</description>
     <link>http://scottming.github.io/</link>
     <atom:link href="http://scottming.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 31 Mar 2016 21:16:23 +0800</pubDate>
-    <lastBuildDate>Thu, 31 Mar 2016 21:16:23 +0800</lastBuildDate>
+    <pubDate>Thu, 31 Mar 2016 23:08:55 +0800</pubDate>
+    <lastBuildDate>Thu, 31 Mar 2016 23:08:55 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -56,7 +56,7 @@
 
 &lt;p&gt;创建工程也就是创建文档。这步很简单，到创建工程的目录，比如我的是 &lt;code class=&quot;highlighter-rouge&quot;&gt;/Users/Scott/Documents/2.创造乐趣&lt;/code&gt;, 创建一个名为 DataBook 的文件夹，你可以用别的你想用的名字。&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;创建：&lt;/h3&gt;
+&lt;h4 id=&quot;section-1&quot;&gt;创建：&lt;/h4&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  2.创造乐趣 &lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;
 /Users/Scott/Documents/2.创造乐趣
@@ -92,7 +92,7 @@ Makefile build    make.bat &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
 
 &lt;p&gt;基本完成，使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;make html&lt;/code&gt; 命令就可以生成html形式的文档了。&lt;/p&gt;
 
-&lt;h3 id=&quot;confpy&quot;&gt;配置（conf.py）&lt;/h3&gt;
+&lt;h4 id=&quot;confpy&quot;&gt;配置（conf.py）&lt;/h4&gt;
 &lt;p&gt;如果没有什么特殊需要，我觉得 Sphinx 没啥好配的，改个主题就好了，个人极其喜欢ReadtheDoc的主题。很简单，把 conf.py 里面的这句：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;html_theme&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;alabaster&#39;&lt;/span&gt;
@@ -104,7 +104,7 @@ Makefile build    make.bat &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;sphnix--push--github&quot;&gt;将 Sphnix 生成的文档和配置 push 到远程 github&lt;/h3&gt;
+&lt;h4 id=&quot;sphnix--push--github&quot;&gt;将 Sphnix 生成的文档和配置 push 到远程 github&lt;/h4&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  BookData git init
 ➜  BookData git add .
