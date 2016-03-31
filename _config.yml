@@ -1,86 +1,94 @@
-# Where things are
-source:       .
-destination:  ./_site
-plugins:      ./_plugins
-layouts:      ./_layouts
-paginate:     8
+# Site settings
+title: Scott's Blog
+SEOTitle: 明生的博客 | Scott's Blog
+header-img: img/home-bg.jpg
+email: xiaowan5219@gmail.com
+description: "cool blog"
+keyword: ""
+url: "http://scottming.github.io"              # your host, for absolute URL
+baseurl: "/huxblog-boilerplate"         # for example, '/blog' if your blog hosted on 'host/blog'
 
-# Handling Reading
-safe:         false
-include:      [".htaccess"]
-exclude:      []
-keep_files:   [".git", ".svn"]
-encoding:     "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-textile_ext:  "textile"
 
-# Filtering Content
-show_drafts:  null
-limit_posts:  0
-future:       true
-unpublished:  false
 
-# Plugins
-whitelist: []
-gems:      ["jekyll-mentions", "jemoji", "jekyll-redirect-from", "jekyll-sitemap"]
+# SNS settings
+RSS: false
+#weibo_username:     huxpro
+#zhihu_username:     huxpro
+github_username:    scottming
+#twitter_username:  huxpro
+#facebook_username:  huxpro
 
-# Conversion
-markdown:     kramdown
-highlighter:  pygments
-lsi:          false
-excerpt_separator: "\n\n"
 
-# Serving
-detach:       false
-port:         4000
-host:         127.0.0.1
-baseurl:      "" # does not include hostname
 
-# Outputting
-permalink:     date
-paginate_path: /page:num
-timezone:      null
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+highlighter: rouge
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
-#站点基础配置
-title: Scott
-subTitle: 记录学习与成长
-description: 
-url: http://scottming.github.io
-feed: /atom.xml
 
-#菜单配置
-nav:
-  - text: 首页
-    url: /index.html
-    icon: icon-home
-    class: home
-  - text: 文章归档
-    url: /archives.html
-    icon: icon-reorder
-    class: none
-  - text: 关于我
-    url: /contact.html
-    icon: icon-envelope-alt
-    class: none
-  - text: 联系我
-    url: # 自我介绍放这里
-    icon: icon-heart
-    class: none
-  - text: 博客源代码
-    url: https://github.com/scottming/scottming.github.io
-    icon: icon-github
-    class: none
 
-page:
-  - text: 文章分类
-    url: /archives.html
-    last: true
-  - text: 友情链接
-    url: /links.html
-    last: true
-  - text: 关于我
-    url: /contact.html
-    last: false
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
 
-author:
-  name: Scott Ming
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+
+
+
+# Disqus settings
+disqus_username: scottming
+
+# Duoshuo settings
+# duoshuo_username: huxblog
+# Share component is depend on Comment so we can NOT use share only.
+# duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+
+
+
+
+# Analytics settings
+# Baidu Analytics
+ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+# Google Analytics
+ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+ga_domain: scottming
+
+
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "写写代码，玩玩数据"
+sidebar-avatar: img/me.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+
+
+# Friends
+friends: [
+    {
+        title: "iBrother",
+        href: "http://ibrother.me/"
+    },{
+        title: "Bamboom",
+        href: "http://bambooom.github.io/"
+    },{
+        title: "Shen Lang",
+        href: "http://xpgeng.xyz/"
+    }
+]

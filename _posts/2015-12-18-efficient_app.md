@@ -1,10 +1,16 @@
 ---
 layout: post
-title: 我的电脑工具清单
-description: 效率工具
-
+title: 电脑工具清单
+subtitle:   让你更高效的一些工具
+date:       2015-12-18
+author:     "Scott"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - 工具箱
+    - OS
 ---
 
+用 Mac 一年多，积累了挺多好用的工具和软件，有些在 Win 上也有替代。列表如下：
 
 |类别|作用|Mac系|Windows系|
 |:---|:---|:---|:---|

@@ -1,41 +1,42 @@
 ---
-layout: default
-title:
-description: 这是 Scott 的一个博客，它是基于 Jekyll 搭建起来的。在这里，记录了 Scott 的学习与成长。
-keywords: PIZn, GitHub, Jekyll, Plugins, Works, Archives, Quotes, Violet, css, html, javascript, wordpress, logo, design, geek
+layout: page
+description: "明生写字的地方"
 ---
-<section class="lotus-logo fn-clear">
-    <hgroup class="violet-site">
-        <h1><a href="{{ site.url }}" >{{ site.title }}</a></h1>
-        <h2>{{ site.subTitle }}</h2>
-    </hgroup><!-- //violet-site -->
-</section>
-<article class="lotus-article">
-{% for rpost in paginator.posts limit:1 %}
-    <h3><a href="{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h3>
-    <p itemprop="description">{{ rpost.description }}</p>
+
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+        <div class="post-content-preview">
+            {{ post.content | strip_html | truncate:200 }}
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+    </p>
+</div>
+<hr>
 {% endfor %}
-</article>
-<section class="lotus-double fn-clear">
-    <article class="article article-first">
-    <h3>最新文章</h3>
-        <ul>
-            {% for npost in site.posts limit:3 offset:1   %}
-            <li><a href="{{ npost.url }}" pubdate="{{ npost.date | date_to_utc | date: '%Y-%m-%d' }}" title="{{ npost.title }}" rel="bookmark">{{ npost.title }}</a></li>
-            {% endfor %}
-        </ul>
-    </article>
-    <article class="article article-last">
-    <h3>相关页面</h3>
-    <ul>
-        <li>
-            {% for page in site.page %}
-            <a href="{{ page.url }}" rel="bookmark" title="{{page.text}}">{{ page.text }}</a>
-            {% if !page.last %}
-                <span class="lotus-squ">|</span>
-            {% endif %}
-            {% endfor %}
-        </li>
-    </ul>
-    </article>
-</section>
+
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}

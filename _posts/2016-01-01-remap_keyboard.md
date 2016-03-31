@@ -1,10 +1,14 @@
 ---
 layout: post
-title: 让 CapsLock 键更实用——键盘映射改造
-description: 键盘重映射
-
+title: 让 CapsLock 键更实用
+subtitle:   键盘重映射
+date:       2016-01-01
+author:     "Scott"
+header-img: "img/post-bg-unix-linux.jpg"
+tags:
+    - 工具箱
+    - OS
 ---
-
 ## 缘起
 
 12年，我当时还在做销售工作，虽然从事那行已好几年，但总感觉自己的销售知识体系不够系统，于是向一个销售老大哥请教——如何提升自我的销售能力。他教了我一个很简单的办法——把自己跟客户的销售对话录下，然后用录音分析软件把每句话形成文字，其实就是给自己的话配上字幕。

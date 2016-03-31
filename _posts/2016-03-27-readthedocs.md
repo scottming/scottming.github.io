@@ -1,8 +1,13 @@
 ---
 layout: post
 title: ReadtheDocs 折腾记
-description: 如何快速搭建一个写书平台
-
+subtitle:   如何快速搭建一个写书平台
+date:       2016-03-27
+author:     "Scott"
+header-img: "img/home-bg-o.jpg"
+tags:
+    - Python
+    - 网站搭建
 ---
 
 参加的数据科学班今天结束了，但还有很多疑难点没搞清楚，很多收获也没整理。课程结束后想补写下笔记，做下查遗补漏，心想，与其写笔记，不如写成一本书的形式，更美观，也更系统。
@@ -94,7 +99,7 @@ html_theme = 'sphinx_rtd_theme'
 
 ### 将 Sphnix 生成的文档和配置 push 到远程 github
 
-``` git
+``` shell
 ➜  BookData git init
 ➜  BookData git add .
 ➜  BookData git commit -m "sphinx start"
@@ -178,8 +183,6 @@ touch 01_linux.rst 02_ipython.rst 03_numpy.rst 04_matplotlib.rst 05_seaborn.rst
 ➜  BookData git:(master) ✗ ls source/beginning
 01_linux.rst      03_numpy.rst      05_seaborn.rst
 02_ipython.rst    04_matplotlib.rst index.rst
-➜  BookData git:(master) ✗ cat source/beginning
-cat: source/beginning: Is a directory
 ➜  BookData git:(master) ✗ cat source/beginning/*
 Linux 基础
 =========================
