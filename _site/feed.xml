@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scott&#39;s Blog</title>
+    <description>cool blog</description>
+    <link>http://scottming.github.io/huxblog-boilerplate/</link>
+    <atom:link href="http://scottming.github.io/huxblog-boilerplate/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 31 Mar 2016 19:14:52 +0800</pubDate>
+    <lastBuildDate>Thu, 31 Mar 2016 19:14:52 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>ReadtheDocs 折腾记</title>
+        <description>&lt;p&gt;参加的数据科学班今天结束了，但还有很多疑难点没搞清楚，很多收获也没整理。课程结束后想补写下笔记，做下查遗补漏，心想，与其写笔记，不如写成一本书的形式，更美观，也更系统。&lt;/p&gt;
+
+&lt;p&gt;现有的写电子书的方式，有以下几个解决方案，优劣势也很明显。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;自有博客，跟散文堆在一起，不便索引。&lt;/li&gt;
+  &lt;li&gt;GitHub Wiki，适合做知识整理，但排版一般，不方便本地查看。&lt;/li&gt;
+  &lt;li&gt;GitBook，丑，慢。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;经过一些比较和调查，最终锁定 Sphinx + GitHub + ReadtheDocs 作为文档写作工具。用 Sphinx 生成文档，GitHub 托管文档，再导入到 ReadtheDocs。&lt;/p&gt;
+
+&lt;p&gt;Sphinx 是一个基于 Python 的文档生成工具，最早只是用来生成 Python 官方文档，随着工具的完善，越来越多的知名的项目也用他来生成文档，甚至完全可以用他来写书，我最初被他所震撼，也是因为看到了这本书 &lt;a href=&quot;https://linuxtools-rst.readthedocs.org/zh_CN/latest/&quot;&gt;Linux 工具教程&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;引用几点 Sphinx 的优势：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;丰富的输出格式: 支持 HTML (包括 Windows 帮助文档), LaTeX (可以打印PDF版本), manual pages（man 文档）, 纯文本&lt;/li&gt;
+  &lt;li&gt;完备的交叉引用: 语义化的标签,并可以自动化链接函数,类,引文,术语及相似的片段信息&lt;/li&gt;
+  &lt;li&gt;明晰的分层结构: 可以轻松的定义文档树,并自动化链接同级/父级/下级文章&lt;/li&gt;
+  &lt;li&gt;美观的自动索引: 可自动生成美观的模块索引&lt;/li&gt;
+  &lt;li&gt;精确的语法高亮: 基于 Pygments 自动生成语法高亮&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;sphinx&quot;&gt;1. 安装 Sphinx&lt;/h2&gt;
+
+&lt;p&gt;Mac 系统下安装极简，一行代码搞定&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew cask install sphinx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install sphinx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我因为之前安装过 Anaconda，自带了 sphinx，便省略这步了。更多安装方法，请看此处：&lt;a href=&quot;http://www.sphinx-doc.org/en/stable/install.html&quot;&gt;Install Sphinx&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;2. 创建工程&lt;/h2&gt;
+
+&lt;p&gt;创建工程也就是创建文档。这步很简单，到创建工程的目录，比如我的是 &lt;code class=&quot;highlighter-rouge&quot;&gt;/Users/Scott/Documents/2.创造乐趣&lt;/code&gt;, 创建一个名为 DataBook 的文件夹，你可以用别的你想用的名字。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;创建：&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  2.创造乐趣 &lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;
+/Users/Scott/Documents/2.创造乐趣
+➜  2.创造乐趣 mkdir BookData
+➜  2.创造乐趣 ls
+1.keynote 2.技术    BookData  映射
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;BookData 创建好了，进入该目录：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  2.创造乐趣 &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;BookData
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;输入&lt;code class=&quot;highlighter-rouge&quot;&gt;sphinx-quickstart&lt;/code&gt;，接下来程序会提示你输入一些选项，基本上按 Return 就好了，有些地方看提示注意下，不懂的话可以参考这里：&lt;a href=&quot;http://jwch.sdut.edu.cn/book/tool/UseSphinx.html#id5&quot;&gt;建立sphinx工程&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;完成之后，&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  BookData git:&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ✗ ls
+Makefile build    make.bat &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;可以看到有4个文件：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;build 目录 运行make命令后，生成的文件都在这个目录里面&lt;/li&gt;
+  &lt;li&gt;source 目录 放置文档的源文件&lt;/li&gt;
+  &lt;li&gt;make.bat 批处理命令&lt;/li&gt;
+  &lt;li&gt;makefile&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;基本完成，使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;make html&lt;/code&gt; 命令就可以生成html形式的文档了。&lt;/p&gt;
+
+&lt;h3 id=&quot;confpy&quot;&gt;配置（conf.py）&lt;/h3&gt;
+&lt;p&gt;如果没有什么特殊需要，我觉得 Sphinx 没啥好配的，改个主题就好了，个人极其喜欢ReadtheDoc的主题。很简单，把 conf.py 里面的这句：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;html_theme&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;alabaster&#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;换成&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;html_theme&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;sphinx_rtd_theme&#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;sphnix--push--github&quot;&gt;将 Sphnix 生成的文档和配置 push 到远程 github&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  BookData git init
+➜  BookData git add .
+➜  BookData git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;sphinx start&quot;&lt;/span&gt;
+➜  BookData git remote add origin https://github.com/[yourusename]/[yourrepository].git
+➜  BookData git push origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;注意：[yourusename]/[yourrepository] 换成你的 github 名和仓库名。&lt;/p&gt;
+
+&lt;h2 id=&quot;readthedocs&quot;&gt;3. 导入到 ReadtheDocs&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;GitHub 里选择仓库，然后依次点击 Setting =&amp;gt; Webhooks &amp;amp; Service =&amp;gt; Add service =&amp;gt; ReadTheDocs,激活这个选项。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;到 ReadtheDocs import 这个仓库，导入成功后，点击阅读文档，便可看到 Web 效果了。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;4. 配置目录结构&lt;/h2&gt;
+
+&lt;p&gt;到了这一步，基本上已经搭建了，但这个时候直接写文档是还不够的。目录结构需要配置下。&lt;/p&gt;
+
+&lt;p&gt;假如我要添加两个文档 example.rst 和 rest_eazy.rst 到索引 index.rst 里：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.. toctree::
+   :maxdepth: 2
+
+   example
+   rest_eazy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;make html&lt;/code&gt;后，效果如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160327_rtd01.png?imageView2/2/w/720&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;会发现明明是2个文档，左边却 有 3个标题，因为主索引是按一级标题的数量来索引的，所以这种方式不可取，标题一多会很乱，好的办法是创建二级索引：&lt;/p&gt;
+
+&lt;p&gt;因为我要建的板块是3个，分别为数据科学「入门篇」、「基础篇」、「工具篇」，所以先把主索引 index.rst 改为：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;目录&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;^^^^^&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;toctree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maxdepth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;beginning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tool&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;然后在 source 目录下创建 3个目录 ，每个目录下创建一个 index.rst 文件，也就是二级索引文件。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir beginning base tool
+touch beginning/index.rst base/index.rst tool/inde.rst 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;做完这步后，把书的大纲理一下，写到 BookData 目录底下的 README.md 文件里：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Python 和数据科学&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;### 全书目录：&lt;/span&gt;
+
+入门篇：
+
+- Linux
+- ipython
+- 数值计算（Numpy）
+- 数据绘图（Matplotlib）
+- 数据绘图（Seabornd&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;参照目录创建文件，如 入门篇，则在 beginning 目录下创建如下文件：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;touch 01_linux.rst 02_ipython.rst 03_numpy.rst 04_matplotlib.rst 05_seaborn.rst
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;每个文件里写上 一级标题，然后检查下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  BookData git:&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ✗ ls &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;/beginning
+01_linux.rst      03_numpy.rst      05_seaborn.rst
+02_ipython.rst    04_matplotlib.rst index.rst
+➜  BookData git:&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; ✗ cat &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;/beginning/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+Linux 基础
+&lt;span class=&quot;o&quot;&gt;=========================&lt;/span&gt;
+
+Jupyter 基础
+&lt;span class=&quot;o&quot;&gt;=========================&lt;/span&gt;
+
+数值计算（Numpy）
+&lt;span class=&quot;o&quot;&gt;=========================&lt;/span&gt;
+
+数据绘图（Matplotlib）
+&lt;span class=&quot;o&quot;&gt;=========================&lt;/span&gt;
+
+数据绘图（Seaborn&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=========================&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后把文件名添加到二级索引 beginning/index 里&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;入门篇
+==========
+
+这一部分主要介绍数据科学的入门内容;\
+包含数据科学的基础工具，如：Jupyter、Linux，以及 Python 基本的数据科学包 Numpy，画图包 Matplotlib;
+
+
+.. toctree::
+    :maxdepth: 2
+    :numbered: 2
+
+    01_linux
+    02_ipython
+    03_numpy
+    04_matplotlib
+    05_seaborn
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;同理于 base 和 tool 目录，都完成之后会是下图的效果：
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160327_rtd02.png?imageView2/2/w/720&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;链接：&lt;a href=&quot;http://bookdata.readthedocs.org/en/latest/&quot;&gt;BookData&lt;/a&gt;， 有三个索引，下一个，上一个都非常顺畅。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;其他&lt;/h2&gt;
+
+&lt;p&gt;reStructureText 语法很简单，不建议刻意去学，如果习惯用 Markdown，建议用 &lt;a href=&quot;http://pandoc.org/try/?text=%23+%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98%0A%23%23+%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98%0A%23%23+%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98%0A%0A%60%60%60%0A+%E4%BB%A3%E7%A0%81%E5%9D%97%0A%60%60%60&amp;amp;from=markdown&amp;amp;to=rst&quot;&gt;pandoc&lt;/a&gt; 一键转化即可.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160327-pandoc.png?imageView2/2/w/720&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 27 Mar 2016 00:00:00 +0800</pubDate>
+        <link>http://scottming.github.io/huxblog-boilerplate/2016/03/27/readthedocs/</link>
+        <guid isPermaLink="true">http://scottming.github.io/huxblog-boilerplate/2016/03/27/readthedocs/</guid>
+        
+        <category>Python</category>
+        
+        <category>网站搭建</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>让 CapsLock 键更实用</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;缘起&lt;/h2&gt;
+
+&lt;p&gt;12年，我当时还在做销售工作，虽然从事那行已好几年，但总感觉自己的销售知识体系不够系统，于是向一个销售老大哥请教——如何提升自我的销售能力。他教了我一个很简单的办法——把自己跟客户的销售对话录下，然后用录音分析软件把每句话形成文字，其实就是给自己的话配上字幕。&lt;/p&gt;
+
+&lt;p&gt;办法虽笨，却极其有效，若你有很多口头禅想改却一直改不了，不妨也试试。很多时候自己说过什么话是意识不到的，而写作清晰与否，一看便知。&lt;/p&gt;
+
+&lt;p&gt;之后，老大哥给我一份长达两小时的「咨询录音」，让我敲出来，😓，他是语速超快的那种。于是，我便开始了「打字」受虐之旅。&lt;/p&gt;
+
+&lt;p&gt;我当时用的是:狼蛛牌，会发光哦!
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160101-lanzhu.png?imageView2/2/w/600&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;现在想想，当时的品味实在不咋地.&lt;/p&gt;
+
+&lt;p&gt;敲了 4 个白天，2 万多字，字敲完了，8 个手指也不行了，吃饭碗都拿不住，可以想象那个渣渣键盘有多难用。从那之后我很长一段话时间都不敢一次性写长文。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;键盘&lt;/h2&gt;
+
+&lt;p&gt;14 年初，我想学编程。考虑到要敲大量代码，且有了之前的惨痛教训，我得先把硬件换了。Google 上查看了大量的机械键盘知识后，锁定了 Cherry - 3000(红轴).放在家里用，于是家里很爽，公司很痛苦。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160101-cherry.png?imageView2/2/w/600&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;经过几天的煎熬后，没办法，继续购了 Filco - 104(侧刻红轴)，从此以后，我便过上了与机械键盘在一起的幸福生活。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160101-filco104.png?imageView2/2/w/600&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;办公室和家里都用机械之后，码字、敲代码的确很爽，但还有个问题一直困扰着我——Escape、方向键程太远，这导致我用 vimium 浏览网页，以及改文章都很痛苦，我可不想老离开中心键位。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;软件&lt;/h2&gt;
+&lt;p&gt;直到有一天，看到这几篇文章：&lt;a href=&quot;http://eamesliu.com/post/101419356939/caps-lock-key-to-hyper&quot;&gt;让 Caps lock 键更加实用&lt;/a&gt;、&lt;a href=&quot;http://brettterpstra.com/2012/12/08/a-useful-caps-lock-key/&quot;&gt;A useful Caps Lock key&lt;/a&gt;、&lt;a href=&quot;http://stevelosh.com/blog/2012/10/a-modern-space-cadet/#modern-software&quot;&gt;A Modern Space Cadet&lt;/a&gt; ，Steve 的文章里提到，键盘上面的按键分为三种：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;一种是按下去之后会改变其它按键的状态，但是只按下它们自己通常不会起任何作用，比如 Shift、Control。&lt;/li&gt;
+    &lt;li&gt;第二种按键是你按下之后释放，它自己就会形成一定功能，但是你通常不会按住它来重复它的功能，比如 Esc。&lt;/li&gt;
+    &lt;li&gt;第三种按键是你有时候只会按一下，有时候需要重复按（或按住），比如按住空格键会输出一连串空格，按住 Delete 键就会就会删除一连串文字。&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Steve 提到，第三种按键方式比较正常，而第一种和第二种则是截然不同的按键方式，很多键盘设计的 Capslock 键则是个天大的笑话——占据了最核心的键位却只能用来切换大小写。当然，也有些例外，比如日本的 &lt;a href=&quot;https://www.zhihu.com/question/26598476&quot;&gt;HHKB pro2&lt;/a&gt;。于是，他把 Capslck 键改造成了一个超级键，并将其命名为 Hyper。&lt;/p&gt;
+
+&lt;p&gt;我借鉴了他们的思路，但也修改了一些东西。我的做法如下：&lt;/p&gt;
+
+&lt;p&gt;首先下载 &lt;a href=&quot;https://pqrs.org/osx/karabiner/seil.html.en&quot;&gt;Seil&lt;/a&gt;、&lt;a href=&quot;https://pqrs.org/osx/karabiner/index.html.en&quot;&gt;Karabiner&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;然后到系统偏好设置里把 Capslock 键设置为「无操作」。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160101-no_action.png?imageView2/2/w/720&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;接着，打开 &lt;a href=&quot;https://pqrs.org/osx/karabiner/seil.html.en&quot;&gt;Seil&lt;/a&gt;，双击「Change the capslock key」的「key codeh」那行，把默认的 51 改为 80， 80 对应 F19 键，不会跟其他键造成冲突。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160101-seil.png?imageView2/2/w/720&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;再打开 &lt;a href=&quot;https://pqrs.org/osx/karabiner/index.html.en&quot;&gt;Karabiner&lt;/a&gt; 的「Misc &amp;amp; uninstall」，
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160101-karabiner01.png?imageView2/2/w/720&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击 「open private.xml」，会跳出一个文件，把下方代码贴进去替换。如果没显示，请「越过城墙」。
+&lt;script src=&quot;https://gist.github.com/scottming/a9a756a9ed35467b18a4.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;回到「Change key」界面，点击「Reload XML」刷新，然后左边勾选即大功告成。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160101-karabiner02.png?imageView2/2/w/720&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我对 &lt;a href=&quot;http://eamesliu.com/post/101419356939/caps-lock-key-to-hyper&quot;&gt;文刀漢三&lt;/a&gt; 的代码做了一些修改：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Hyper + H/J/K/L 为左、下、上、右，仿 Vim 模式。&lt;/li&gt;
+  &lt;li&gt;Hyper + N/; 分别是跳到行首、行尾。&lt;/li&gt;
+  &lt;li&gt;Hyper + I/M 分别是调到最上方、最下方。&lt;/li&gt;
+  &lt;li&gt;Hyper 单独按下时为 Escape，+ Space 则保留之前的切换大小写功能。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;把键盘映射如上改完之后，我觉得至少有以下几个好处：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;两手几乎不用离开中心键位，无论是码字、敲代码还是其他效率都会提升很多。&lt;/li&gt;
+  &lt;li&gt;浏览网页，借助 Vimium 插件点击会更快，更爽。&lt;/li&gt;
+  &lt;li&gt;设置 Hyper 键位，不会更传统的很多快键键造成冲突，可以凭空多出20个以上的自定义「键程短」的快捷键。比如我把欧路词典的「滑词翻译」设为 Hyper + E.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;展望&lt;/h2&gt;
+
+&lt;h3 id=&quot;keyboard-maestro&quot;&gt;Keyboard maestro&lt;/h3&gt;
+
+&lt;p&gt;OX 系统有个效率软件为 Keyboard maestro, 因为有了 Hyper 键，所以也可以多设置一些不冲突的 Hotkey.例如，Astrill 没有快捷控制 ON &amp;amp; OFF, 于是我把 Hyper + A 设为开关。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160101-keyboard_maestro.png?imageView2/2/w/720&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当然，Keyboard maestro 还有很多好玩的地方，希望大家多挖掘，多分享。&lt;/p&gt;
+
+&lt;h3 id=&quot;windows&quot;&gt;Windows&lt;/h3&gt;
+
+&lt;p&gt;Mac 有 karabiner，可 windows 上没有啊，公司还得用 win，虽然很痛苦，但是没办法。「改变我们能改变的，适应我们不能改变的」。于是 Google 了下 Karabiner 的替代产品，了解到了 AutoHotkey 这个脚本工具。到官网熟悉了下他的语法，参考其他人的类似脚本，写了下面这个脚本，跟 Mac 上的 karabiner 自定义差不多。&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/scottming/5405b12eb2c69a4e0e54.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;如果你在 win 上也想改映射，下载 &lt;a href=&quot;https://autohotkey.com/&quot;&gt;AutoHotkey&lt;/a&gt; 把上方代码复制后，创建 .ank 后缀文件，右键以 AutoHotkey 运行即可。如果没显示，请「越过城墙」。&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 01 Jan 2016 00:00:00 +0800</pubDate>
+        <link>http://scottming.github.io/huxblog-boilerplate/2016/01/01/remap_keyboard/</link>
+        <guid isPermaLink="true">http://scottming.github.io/huxblog-boilerplate/2016/01/01/remap_keyboard/</guid>
+        
+        <category>工具箱</category>
+        
+        <category>OS</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>电脑工具清单</title>
+        <description>&lt;p&gt;用 Mac 一年多，积累了挺多好用的工具和软件，有些在 Win 上也有替代。列表如下：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;类别&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;作用&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Mac系&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Windows系&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;快速定位与文件快速查看工具&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;快速定位常用软件及常用文件夹&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Alfred&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Wox&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;写作工具&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;写作&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mou、Macdown&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Markdownpad2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;编辑器&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;写代码、文本编辑&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sublime 3&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sublime 3 + IMESupport 插件&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;文字扩展工具&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;提升写作、写邮件等重复文本处理的速度&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;aText&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;PhraseExpress&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chrome 或 Firefox 插件&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;提升 Web 效率&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Evernote 剪藏、Adblock、Vimium、Copy as Markdown、&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;同 Mac&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;图床&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;储存图片&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;七牛云 + Dropdone&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;七牛云&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;思维导图工具&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;发散思维&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mindnote&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mindjet 14 / Freemind&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;幻灯片&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;制作幻灯片&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Keynote&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;PPT&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;清单工具&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;列清单&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Workflowy/Evernote&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Workflowy/Evernote&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;书签&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;书签管理&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Delicious + Delibar&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;终端&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;终端工具&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;iterm 2 + Oh my zsh&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;gitbash&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Wiki&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;知识系统整理&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Gollum + GithubWiki&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;GithubWiki&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;任务管理工具&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;任务管理&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Teambition/Worktile&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Teambition/Worktile&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;剪贴板&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;查看并选择复制历史&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;paste&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;暂无&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;键盘映射修改&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;提高键盘效率&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Karabiner + seil&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;AutoHotkey&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;键盘自定义&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;提高键盘效率&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Keyboard maestro&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;AutoHotkey&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;缩图标&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;把右上角图标隐藏&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bartender&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;无需&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;词典&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;查词&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;欧路&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;欧路 or madir&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;半自动化邮箱&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;能创建规则自动过滤邮件&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Gmail&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Gmail&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;科学上网工具&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;科学上网&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Astrill&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Astrill&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;1.快速定位与文件快速查看工具&lt;/strong&gt;。日常工作中，你是否遇到这样的情况：多个软件与文件夹间频繁切换。若是全放在桌面，时间久了，桌面堆积太多快捷方式与文件夹，显得杂乱不堪，且电脑易卡；若是放在其他地方，桌面是干净了，但查找不易。Alfred 与 Wox 这类软件可以很好的解决类似问题，装上之后，妈妈再也不用担心我找不到软件了，Alfred 的工作流很有特色，Wox还可以通过自定义快捷键来快速搜索程序。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/alfred.png?imageView2/2/w/800&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2.写作工具。&lt;/strong&gt;自从用了 Markdown，几乎没怎么碰过 Word，关于 Markdown 的优势不做阐述，这类文章太多了，Google 一下吧。这篇文章是用 Markdown 的编辑器 Macdown 写成的。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/macdown.png?imageView2/2/w/800&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3.编辑器。&lt;/strong&gt;日常写代码用的较多的是 Sublime 3。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4.文字扩展工具。&lt;/strong&gt;写邮件时重复性文本比较多，传统方式 查找=》复制=》粘贴，实在太累。用 Atext 或 PhraseExpress 把文本编好，设定缩短字符，一键搞定。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/atext.png?imageView2/2/w/800&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5.Chrome插件。&lt;/strong&gt;
+- Evernote 一键剪藏，浏览网页时，遇到喜欢的内容，想保存，一键搞定。
+- Adblock，去除各种广告。
+- Vimium，装上后，试试全键盘操作吧。
+- Copy as Markdown，一键复制为 Markdown 链接格式。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6.图床。&lt;/strong&gt;七牛云功能很强大，Dropdone让图片上传变得 so eazy。装好七牛云插件，一键上传图片，结合 aText 的缩短字符，快速输入到 Markdown 编辑器里。配置请看：&lt;a href=&quot;http://azeril.me/blog/How-To-Use-Image-Hosting-Quickly.html&quot;&gt;Mac OS 图床运用优化模式&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/dropzone.png?imageView2/2/w/800&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7.思维导图。&lt;/strong&gt;头脑风暴，想法在多，不需系统时可以用它。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8.幻灯片。&lt;/strong&gt;不想陷入 Keynote 与 PPT 孰优孰劣之争，相比来说，我更喜欢 Keynote 的简洁。
+下面是我自己运用 Keynote 仿微信聊天做的一个幻灯。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/keynote_wechat.gif?imageView2/2/w/800&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;9.清单工具。&lt;/strong&gt;之前一直用 Evernote 列清单，但 Evernote 太重，不适合用来写笔记、记录生活点滴想法。所以现在换成了 Workflowy ，足够简洁，写读书笔记时，用来整理知识点也非常不错。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/workflowy.png?imageView2/2/w/567&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10.书签管理工具&lt;/strong&gt;，Decious + Delibar，「美味书签」简直不能更加美味，decious 收藏书签，设好 tag，Delibar 我设置的查找快捷键为 Shift + option + P, 正常查找一个书签不会超过 4 秒钟。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/delicous.png?imageView2/2/w/800&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;搜索：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/delibar.png?imageView2/2/w/567&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;11.终端&lt;/strong&gt;，mac 系统终端略丑，装上 iterm 2 更加美观，再装上 Oh my zsh 就更加强大了。
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/iterm_color.png?imageView2/2/w/567&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我的配色是 solarized_light.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;12.知识整理。&lt;/strong&gt;博客适合输出，Wiki适合整理复用知识。用 Git + Github + Jekyll 写博客，用 Github wiki 写wiki，绝对是完美搭配。另外，用 Goolum 搭建本地的 Wiki 便于本地阅读。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;13.任务管理工具。&lt;/strong&gt;Teambition 我只用它来安排公司日程, Worktile 用来做任务管理非常帮。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;14.剪贴板。&lt;/strong&gt;装上 paste，Command + shift + v 后可以看到所有剪贴历史。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;15.键盘自定义工具，&lt;/strong&gt;键盘上有些键离键盘中心非常近，用的却很少，有些离得远使用却非常频繁。我经常使用 vi，所以我用 karabiner + seil 把右下角的 Capslock 改成了 ESC，Capslock + H/J/K/L 改成 上下左右，仿 Vim 模式，大大缩短键程。关于配置请看我另一篇文章：&lt;a href=&quot;scottming.github.io/2016-01-01-remap_keyboard.html&quot;&gt;让你的手指飞起来–键盘改造记&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;16.图标隐藏工具。&lt;/strong&gt;强迫症患者必备。&lt;/p&gt;
+
+&lt;p&gt;隐藏前：&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/batender_show.png?imageView2/2/w/567&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;隐藏后：&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/%20batender_hide.png?imageView2/2/w/400&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;17.词典。&lt;/strong&gt;欧路词典加载词库后非常好用，我的常用词库是：Collins Cobuild双解、LDOCE朗文当代5的英英版、剑桥高阶学习词典、韦伯斯特高阶学习词典。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;18.半自动化邮箱。&lt;/strong&gt;个人每月往来邮件差不多上千封，类别 10 来个。之前经常出现几百封未读，自从用了 Gmail 的过滤器功能，自动过滤管理收发邮件。收件箱待处理邮件正常不会超过 7 封。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;19.科学上网工具。&lt;/strong&gt;这个不解释，我推荐 Astrill，上 Youtube 看视频，某网看大片，基本不会卡。&lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;小结：&lt;/h4&gt;
+&lt;p&gt;不以软件为导向，以任务为导向。做什么事，需要什么功能，则用具备其功能的工具。&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 Dec 2015 00:00:00 +0800</pubDate>
+        <link>http://scottming.github.io/huxblog-boilerplate/2015/12/18/efficient_app/</link>
+        <guid isPermaLink="true">http://scottming.github.io/huxblog-boilerplate/2015/12/18/efficient_app/</guid>
+        
+        <category>工具箱</category>
+        
+        <category>OS</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="cool blog">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/huxblog-boilerplate/img/favicon.ico">
+
+    <title>电脑工具清单 - 明生的博客 | Scott's Blog</title>
+
+    <link rel="canonical" href="http://scottming.github.io/huxblog-boilerplate/2015/12/18/efficient_app/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/huxblog-boilerplate/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/huxblog-boilerplate/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/huxblog-boilerplate/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/huxblog-boilerplate/">Scott's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/huxblog-boilerplate/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/huxblog-boilerplate/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/huxblog-boilerplate/img/post-bg-2015.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/huxblog-boilerplate/img/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/huxblog-boilerplate/tags/#工具箱" title="工具箱">工具箱</a>
+                        
+                        <a class="tag" href="/huxblog-boilerplate/tags/#OS" title="OS">OS</a>
+                        
+                    </div>
+                    <h1>电脑工具清单</h1>
+                    
+                    
+                    <h2 class="subheading">让你更高效的一些工具</h2>
+                    
+                    <span class="meta">Posted by Scott on December 18, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<p>用 Mac 一年多，积累了挺多好用的工具和软件，有些在 Win 上也有替代。列表如下：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">类别</th>
+      <th style="text-align: left">作用</th>
+      <th style="text-align: left">Mac系</th>
+      <th style="text-align: left">Windows系</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">快速定位与文件快速查看工具</td>
+      <td style="text-align: left">快速定位常用软件及常用文件夹</td>
+      <td style="text-align: left">Alfred</td>
+      <td style="text-align: left">Wox</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">写作工具</td>
+      <td style="text-align: left">写作</td>
+      <td style="text-align: left">Mou、Macdown</td>
+      <td style="text-align: left">Markdownpad2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">编辑器</td>
+      <td style="text-align: left">写代码、文本编辑</td>
+      <td style="text-align: left">Sublime 3</td>
+      <td style="text-align: left">Sublime 3 + IMESupport 插件</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">文字扩展工具</td>
+      <td style="text-align: left">提升写作、写邮件等重复文本处理的速度</td>
+      <td style="text-align: left">aText</td>
+      <td style="text-align: left">PhraseExpress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Chrome 或 Firefox 插件</td>
+      <td style="text-align: left">提升 Web 效率</td>
+      <td style="text-align: left">Evernote 剪藏、Adblock、Vimium、Copy as Markdown、</td>
+      <td style="text-align: left">同 Mac</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">图床</td>
+      <td style="text-align: left">储存图片</td>
+      <td style="text-align: left">七牛云 + Dropdone</td>
+      <td style="text-align: left">七牛云</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">思维导图工具</td>
+      <td style="text-align: left">发散思维</td>
+      <td style="text-align: left">Mindnote</td>
+      <td style="text-align: left">Mindjet 14 / Freemind</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">幻灯片</td>
+      <td style="text-align: left">制作幻灯片</td>
+      <td style="text-align: left">Keynote</td>
+      <td style="text-align: left">PPT</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">清单工具</td>
+      <td style="text-align: left">列清单</td>
+      <td style="text-align: left">Workflowy/Evernote</td>
+      <td style="text-align: left">Workflowy/Evernote</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">书签</td>
+      <td style="text-align: left">书签管理</td>
+      <td style="text-align: left">Delicious + Delibar</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">终端</td>
+      <td style="text-align: left">终端工具</td>
+      <td style="text-align: left">iterm 2 + Oh my zsh</td>
+      <td style="text-align: left">gitbash</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Wiki</td>
+      <td style="text-align: left">知识系统整理</td>
+      <td style="text-align: left">Gollum + GithubWiki</td>
+      <td style="text-align: left">GithubWiki</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">任务管理工具</td>
+      <td style="text-align: left">任务管理</td>
+      <td style="text-align: left">Teambition/Worktile</td>
+      <td style="text-align: left">Teambition/Worktile</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">剪贴板</td>
+      <td style="text-align: left">查看并选择复制历史</td>
+      <td style="text-align: left">paste</td>
+      <td style="text-align: left">暂无</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">键盘映射修改</td>
+      <td style="text-align: left">提高键盘效率</td>
+      <td style="text-align: left">Karabiner + seil</td>
+      <td style="text-align: left">AutoHotkey</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">键盘自定义</td>
+      <td style="text-align: left">提高键盘效率</td>
+      <td style="text-align: left">Keyboard maestro</td>
+      <td style="text-align: left">AutoHotkey</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">缩图标</td>
+      <td style="text-align: left">把右上角图标隐藏</td>
+      <td style="text-align: left">Bartender</td>
+      <td style="text-align: left">无需</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">词典</td>
+      <td style="text-align: left">查词</td>
+      <td style="text-align: left">欧路</td>
+      <td style="text-align: left">欧路 or madir</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">半自动化邮箱</td>
+      <td style="text-align: left">能创建规则自动过滤邮件</td>
+      <td style="text-align: left">Gmail</td>
+      <td style="text-align: left">Gmail</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">科学上网工具</td>
+      <td style="text-align: left">科学上网</td>
+      <td style="text-align: left">Astrill</td>
+      <td style="text-align: left">Astrill</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>1.快速定位与文件快速查看工具</strong>。日常工作中，你是否遇到这样的情况：多个软件与文件夹间频繁切换。若是全放在桌面，时间久了，桌面堆积太多快捷方式与文件夹，显得杂乱不堪，且电脑易卡；若是放在其他地方，桌面是干净了，但查找不易。Alfred 与 Wox 这类软件可以很好的解决类似问题，装上之后，妈妈再也不用担心我找不到软件了，Alfred 的工作流很有特色，Wox还可以通过自定义快捷键来快速搜索程序。
+<img src="http://7xjuve.com1.z0.glb.clouddn.com/alfred.png?imageView2/2/w/800" alt="" /></p>
+
+<p><strong>2.写作工具。</strong>自从用了 Markdown，几乎没怎么碰过 Word，关于 Markdown 的优势不做阐述，这类文章太多了，Google 一下吧。这篇文章是用 Markdown 的编辑器 Macdown 写成的。
+<img src="http://7xjuve.com1.z0.glb.clouddn.com/macdown.png?imageView2/2/w/800" alt="" /></p>
+
+<p><strong>3.编辑器。</strong>日常写代码用的较多的是 Sublime 3。</p>
+
+<p><strong>4.文字扩展工具。</strong>写邮件时重复性文本比较多，传统方式 查找=》复制=》粘贴，实在太累。用 Atext 或 PhraseExpress 把文本编好，设定缩短字符，一键搞定。
+<img src="http://7xjuve.com1.z0.glb.clouddn.com/atext.png?imageView2/2/w/800" alt="" /></p>
+
+<p><strong>5.Chrome插件。</strong>
+- Evernote 一键剪藏，浏览网页时，遇到喜欢的内容，想保存，一键搞定。
+- Adblock，去除各种广告。
+- Vimium，装上后，试试全键盘操作吧。
+- Copy as Markdown，一键复制为 Markdown 链接格式。</p>
+
+<p><strong>6.图床。</strong>七牛云功能很强大，Dropdone让图片上传变得 so eazy。装好七牛云插件，一键上传图片，结合 aText 的缩短字符，快速输入到 Markdown 编辑器里。配置请看：<a href="http://azeril.me/blog/How-To-Use-Image-Hosting-Quickly.html">Mac OS 图床运用优化模式</a></p>
+
+<p><img src="http://7xjuve.com1.z0.glb.clouddn.com/dropzone.png?imageView2/2/w/800" alt="" /></p>
+
+<p><strong>7.思维导图。</strong>头脑风暴，想法在多，不需系统时可以用它。</p>
+
+<p><strong>8.幻灯片。</strong>不想陷入 Keynote 与 PPT 孰优孰劣之争，相比来说，我更喜欢 Keynote 的简洁。
+下面是我自己运用 Keynote 仿微信聊天做的一个幻灯。
+<img src="http://7xjuve.com1.z0.glb.clouddn.com/keynote_wechat.gif?imageView2/2/w/800" alt="" /></p>
+
+<p><strong>9.清单工具。</strong>之前一直用 Evernote 列清单，但 Evernote 太重，不适合用来写笔记、记录生活点滴想法。所以现在换成了 Workflowy ，足够简洁，写读书笔记时，用来整理知识点也非常不错。
+<img src="http://7xjuve.com1.z0.glb.clouddn.com/workflowy.png?imageView2/2/w/567" alt="" /></p>
+
+<p><strong>10.书签管理工具</strong>，Decious + Delibar，「美味书签」简直不能更加美味，decious 收藏书签，设好 tag，Delibar 我设置的查找快捷键为 Shift + option + P, 正常查找一个书签不会超过 4 秒钟。
+<img src="http://7xjuve.com1.z0.glb.clouddn.com/delicous.png?imageView2/2/w/800" alt="" /></p>
+
+<p>搜索：</p>
+
+<p><img src="http://7xjuve.com1.z0.glb.clouddn.com/delibar.png?imageView2/2/w/567" alt="" /></p>
+
+<p><strong>11.终端</strong>，mac 系统终端略丑，装上 iterm 2 更加美观，再装上 Oh my zsh 就更加强大了。
+<img src="http://7xjuve.com1.z0.glb.clouddn.com/iterm_color.png?imageView2/2/w/567" alt="" /></p>
+
+<p>我的配色是 solarized_light.</p>
+
+<p><strong>12.知识整理。</strong>博客适合输出，Wiki适合整理复用知识。用 Git + Github + Jekyll 写博客，用 Github wiki 写wiki，绝对是完美搭配。另外，用 Goolum 搭建本地的 Wiki 便于本地阅读。</p>
+
+<p><strong>13.任务管理工具。</strong>Teambition 我只用它来安排公司日程, Worktile 用来做任务管理非常帮。</p>
+
+<p><strong>14.剪贴板。</strong>装上 paste，Command + shift + v 后可以看到所有剪贴历史。</p>
+
+<p><strong>15.键盘自定义工具，</strong>键盘上有些键离键盘中心非常近，用的却很少，有些离得远使用却非常频繁。我经常使用 vi，所以我用 karabiner + seil 把右下角的 Capslock 改成了 ESC，Capslock + H/J/K/L 改成 上下左右，仿 Vim 模式，大大缩短键程。关于配置请看我另一篇文章：<a href="scottming.github.io/2016-01-01-remap_keyboard.html">让你的手指飞起来–键盘改造记</a></p>
+
+<p><strong>16.图标隐藏工具。</strong>强迫症患者必备。</p>
+
+<p>隐藏前：<img src="http://7xjuve.com1.z0.glb.clouddn.com/batender_show.png?imageView2/2/w/567" alt="" /></p>
+
+<p>隐藏后：<img src="http://7xjuve.com1.z0.glb.clouddn.com/%20batender_hide.png?imageView2/2/w/400" alt="" /></p>
+
+<p><strong>17.词典。</strong>欧路词典加载词库后非常好用，我的常用词库是：Collins Cobuild双解、LDOCE朗文当代5的英英版、剑桥高阶学习词典、韦伯斯特高阶学习词典。</p>
+
+<p><strong>18.半自动化邮箱。</strong>个人每月往来邮件差不多上千封，类别 10 来个。之前经常出现几百封未读，自从用了 Gmail 的过滤器功能，自动过滤管理收发邮件。收件箱待处理邮件正常不会超过 7 封。</p>
+
+<p><strong>19.科学上网工具。</strong>这个不解释，我推荐 Astrill，上 Youtube 看视频，某网看大片，基本不会卡。</p>
+
+<h4 id="section">小结：</h4>
+<p>不以软件为导向，以任务为导向。做什么事，需要什么功能，则用具备其功能的工具。</p>
+
+
+                <hr>
+
+                
+
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/huxblog-boilerplate/2016/01/01/remap_keyboard/" data-toggle="tooltip" data-placement="top" title="让 CapsLock 键更实用">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+                				<a href="/huxblog-boilerplate/tags/#工具箱" title="工具箱" rel="2">
+                                    工具箱
+                                </a>
+                            
+        				
+                            
+                				<a href="/huxblog-boilerplate/tags/#OS" title="OS" rel="2">
+                                    OS
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="http://ibrother.me/">iBrother</a></li>
+                    
+                        <li><a href="http://bambooom.github.io/">Bamboom</a></li>
+                    
+                        <li><a href="http://xpgeng.xyz/">Shen Lang</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "scottming";
+    var disqus_identifier = "/2015/12/18/efficient_app";
+    var disqus_url = "http://scottming.github.io/2015/12/18/efficient_app/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/scottming">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Scott's Blog 2016
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/huxblog-boilerplate/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/huxblog-boilerplate/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/huxblog-boilerplate/js/hux-blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-49627206-1';
+    var _gaDomain = 'scottming';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '4cc1f2d8f3067386cc5cdb626a202900';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

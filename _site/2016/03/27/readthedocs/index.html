@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="cool blog">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/huxblog-boilerplate/img/favicon.ico">
+
+    <title>ReadtheDocs 折腾记 - 明生的博客 | Scott's Blog</title>
+
+    <link rel="canonical" href="http://scottming.github.io/huxblog-boilerplate/2016/03/27/readthedocs/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/huxblog-boilerplate/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/huxblog-boilerplate/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/huxblog-boilerplate/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/huxblog-boilerplate/">Scott's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/huxblog-boilerplate/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/huxblog-boilerplate/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/huxblog-boilerplate/img/home-bg-o.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/huxblog-boilerplate/img/home-bg-o.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/huxblog-boilerplate/tags/#Python" title="Python">Python</a>
+                        
+                        <a class="tag" href="/huxblog-boilerplate/tags/#网站搭建" title="网站搭建">网站搭建</a>
+                        
+                    </div>
+                    <h1>ReadtheDocs 折腾记</h1>
+                    
+                    
+                    <h2 class="subheading">如何快速搭建一个写书平台</h2>
+                    
+                    <span class="meta">Posted by Scott on March 27, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<p>参加的数据科学班今天结束了，但还有很多疑难点没搞清楚，很多收获也没整理。课程结束后想补写下笔记，做下查遗补漏，心想，与其写笔记，不如写成一本书的形式，更美观，也更系统。</p>
+
+<p>现有的写电子书的方式，有以下几个解决方案，优劣势也很明显。</p>
+
+<ul>
+  <li>自有博客，跟散文堆在一起，不便索引。</li>
+  <li>GitHub Wiki，适合做知识整理，但排版一般，不方便本地查看。</li>
+  <li>GitBook，丑，慢。</li>
+</ul>
+
+<p>经过一些比较和调查，最终锁定 Sphinx + GitHub + ReadtheDocs 作为文档写作工具。用 Sphinx 生成文档，GitHub 托管文档，再导入到 ReadtheDocs。</p>
+
+<p>Sphinx 是一个基于 Python 的文档生成工具，最早只是用来生成 Python 官方文档，随着工具的完善，越来越多的知名的项目也用他来生成文档，甚至完全可以用他来写书，我最初被他所震撼，也是因为看到了这本书 <a href="https://linuxtools-rst.readthedocs.org/zh_CN/latest/">Linux 工具教程</a>。</p>
+
+<p>引用几点 Sphinx 的优势：</p>
+
+<ul>
+  <li>丰富的输出格式: 支持 HTML (包括 Windows 帮助文档), LaTeX (可以打印PDF版本), manual pages（man 文档）, 纯文本</li>
+  <li>完备的交叉引用: 语义化的标签,并可以自动化链接函数,类,引文,术语及相似的片段信息</li>
+  <li>明晰的分层结构: 可以轻松的定义文档树,并自动化链接同级/父级/下级文章</li>
+  <li>美观的自动索引: 可自动生成美观的模块索引</li>
+  <li>精确的语法高亮: 基于 Pygments 自动生成语法高亮</li>
+</ul>
+
+<h2 id="sphinx">1. 安装 Sphinx</h2>
+
+<p>Mac 系统下安装极简，一行代码搞定</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>brew cask install sphinx
+</code></pre>
+</div>
+
+<p>或</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pip install sphinx
+</code></pre>
+</div>
+
+<p>我因为之前安装过 Anaconda，自带了 sphinx，便省略这步了。更多安装方法，请看此处：<a href="http://www.sphinx-doc.org/en/stable/install.html">Install Sphinx</a>。</p>
+
+<h2 id="section">2. 创建工程</h2>
+
+<p>创建工程也就是创建文档。这步很简单，到创建工程的目录，比如我的是 <code class="highlighter-rouge">/Users/Scott/Documents/2.创造乐趣</code>, 创建一个名为 DataBook 的文件夹，你可以用别的你想用的名字。</p>
+
+<h3 id="section-1">创建：</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>➜  2.创造乐趣 <span class="nb">pwd</span>
+/Users/Scott/Documents/2.创造乐趣
+➜  2.创造乐趣 mkdir BookData
+➜  2.创造乐趣 ls
+1.keynote 2.技术    BookData  映射
+</code></pre>
+</div>
+
+<p>BookData 创建好了，进入该目录：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>➜  2.创造乐趣 <span class="nb">cd </span>BookData
+</code></pre>
+</div>
+
+<p>输入<code class="highlighter-rouge">sphinx-quickstart</code>，接下来程序会提示你输入一些选项，基本上按 Return 就好了，有些地方看提示注意下，不懂的话可以参考这里：<a href="http://jwch.sdut.edu.cn/book/tool/UseSphinx.html#id5">建立sphinx工程</a>。</p>
+
+<p>完成之后，</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>➜  BookData git:<span class="o">(</span>master<span class="o">)</span> ✗ ls
+Makefile build    make.bat <span class="nb">source</span>
+</code></pre>
+</div>
+
+<p>可以看到有4个文件：</p>
+
+<ul>
+  <li>build 目录 运行make命令后，生成的文件都在这个目录里面</li>
+  <li>source 目录 放置文档的源文件</li>
+  <li>make.bat 批处理命令</li>
+  <li>makefile</li>
+</ul>
+
+<p>基本完成，使用 <code class="highlighter-rouge">make html</code> 命令就可以生成html形式的文档了。</p>
+
+<h3 id="confpy">配置（conf.py）</h3>
+<p>如果没有什么特殊需要，我觉得 Sphinx 没啥好配的，改个主题就好了，个人极其喜欢ReadtheDoc的主题。很简单，把 conf.py 里面的这句：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">html_theme</span> <span class="o">=</span> <span class="s">'alabaster'</span>
+</code></pre>
+</div>
+<p>换成</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">html_theme</span> <span class="o">=</span> <span class="s">'sphinx_rtd_theme'</span>
+</code></pre>
+</div>
+
+<h3 id="sphnix--push--github">将 Sphnix 生成的文档和配置 push 到远程 github</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>➜  BookData git init
+➜  BookData git add .
+➜  BookData git commit -m <span class="s2">"sphinx start"</span>
+➜  BookData git remote add origin https://github.com/[yourusename]/[yourrepository].git
+➜  BookData git push origin master
+</code></pre>
+</div>
+
+<p>注意：[yourusename]/[yourrepository] 换成你的 github 名和仓库名。</p>
+
+<h2 id="readthedocs">3. 导入到 ReadtheDocs</h2>
+
+<ul>
+  <li>
+    <p>GitHub 里选择仓库，然后依次点击 Setting =&gt; Webhooks &amp; Service =&gt; Add service =&gt; ReadTheDocs,激活这个选项。</p>
+  </li>
+  <li>
+    <p>到 ReadtheDocs import 这个仓库，导入成功后，点击阅读文档，便可看到 Web 效果了。</p>
+  </li>
+</ul>
+
+<h2 id="section-2">4. 配置目录结构</h2>
+
+<p>到了这一步，基本上已经搭建了，但这个时候直接写文档是还不够的。目录结构需要配置下。</p>
+
+<p>假如我要添加两个文档 example.rst 和 rest_eazy.rst 到索引 index.rst 里：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.. toctree::
+   :maxdepth: 2
+
+   example
+   rest_eazy
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">make html</code>后，效果如下：</p>
+
+<p><img src="http://7xjuve.com1.z0.glb.clouddn.com/160327_rtd01.png?imageView2/2/w/720" alt="" /></p>
+
+<p>会发现明明是2个文档，左边却 有 3个标题，因为主索引是按一级标题的数量来索引的，所以这种方式不可取，标题一多会很乱，好的办法是创建二级索引：</p>
+
+<p>因为我要建的板块是3个，分别为数据科学「入门篇」、「基础篇」、「工具篇」，所以先把主索引 index.rst 改为：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">目录</span><span class="p">:</span>
+<span class="o">^^^^^</span>
+
+<span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+    <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">:</span><span class="n">glob</span><span class="p">:</span>
+    
+    <span class="n">beginning</span><span class="o">/</span><span class="n">index</span>
+    <span class="n">base</span><span class="o">/</span><span class="n">index</span>
+    <span class="n">tool</span><span class="o">/</span><span class="n">index</span>
+</code></pre>
+</div>
+<p>然后在 source 目录下创建 3个目录 ，每个目录下创建一个 index.rst 文件，也就是二级索引文件。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mkdir beginning base tool
+touch beginning/index.rst base/index.rst tool/inde.rst 
+</code></pre>
+</div>
+<p>做完这步后，把书的大纲理一下，写到 BookData 目录底下的 README.md 文件里：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># Python 和数据科学</span>
+
+<span class="c">### 全书目录：</span>
+
+入门篇：
+
+- Linux
+- ipython
+- 数值计算（Numpy）
+- 数据绘图（Matplotlib）
+- 数据绘图（Seabornd<span class="o">)</span>
+
+</code></pre>
+</div>
+<p>参照目录创建文件，如 入门篇，则在 beginning 目录下创建如下文件：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>touch 01_linux.rst 02_ipython.rst 03_numpy.rst 04_matplotlib.rst 05_seaborn.rst
+</code></pre>
+</div>
+
+<p>每个文件里写上 一级标题，然后检查下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>➜  BookData git:<span class="o">(</span>master<span class="o">)</span> ✗ ls <span class="nb">source</span>/beginning
+01_linux.rst      03_numpy.rst      05_seaborn.rst
+02_ipython.rst    04_matplotlib.rst index.rst
+➜  BookData git:<span class="o">(</span>master<span class="o">)</span> ✗ cat <span class="nb">source</span>/beginning/<span class="k">*</span>
+Linux 基础
+<span class="o">=========================</span>
+
+Jupyter 基础
+<span class="o">=========================</span>
+
+数值计算（Numpy）
+<span class="o">=========================</span>
+
+数据绘图（Matplotlib）
+<span class="o">=========================</span>
+
+数据绘图（Seaborn<span class="o">)</span>
+<span class="o">=========================</span>
+</code></pre>
+</div>
+
+<p>然后把文件名添加到二级索引 beginning/index 里</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>入门篇
+==========
+
+这一部分主要介绍数据科学的入门内容;\
+包含数据科学的基础工具，如：Jupyter、Linux，以及 Python 基本的数据科学包 Numpy，画图包 Matplotlib;
+
+
+.. toctree::
+    :maxdepth: 2
+    :numbered: 2
+
+    01_linux
+    02_ipython
+    03_numpy
+    04_matplotlib
+    05_seaborn
+</code></pre>
+</div>
+
+<p>同理于 base 和 tool 目录，都完成之后会是下图的效果：
+<img src="http://7xjuve.com1.z0.glb.clouddn.com/160327_rtd02.png?imageView2/2/w/720" alt="" /></p>
+
+<p>链接：<a href="http://bookdata.readthedocs.org/en/latest/">BookData</a>， 有三个索引，下一个，上一个都非常顺畅。</p>
+
+<h2 id="section-3">其他</h2>
+
+<p>reStructureText 语法很简单，不建议刻意去学，如果习惯用 Markdown，建议用 <a href="http://pandoc.org/try/?text=%23+%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98%0A%23%23+%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98%0A%23%23+%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98%0A%0A%60%60%60%0A+%E4%BB%A3%E7%A0%81%E5%9D%97%0A%60%60%60&amp;from=markdown&amp;to=rst">pandoc</a> 一键转化即可.</p>
+
+<p><img src="http://7xjuve.com1.z0.glb.clouddn.com/160327-pandoc.png?imageView2/2/w/720" alt="" /></p>
+
+
+
+                <hr>
+
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/huxblog-boilerplate/2016/01/01/remap_keyboard/" data-toggle="tooltip" data-placement="top" title="让 CapsLock 键更实用">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+                				<a href="/huxblog-boilerplate/tags/#工具箱" title="工具箱" rel="2">
+                                    工具箱
+                                </a>
+                            
+        				
+                            
+                				<a href="/huxblog-boilerplate/tags/#OS" title="OS" rel="2">
+                                    OS
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="http://ibrother.me/">iBrother</a></li>
+                    
+                        <li><a href="http://bambooom.github.io/">Bamboom</a></li>
+                    
+                        <li><a href="http://xpgeng.xyz/">Shen Lang</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "scottming";
+    var disqus_identifier = "/2016/03/27/readthedocs";
+    var disqus_url = "http://scottming.github.io/2016/03/27/readthedocs/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/scottming">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Scott's Blog 2016
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/huxblog-boilerplate/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/huxblog-boilerplate/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/huxblog-boilerplate/js/hux-blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-49627206-1';
+    var _gaDomain = 'scottming';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '4cc1f2d8f3067386cc5cdb626a202900';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
