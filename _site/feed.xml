@@ -3,15 +3,16 @@
   <channel>
     <title>Scott&#39;s Blog</title>
     <description>cool blog</description>
-    <link>http://scottming.github.io/huxblog-boilerplate/</link>
-    <atom:link href="http://scottming.github.io/huxblog-boilerplate/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 31 Mar 2016 19:14:52 +0800</pubDate>
-    <lastBuildDate>Thu, 31 Mar 2016 19:14:52 +0800</lastBuildDate>
+    <link>http://scottming.github.io/</link>
+    <atom:link href="http://scottming.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 31 Mar 2016 21:16:23 +0800</pubDate>
+    <lastBuildDate>Thu, 31 Mar 2016 21:16:23 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
         <title>ReadtheDocs 折腾记</title>
-        <description>&lt;p&gt;参加的数据科学班今天结束了，但还有很多疑难点没搞清楚，很多收获也没整理。课程结束后想补写下笔记，做下查遗补漏，心想，与其写笔记，不如写成一本书的形式，更美观，也更系统。&lt;/p&gt;
+        <description>
+&lt;p&gt;参加的数据科学班今天结束了，但还有很多疑难点没搞清楚，很多收获也没整理。课程结束后想补写下笔记，做下查遗补漏，心想，与其写笔记，不如写成一本书的形式，更美观，也更系统。&lt;/p&gt;
 
 &lt;p&gt;现有的写电子书的方式，有以下几个解决方案，优劣势也很明显。&lt;/p&gt;
 
@@ -245,8 +246,8 @@ Jupyter 基础
 
 </description>
         <pubDate>Sun, 27 Mar 2016 00:00:00 +0800</pubDate>
-        <link>http://scottming.github.io/huxblog-boilerplate/2016/03/27/readthedocs/</link>
-        <guid isPermaLink="true">http://scottming.github.io/huxblog-boilerplate/2016/03/27/readthedocs/</guid>
+        <link>http://scottming.github.io/2016/03/27/readthedocs/</link>
+        <guid isPermaLink="true">http://scottming.github.io/2016/03/27/readthedocs/</guid>
         
         <category>Python</category>
         
@@ -352,8 +353,8 @@ Jupyter 基础
 
 </description>
         <pubDate>Fri, 01 Jan 2016 00:00:00 +0800</pubDate>
-        <link>http://scottming.github.io/huxblog-boilerplate/2016/01/01/remap_keyboard/</link>
-        <guid isPermaLink="true">http://scottming.github.io/huxblog-boilerplate/2016/01/01/remap_keyboard/</guid>
+        <link>http://scottming.github.io/2016/01/01/remap_keyboard/</link>
+        <guid isPermaLink="true">http://scottming.github.io/2016/01/01/remap_keyboard/</guid>
         
         <category>工具箱</category>
         
@@ -565,8 +566,8 @@ Jupyter 基础
 &lt;p&gt;不以软件为导向，以任务为导向。做什么事，需要什么功能，则用具备其功能的工具。&lt;/p&gt;
 </description>
         <pubDate>Fri, 18 Dec 2015 00:00:00 +0800</pubDate>
-        <link>http://scottming.github.io/huxblog-boilerplate/2015/12/18/efficient_app/</link>
-        <guid isPermaLink="true">http://scottming.github.io/huxblog-boilerplate/2015/12/18/efficient_app/</guid>
+        <link>http://scottming.github.io/2015/12/18/efficient_app/</link>
+        <guid isPermaLink="true">http://scottming.github.io/2015/12/18/efficient_app/</guid>
         
         <category>工具箱</category>
         
