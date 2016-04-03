@@ -5,14 +5,295 @@
     <description>cool blog</description>
     <link>http://scottming.github.io/</link>
     <atom:link href="http://scottming.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 31 Mar 2016 23:08:55 +0800</pubDate>
-    <lastBuildDate>Thu, 31 Mar 2016 23:08:55 +0800</lastBuildDate>
+    <pubDate>Sun, 03 Apr 2016 21:17:59 +0800</pubDate>
+    <lastBuildDate>Sun, 03 Apr 2016 21:17:59 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
+        <title>用 Linux 处理数据</title>
+        <description>&lt;p&gt;这一节记录下做数据处理时用到的一些 Linux 和 命令行技巧。大部分命令在 OS X 系统也适应。&lt;/p&gt;
+
+&lt;h2 id=&quot;linux-&quot;&gt;为什么使用 Linux 和命令行&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;一提到 Linux，许多人都会说到“自由”，但我不认为他们都知道“自由”的真正涵义。“自由”是一种权力， 它决定你的计算机能做什么，同时能够拥有这种“自由”的唯一方式就是知道计算机正在做什么。 “自由”是指一台没有任何秘密的计算机，你可以从它那里了解一切，只要你用心的去寻找。&lt;/p&gt;
+
+  &lt;p&gt;你是否注意到，在电影中一个“超级黑客”坐在电脑前，从不摸一下鼠标， 就能够在30秒内侵入到超安全的军事计算机中。这是因为电影制片人意识到， 作为人类，本能地知道让计算机圆满完成工作的唯一途径，是用键盘来操纵计算机。&lt;/p&gt;
+
+  &lt;p&gt;现在，大多数的计算机用户只是熟悉图形用户界面（GUI），并且产品供应商和此领域的学者会灌输给用户这样的思想， 命令行界面（CLI）是过去使用的一种很恐怖的东西。这就很不幸，因为一个好的命令行界面， 是用来和计算机进行交流沟通的非常有效的方式，正像人类社会使用文字互通信息一样。人们说，“图形用户界面让简单的任务更容易完成， 而命令行界面使完成复杂的任务成为可能”，到现在这句话仍然很正确。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;linux--1&quot;&gt;Linux 安装和配置&lt;/h2&gt;
+
+&lt;p&gt;如果没有任何编程及命令行基础，推荐使用 Ubuntu，有经验后可转 Debian，包多，稳定。进入系统，安装下 &lt;a href=&quot;https://anaconda.org/&quot;&gt;Anaconda&lt;/a&gt;，基本的 Python 环境 &amp;amp; 数据工具箱便有了。&lt;/p&gt;
+
+&lt;p&gt;再进入终端仿真器，0S X 自带 Terminal，但推荐用 iTerm 2，Debian 是 Konsole，配置下 终极Shell 环境 &lt;a href=&quot;http://ohmyz.sh/&quot;&gt;Oh My ZSH!&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;如果提示你没有安装相关的依赖包，那么则需先安装相关依赖包，比如 Ubuntu 则需要想安装 Git、和 zsh 等，&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install git &amp;amp; sudo apt-get install zsh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;再装个查看数据、转换数据的小工具 csvkit，&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install csvkit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;至此，便可开始数据科学之旅了。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;基础命令&lt;/h2&gt;
+&lt;p&gt;很多数据问题都可以用命令行解决，而且有些可以解决的非常高效，前提你熟悉一些基础的。
+入门级命令，无非这些：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pwd #打印出当前工作目录名
+cd #更改目录
+ls #列出目录内容
+ls #列出目录内容
+file #确定文件类型
+less #浏览文件内容
+cp #复制文件和目录
+mv #移动/重命名文件和目录
+mkdir #创建目录
+rm #删除文件和目录
+ln #创建硬链接和符号链接
+
+上面的 # 号代表注释，没有任何意义
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;入门级命令太简单了，就不介绍了，如果从来没碰过命令行，不熟悉使用可以查看帮助，如&lt;code class=&quot;highlighter-rouge&quot;&gt;ls --help&lt;/code&gt;，另外我推荐些好书。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/26264642/&quot;&gt;《笨办法学 Python》&lt;/a&gt; 的附录 &lt;a href=&quot;http://learnpythonthehardway.org/book/appendixa.html&quot;&gt;Appendix A: Command Line Crash Course&lt;/a&gt;，Python 入门靠的就是它，Zed 的这书绝对是神书，附录的 Command Line 也是写的极好。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://billie66.github.io/TLCL/book/&quot;&gt;The Linux Command Line&lt;/a&gt;, 命令行入门神书，循序渐进，语言幽默，此书激发了我学 Linux 的兴趣。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://linuxtools-rst.readthedocs.org/zh_CN/latest/index.html&quot;&gt;《Linux 工具快速教程》&lt;/a&gt;，这本书作者写的比较简洁，比较适合有一定编程经验的人。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/4889838/&quot;&gt;《鸟哥的 Linux 私房菜》&lt;/a&gt;, 书虽有点老了，但当做速查手册，翻翻查查，挺好。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://book.douban.com/subject/26387975/&quot;&gt;《命令行中的数据科学》&lt;/a&gt;, 如何用命令行分析数据的一本书。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;重定向和管道符&lt;/h4&gt;
+&lt;p&gt;若你有仔细看过推荐书的任何一本，并做了些许练习，那么你的命令行已经入门了。在介绍命令行处理数据前，我想先谈谈重定向和管道符，若要给 Linux 的符号们举行「频繁使用」比赛，那他们必定是冠军。&lt;/p&gt;
+
+&lt;p&gt;平常你在终端里输入&lt;code class=&quot;highlighter-rouge&quot;&gt;ls -l&lt;/code&gt;，结果应该类似这样：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  Dropbox ls -l
+total 704
+drwxr-xr-x@ 19 Scott  staff   646B Apr  3 10:27 A.HighlyEffectiveSelf
+drwxr-xr-x@  5 Scott  staff   170B Apr  3 09:28 B.CreativePleasure
+drwxr-xr-x@ 10 Scott  staff   340B Apr  3 09:10 C.TheArtOfWork
+drwxr-xr-x@ 11 Scott  staff   374B Mar 10 12:40 D.HistoricalMemory
+drwxr-xr-x@ 12 Scott  staff   408B Apr  3 10:09 E.DataBank
+drwxr-xr-x@ 19 Scott  staff   646B Apr  3 09:14 F.BambooBasket
+drwxr-xr-x@  5 Scott  staff   170B Mar  9 12:34 G.Other
+-rw-r--r--@  1 Scott  staff     0B Apr  3 07:58 Icon?
+-rw-rw-r--@  1 Scott  staff   312B Apr  3 16:18 README.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;文件是文件名排序的，若加个管道符‘|’呢？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  Dropbox ls -l | sort
+-rw-r--r--@  1 Scott  staff     0B Apr  3 07:58 Icon
+-rw-rw-r--@  1 Scott  staff   312B Apr  3 16:18 README.md
+drwxr-xr-x@  5 Scott  staff   170B Apr  3 09:28 B.CreativePleasure
+drwxr-xr-x@  5 Scott  staff   170B Mar  9 12:34 G.Other
+drwxr-xr-x@ 10 Scott  staff   340B Apr  3 09:10 C.TheArtOfWork
+drwxr-xr-x@ 11 Scott  staff   374B Mar 10 12:40 D.HistoricalMemory
+drwxr-xr-x@ 12 Scott  staff   408B Apr  3 10:09 E.DataBank
+drwxr-xr-x@ 19 Scott  staff   646B Apr  3 09:14 F.BambooBasket
+drwxr-xr-x@ 19 Scott  staff   646B Apr  3 10:27 A.HighlyEffectiveSelf
+total 704
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;这里我加了‘|’ 和 ‘sort’ 命令，你会发现，文件的排序已经变了，变成了文件大小的排序。这个命令和简单解释为&lt;code class=&quot;highlighter-rouge&quot;&gt;ls -l &lt;/code&gt;输出了文件排序结果，而 &lt;code class=&quot;highlighter-rouge&quot;&gt;sort&lt;/code&gt; 则接受了这个结果，并把它重新按文件的大小进行了排序，所以 ‘|’起到的就是管道的作用，可以从标准输入读取数据，然后再把数据输送到标准输出。这个特性非常有用，意味着你可以进行非常复杂的操作。&lt;/p&gt;
+
+&lt;p&gt;而什么是重定向‘&amp;gt;’呢？你用命令行操作的结果正常是直接显示在屏幕上的，那还有别的方式吗？你试试：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ls -l &amp;gt; ex01.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;你发现，没有任何动静，但工作目录多了一个 &lt;code class=&quot;highlighter-rouge&quot;&gt;ex01.txt&lt;/code&gt; 的文件，查看下这个文件试试，&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  Dropbox cat ex01.txt
+total 704
+drwxr-xr-x@ 19 Scott  staff  646 Apr  3 10:27 A.HighlyEffectiveSelf
+drwxr-xr-x@  5 Scott  staff  170 Apr  3 09:28 B.CreativePleasure
+drwxr-xr-x@ 10 Scott  staff  340 Apr  3 09:10 C.TheArtOfWork
+drwxr-xr-x@ 11 Scott  staff  374 Mar 10 12:40 D.HistoricalMemory
+drwxr-xr-x@ 12 Scott  staff  408 Apr  3 10:09 E.DataBank
+drwxr-xr-x@ 19 Scott  staff  646 Apr  3 09:14 F.BambooBasket
+drwxr-xr-x@  5 Scott  staff  170 Mar  9 12:34 G.Other
+-rw-r--r--@  1 Scott  staff    0 Apr  3 07:58 Icon
+-rw-rw-r--@  1 Scott  staff  312 Apr  3 16:18 README.md
+-rw-rw-r--   1 Scott  staff    0 Apr  3 16:57 ex01.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;输出结果已经在这个文件里面了，这就是重定向的特性，允许我们来重定义标准输出送到哪里，在‘&amp;gt;’符号后面接个文件名即可。这点是非常实用的，比如你处理完数据后，肯定希望保存到一个文件里面。另外要注意一点，‘&amp;gt;’会格式化原有文件的内容，所以如果你是添加内容，请采用‘»’。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;处理数据常用命令&lt;/h2&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;行过滤&lt;/h4&gt;
+&lt;p&gt;若拿到一个很大的数据后，你肯定不想立马查看所有数据，一没必要，而打开慢，而是想做下行过滤，看看一小部分。常用的行过滤命令有&lt;code class=&quot;highlighter-rouge&quot;&gt;head、tail、seq&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;看前10行数据：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  ~ head user_service_time.txt
+bid	service_time	weekday	hour	lasttime
+17283201	2016-1-27 8:30:00	3	8	3.0
+17283201	2016-1-29 9:00:00	5	9	3.0
+17283201	2016-2-22 17:00:00	1	17	3.0
+17283201	2016-2-25 16:00:00	4	16	3.0
+17283201	2016-2-29 16:30:00	1	16	3.0
+17283201	2016-3-2 9:00:00	3	9	3.0
+17283201	2014-9-19 9:00:07	5	9
+17283201	2014-11-3 13:00:00	1	13
+17283201	2014-11-22 15:00:00	6	15	3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;查看前5行：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;head -5 filename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;前 n 行：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;head -n filename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tail&lt;/code&gt; 则跟 &lt;code class=&quot;highlighter-rouge&quot;&gt;head&lt;/code&gt; 刚好相反，查看的是尾行。若需要指定某些行则可用 &lt;code class=&quot;highlighter-rouge&quot;&gt;sed&lt;/code&gt; 或 &lt;code class=&quot;highlighter-rouge&quot;&gt;awk&lt;/code&gt;，如指定 4-6行，可用&lt;code class=&quot;highlighter-rouge&quot;&gt;sed -n &#39;4, 6p&#39; filename &lt;/code&gt;，我这里为了好看，用 &lt;code class=&quot;highlighter-rouge&quot;&gt;nl&lt;/code&gt; 命令先把行号打印出来。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  ~ nl user_service_time.txt | sed -n &#39;4, 6p&#39;
+     4	17283201	2016-2-22 17:00:00	1	17	3.0
+     5	17283201	2016-2-25 16:00:00	4	16	3.0
+     6	17283201	2016-2-29 16:30:00	1	16	3.0
+# 查看奇数行
+➜  ~ nl user_service_time.txt | head |  awk &#39;NR%2&#39;
+     1	bid	service_time	weekday	hour	lasttime
+     3	17283201	2016-1-29 9:00:00	5	9	3.0
+     5	17283201	2016-2-25 16:00:00	4	16	3.0
+     7	17283201	2016-3-2 9:00:00	3	9	3.0
+     9	17283201	2014-11-3 13:00:00	1	13
+# 偶数行
+➜  ~ nl user_service_time.txt | head |  awk &#39;(NR+1)%2&#39;
+     2	17283201	2016-1-27 8:30:00	3	8	3.0
+     4	17283201	2016-2-22 17:00:00	1	17	3.0
+     6	17283201	2016-2-29 16:30:00	1	16	3.0
+     8	17283201	2014-9-19 9:00:07	5	9
+    10	17283201	2014-11-22 15:00:00	6	15	3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;列提取&lt;/h4&gt;
+&lt;p&gt;行提取很简单，那么列提取应该如何做呢？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 把所有缩进符号改为逗号(英文）， 再重定向成 csv 文件, .txt 文件可用 cat，excel 文件则需 in2csv
+cat user_service_time.txt | tr &#39;/t&#39; &#39;,&#39; &amp;gt; user_service_time.csv
+
+# 看看前 3 行，有哪些列
+➜  ~ head -3 user_service_time.csv | csvlook
+|-----------+--------------------+---------+------+-----------|
+|  bid      | service_time       | weekday | hour | lasttime  |
+|-----------+--------------------+---------+------+-----------|
+|  17283201 |  2016-1-27 8:30:00 |  3      |  8   |  3.0      |
+|  17283201 |  2016-1-29 9:00:00 |  5      |  9   |  3.0      |
+|-----------+--------------------+---------+------+-----------|
+# 得知总共有 5 列提取后 3 列 的前 10 行看看
+➜  ~ &amp;lt; user_service_time.csv csvcut -c 3-5 | head | csvlook
+|----------+------+-----------|
+|  weekday | hour | lasttime  |
+|----------+------+-----------|
+|   3      |  8   |  3.0      |
+|   5      |  9   |  3.0      |
+|   1      |  17  |  3.0      |
+|   4      |  16  |  3.0      |
+|   1      |  16  |  3.0      |
+|   3      |  9   |  3.0      |
+|   5      |  9   |           |
+|   1      |  13  |           |
+|   6      |  15  |  3        |
+|----------+------+-----------|
+# 也可以用 -C 来忽略某些行，如忽略 3-5 列的前5行。
+➜  ~ &amp;lt; user_service_time.csv csvcut -C 3-5 | head -5 | csvlook
+|-----------+----------------------|
+|  bid      | service_time         |
+|-----------+----------------------|
+|  17283201 |  2016-1-27 8:30:00   |
+|  17283201 |  2016-1-29 9:00:00   |
+|  17283201 |  2016-2-22 17:00:00  |
+|  17283201 |  2016-2-25 16:00:00  |
+|-----------+----------------------|
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;grep-&quot;&gt;grep 查找&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 基本用法是 grep data filename
+➜  ~ head user_service_time.txt | grep 29
+17283201	2016-1-29 9:00:00	5	9	3.0
+17283201	2016-2-29 16:30:00	1	16	3.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;wc-&quot;&gt;wc 基本统计&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;统计行数 wc -l file&lt;/li&gt;
+  &lt;li&gt;统计单词数 wc -w file&lt;/li&gt;
+  &lt;li&gt;统计字符数 wc -c file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  ~ wc -l user_service_time.txt
+    1244 user_service_time.txt
+➜  ~ &amp;lt; user_service_time.txt | grep 2016-2 | wc -l
+      55
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;sort-&quot;&gt;sort 排序&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;-n 按数字进行排序&lt;/li&gt;
+  &lt;li&gt;-d 按字典序进行排序&lt;/li&gt;
+  &lt;li&gt;-r 逆序排序&lt;/li&gt;
+  &lt;li&gt;-k N 指定按第N列排序&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 以第 1 列数字反向排序
+➜  ~ &amp;lt; user_service_time.csv | sort -nrk 1 | head -4 | csvlook
+|-----------------+-------------------+---+---+----|
+|  29101041557001 | 2016-3-6 8:30:00  | 7 | 8 | 4  |
+|-----------------+-------------------+---+---+----|
+|  29101041557001 | 2016-3-13 8:30:00 | 7 | 8 | 4  |
+|  29101041557001 | 2016-2-28 8:30:00 | 7 | 8 | 4  |
+|  29101041557001 | 2016-2-21 8:30:00 | 7 | 8 | 4  |
+|-----------------+-------------------+---+---+----|
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;其他&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iconv&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;cut&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;past&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;uniq&lt;/code&gt; 等工具也是极好的，只不过用的略少，具体的数据分析则用 Pandas 更方便些。其他的，想到再添加。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 27 Mar 2016 00:00:00 +0800</pubDate>
+        <link>http://scottming.github.io/2016/03/27/use_linux/</link>
+        <guid isPermaLink="true">http://scottming.github.io/2016/03/27/use_linux/</guid>
+        
+        <category>Linux</category>
+        
+        <category>Python</category>
+        
+        
+      </item>
+    
+      <item>
         <title>ReadtheDocs 折腾记</title>
-        <description>
-&lt;p&gt;参加的数据科学班今天结束了，但还有很多疑难点没搞清楚，很多收获也没整理。课程结束后想补写下笔记，做下查遗补漏，心想，与其写笔记，不如写成一本书的形式，更美观，也更系统。&lt;/p&gt;
+        <description>&lt;p&gt;参加的数据科学班今天结束了，但还有很多疑难点没搞清楚，很多收获也没整理。课程结束后想补写下笔记，做下查遗补漏，心想，与其写笔记，不如写成一本书的形式，更美观，也更系统。&lt;/p&gt;
 
 &lt;p&gt;现有的写电子书的方式，有以下几个解决方案，优劣势也很明显。&lt;/p&gt;
 
@@ -365,7 +646,7 @@ Jupyter 基础
     
       <item>
         <title>电脑工具清单</title>
-        <description>&lt;p&gt;用 Mac 一年多，积累了挺多好用的工具和软件，有些在 Win 上也有替代。列表如下：&lt;/p&gt;
+        <description>&lt;p&gt;用 Mac 一年多，积累了挺多好用的工具和软件，有些在 Win 上也有替代。善用工具，让你的工作与生活更加高效。&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -494,8 +775,8 @@ Jupyter 基础
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;科学上网工具&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;科学上网&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Astrill&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Astrill&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ss&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ss&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
