@@ -5,8 +5,8 @@
     <description>cool blog</description>
     <link>http://scottming.github.io/</link>
     <atom:link href="http://scottming.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 03 Apr 2016 21:31:02 +0800</pubDate>
-    <lastBuildDate>Sun, 03 Apr 2016 21:31:02 +0800</lastBuildDate>
+    <pubDate>Mon, 04 Apr 2016 08:53:29 +0800</pubDate>
+    <lastBuildDate>Mon, 04 Apr 2016 08:53:29 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -36,7 +36,7 @@
 &lt;/div&gt;
 &lt;p&gt;如果提示你没有安装相关的依赖包，那么则需先安装相关依赖包，比如 Ubuntu 则需要想安装 Git、和 zsh 等，&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install git &amp;amp; sudo apt-get install zsh
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install git zsh
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;再装个查看数据、转换数据的小工具 csvkit，&lt;/p&gt;
@@ -201,7 +201,7 @@ cat user_service_time.txt | tr &#39;/t&#39; &#39;,&#39; &amp;gt; user_service_ti
 |  17283201 |  2016-1-27 8:30:00 |  3      |  8   |  3.0      |
 |  17283201 |  2016-1-29 9:00:00 |  5      |  9   |  3.0      |
 |-----------+--------------------+---------+------+-----------|
-# 得知总共有 5 列提取后 3 列 的前 10 行看看
+# 得知总共有 5 列提取后 3 列 的前 10 行看看，&amp;lt; 也是重定向，这里重定向到屏幕了
 ➜  ~ &amp;lt; user_service_time.csv csvcut -c 3-5 | head | csvlook
 |----------+------+-----------|
 |  weekday | hour | lasttime  |
@@ -239,16 +239,31 @@ cat user_service_time.txt | tr &#39;/t&#39; &#39;,&#39; &amp;gt; user_service_ti
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;p&gt;grep 的查找可以用在很多地方，假如你想查看下对某个文件的所有历史操作，可以这样做：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 长长的文件名可以按 Tab 键自动补全，别傻傻的输入
+➜  ~ history | grep user_service_time
+ 9582  head user_service_time.txt | csvlook
+ 9586  head user_service_time.txt
+ 9601  mv user_service_time.txt ../
+ 9606  tail user_service_time.txt
+ -------------------------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;命令和命令行号都打印出来了，这时若要重复某个命令，如 &lt;code class=&quot;highlighter-rouge&quot;&gt;9601&lt;/code&gt;，则需输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;!9601&lt;/code&gt; Return 即可。这也说明 Linux 的知识继承性很强，学一点会一点，忘了，再查询也方便。不像某些 GUI 程序，如 Excel，很强大，但操作基本都是鼠标点击和快捷，上手容易，却让人学了就忘。&lt;/p&gt;
+
 &lt;h4 id=&quot;wc-&quot;&gt;wc 基本统计&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;统计行数 wc -l file&lt;/li&gt;
-  &lt;li&gt;统计单词数 wc -w file&lt;/li&gt;
-  &lt;li&gt;统计字符数 wc -c file&lt;/li&gt;
+  &lt;li&gt;wc -l file 统计行数&lt;/li&gt;
+  &lt;li&gt;wc -w file 统计单词数&lt;/li&gt;
+  &lt;li&gt;wc -c file 统计字符数&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  ~ wc -l user_service_time.txt
     1244 user_service_time.txt
+# 配合 grep 使用，查找包含特定字符的行数
 ➜  ~ &amp;lt; user_service_time.txt | grep 2016-2 | wc -l
       55
 &lt;/code&gt;&lt;/pre&gt;
@@ -282,9 +297,9 @@ cat user_service_time.txt | tr &#39;/t&#39; &#39;,&#39; &amp;gt; user_service_ti
 &lt;code class=&quot;highlighter-rouge&quot;&gt;past&lt;/code&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;uniq&lt;/code&gt; 等工具也是极好的，只不过用的略少，具体的数据分析则用 Pandas 更方便些。其他的，想到再添加。&lt;/p&gt;
 </description>
-        <pubDate>Sun, 27 Mar 2016 00:00:00 +0800</pubDate>
-        <link>http://scottming.github.io/2016/03/27/use_linux/</link>
-        <guid isPermaLink="true">http://scottming.github.io/2016/03/27/use_linux/</guid>
+        <pubDate>Sun, 03 Apr 2016 00:00:00 +0800</pubDate>
+        <link>http://scottming.github.io/2016/04/03/use_linux/</link>
+        <guid isPermaLink="true">http://scottming.github.io/2016/04/03/use_linux/</guid>
         
         <category>Linux</category>
         
