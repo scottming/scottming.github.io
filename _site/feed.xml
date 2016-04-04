@@ -5,8 +5,8 @@
     <description>cool blog</description>
     <link>http://scottming.github.io/</link>
     <atom:link href="http://scottming.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 04 Apr 2016 18:50:57 +0800</pubDate>
-    <lastBuildDate>Mon, 04 Apr 2016 18:50:57 +0800</lastBuildDate>
+    <pubDate>Mon, 04 Apr 2016 21:20:06 +0800</pubDate>
+    <lastBuildDate>Mon, 04 Apr 2016 21:20:06 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -39,7 +39,19 @@ sudo service sshd restart
 
 &lt;p&gt;然后参考官方教程 &lt;a href=&quot;http://jupyter-notebook.readthedocs.org/en/latest/public_server.html&quot;&gt;Running a notebook server&lt;/a&gt; 配置，有几个地方要注意下：&lt;/p&gt;
 
-&lt;p&gt;jupyter_notebook_config.py 这个文件里面 certfile 和 keyfile 的地址应为绝对地址，如我的是 &lt;code class=&quot;highlighter-rouge&quot;&gt;jupyter notebook --certfile=/home/scott/.jupyter/mycert.pem --keyfile /home/scott/.jupyter/mykey.key&lt;/code&gt;，一大串输入很麻烦，也易出错，建议添加个 alias 到 .zshrc，我的是 &lt;code class=&quot;highlighter-rouge&quot;&gt;alias jn=&#39;jupyter notebook --certfile=/home/scott/.jupyter/mycert.pem --keyfile /home/scott/.jupyter/mykey.key&#39;&lt;/code&gt;，这样到其他电脑键入：&lt;/p&gt;
+&lt;p&gt;jupyter_notebook_config.py 这个文件里面 certfile 和 keyfile 的地址应为绝对地址，如我的是&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jupyter notebook --certfile=/home/scott/.jupyter/mycert.pem --keyfile /home/scott/.jupyter/mykey.key
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;一大串输入很麻烦，也易出错，建议打开 .zshrc，并在底部添加一行：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alias jn=&#39;jupyter notebook --certfile=/home/scott/.jupyter/mycert.pem --keyfile /home/scott/.jupyter/mykey.key&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样到其他电脑键入：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jn
 &lt;/code&gt;&lt;/pre&gt;
@@ -68,14 +80,14 @@ sudo service sshd restart
 &lt;h4 id=&quot;section-3&quot;&gt;常用快捷&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;查看快捷键帮助：&lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;查看快捷键帮助: &lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;保存: &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;cell间移动: &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;k&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;添加cell: &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;删除cell: &lt;code class=&quot;highlighter-rouge&quot;&gt;dd&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;cell编辑: &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;z&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;中断kernel: &lt;code class=&quot;highlighter-rouge&quot;&gt;ii&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;重启kernel: &lt;code class=&quot;highlighter-rouge&quot;&gt;00&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;cell 间移动: &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;k&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;添加 cell: &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;删除 cell: &lt;code class=&quot;highlighter-rouge&quot;&gt;dd&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;cell 编辑: &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;z&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;中断 kernel: &lt;code class=&quot;highlighter-rouge&quot;&gt;ii&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;重启 kernel: &lt;code class=&quot;highlighter-rouge&quot;&gt;00&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;注释 code: &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl + /&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -128,7 +140,8 @@ sudo service sshd restart
 
 &lt;h2 id=&quot;section-6&quot;&gt;转换&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jupyter nbconvert --to html filename.ipynb
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ipynb 文件转为 html
+jupyter nbconvert --to html filename.ipynb
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
