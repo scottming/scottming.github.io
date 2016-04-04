@@ -5,9 +5,151 @@
     <description>cool blog</description>
     <link>http://scottming.github.io/</link>
     <atom:link href="http://scottming.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 04 Apr 2016 08:53:29 +0800</pubDate>
-    <lastBuildDate>Mon, 04 Apr 2016 08:53:29 +0800</lastBuildDate>
+    <pubDate>Mon, 04 Apr 2016 18:50:57 +0800</pubDate>
+    <lastBuildDate>Mon, 04 Apr 2016 18:50:57 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>Jupyter 的安装与使用</title>
+        <description>&lt;h2 id=&quot;ipython--jupyter&quot;&gt;IPython 和 Jupyter&lt;/h2&gt;
+
+&lt;p&gt;IPython 是一个 Python REPl shell，环境远比 Python 自带的强大，而 Jupyter Notebook 则是一个基于 IPython REPl 的 Web 应用，运行结果可保存为后缀.ipynb，交互性强，所见即所得，数据分析，写分析报告等的不二利器。&lt;/p&gt;
+
+&lt;p&gt;官方解释：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Jupyter Notebook is a web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, machine learning and much more.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;安装&lt;/h2&gt;
+
+&lt;p&gt;如果有看过我上一篇文章 &lt;a href=&quot;http://scottming.com/2016/04/03/use_linux/#linux--1&quot;&gt;《用 Linux 处理数据》&lt;/a&gt; ，并安装了 &lt;a href=&quot;https://www.continuum.io/downloads&quot;&gt;Anaconda&lt;/a&gt;，那么你已经有 Jupyter 了，打开终端，输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;jupyter notebook&lt;/code&gt; 即可。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;远程使用&lt;/h4&gt;
+
+&lt;p&gt;如果有远程使用的需求，则需把远程服务器配置下。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 服务器下载 ssh 服务，如 Debian
+sudo apt-get install openssh-server
+# 不知道 ssh 是否打开，可以把他重启下
+sudo service sshd restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;然后可以在局域网用其他电脑访问下，Mac 可直接在终端输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh username@ip&lt;/code&gt;, 这里的 ip 指的局域网下的这台服务器的 ip，建议在路由器设置成静态 ip，若在外网使用，则需在路由器里面设置好端口转发。&lt;/p&gt;
+
+&lt;p&gt;然后参考官方教程 &lt;a href=&quot;http://jupyter-notebook.readthedocs.org/en/latest/public_server.html&quot;&gt;Running a notebook server&lt;/a&gt; 配置，有几个地方要注意下：&lt;/p&gt;
+
+&lt;p&gt;jupyter_notebook_config.py 这个文件里面 certfile 和 keyfile 的地址应为绝对地址，如我的是 &lt;code class=&quot;highlighter-rouge&quot;&gt;jupyter notebook --certfile=/home/scott/.jupyter/mycert.pem --keyfile /home/scott/.jupyter/mykey.key&lt;/code&gt;，一大串输入很麻烦，也易出错，建议添加个 alias 到 .zshrc，我的是 &lt;code class=&quot;highlighter-rouge&quot;&gt;alias jn=&#39;jupyter notebook --certfile=/home/scott/.jupyter/mycert.pem --keyfile /home/scott/.jupyter/mykey.key&#39;&lt;/code&gt;，这样到其他电脑键入：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jn
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;若能看到类似下方的输出，证明配置成功了。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[I 09:56:29.937 NotebookApp] The Jupyter Notebook is running at: https://[all ip addresses on your system]:8889/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我的端口配置的是 &lt;code class=&quot;highlighter-rouge&quot;&gt;8889&lt;/code&gt;， 你也可以设置成其他的，再到路由器里配置下端口转发，大功告成。如果有用 R，也可用类似的方法配置下 &lt;a href=&quot;https://www.rstudio.com/products/rstudio/download-server/&quot;&gt;RStudio Server&lt;/a&gt;，超简单。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;快捷操作&lt;/h2&gt;
+&lt;p&gt;Jupyter Notebook 的快捷键是一大亮点，如果有看过我这篇文章 &lt;a href=&quot;http://scottming.com/2016/01/01/remap_keyboard/&quot;&gt;《让 CapsLock 键更实用》&lt;/a&gt;（昨天顺手把 karabiner 配置的 gist 更新了），并对 Mac 或 Win 做了配置，那么你熟悉几个 Jupyter 的快捷，用 Jupyter 写报告之类基本上不需要鼠标了。&lt;/p&gt;
+
+&lt;h4 id=&quot;cell-type&quot;&gt;单元类型 (cell type)&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Jupyter Notebook&lt;/code&gt;文档由一系列的单元 (cell) 组成，主要用的两类单元是：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;markdown cell&lt;/code&gt;，命令模式下，按 &lt;code class=&quot;highlighter-rouge&quot;&gt;m&lt;/code&gt; 可将单元切换为 &lt;code class=&quot;highlighter-rouge&quot;&gt;markdown cell&lt;/code&gt; 。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;code cell&lt;/code&gt;，命令模式下，按 &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; 可将单元切换为 &lt;code class=&quot;highlighter-rouge&quot;&gt;code cell&lt;/code&gt; 。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;常用快捷&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;查看快捷键帮助：&lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;保存: &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;cell间移动: &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;k&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;添加cell: &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;删除cell: &lt;code class=&quot;highlighter-rouge&quot;&gt;dd&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;cell编辑: &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;z&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;中断kernel: &lt;code class=&quot;highlighter-rouge&quot;&gt;ii&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;重启kernel: &lt;code class=&quot;highlighter-rouge&quot;&gt;00&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;注释 code: &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl + /&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;split-cell&quot;&gt;拆分单元 (split cell)&lt;/h4&gt;
+
+&lt;p&gt;编辑模式下按 &lt;code class=&quot;highlighter-rouge&quot;&gt;control + shift + -&lt;/code&gt; 可拆分 c ell&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;查看对象信息&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;按 &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; 键查看提示信息&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tab&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;查找 &lt;code class=&quot;highlighter-rouge&quot;&gt;numpy&lt;/code&gt; 模块下，名称含有 &lt;code class=&quot;highlighter-rouge&quot;&gt;cos&lt;/code&gt; 的对象&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;提供 numpy 模块的帮助信息&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;提供 numpy 模块更详细的帮助信息&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;??&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;查看 docstring&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdoc&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;魔术命令&lt;/h2&gt;
+
+&lt;p&gt;最常用的是这个 &lt;code class=&quot;highlighter-rouge&quot;&gt;%matplotlib inline&lt;/code&gt;，有点类似 &lt;code class=&quot;highlighter-rouge&quot;&gt;ipython --pylab&lt;/code&gt;，画图用的；测试程序运行时间则只需把 &lt;code class=&quot;highlighter-rouge&quot;&gt;%time&lt;/code&gt; 放在前面。&lt;/p&gt;
+
+&lt;p&gt;更多魔术命令可在 Jupyter Notebook 里键入：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lsmagic&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-6&quot;&gt;转换&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jupyter nbconvert --to html filename.ipynb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;更多转换内容，请键入：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jupyter notebook --help
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;转换 rst、py、md 等格式都是非常方便的，但转 pdf，对中文的支持不好。必须先装 LaTex，LaTex 则需先把字体等调好。&lt;/p&gt;
+</description>
+        <pubDate>Mon, 04 Apr 2016 00:00:00 +0800</pubDate>
+        <link>http://scottming.github.io/2016/04/04/jupyter/</link>
+        <guid isPermaLink="true">http://scottming.github.io/2016/04/04/jupyter/</guid>
+        
+        <category>Linux</category>
+        
+        <category>Python</category>
+        
+        
+      </item>
     
       <item>
         <title>用 Linux 处理数据</title>
