@@ -29,7 +29,7 @@ Sphinx 是一个基于 Python 的文档生成工具，最早只是用来生成 P
 - 完备的交叉引用: 语义化的标签,并可以自动化链接函数,类,引文,术语及相似的片段信息
 - 明晰的分层结构: 可以轻松的定义文档树,并自动化链接同级/父级/下级文章
 - 美观的自动索引: 可自动生成美观的模块索引
-- 精确的语法高亮: 基于 Pygments 自动生成语法高亮 
+- 精确的语法高亮: 基于 Pygments 自动生成语法高亮
 
 ## 1. 安装 Sphinx
 
@@ -67,7 +67,7 @@ BookData 创建好了，进入该目录：
 ➜  2.创造乐趣 cd BookData
 ```
 
-输入`sphinx-quickstart`，接下来程序会提示你输入一些选项，基本上按 Return 就好了，有些地方看提示注意下，不懂的话可以参考这里：[建立sphinx工程](http://jwch.sdut.edu.cn/book/tool/UseSphinx.html#id5)。
+输入`sphinx-quickstart`，接下来程序会提示你输入一些选项，基本上按 Return 就好了，有些地方看提示注意下，比如 source 和 build 分离，语言选中文则输入`zh_CN`，不懂的话可以参考这里：[建立sphinx工程](http://jwch.sdut.edu.cn/book/tool/UseSphinx.html#id5)。
 
 
 完成之后，
@@ -84,7 +84,7 @@ Makefile build    make.bat source
 - make.bat 批处理命令
 - makefile
 
-基本完成，使用 `make html` 命令就可以生成html形式的文档了。
+基本完成，使用 `make html` 命令就可以生成html形式的文档了，Win 系统输入`./make.bat html` 实现。
 
 #### 配置（conf.py）
 如果没有什么特殊需要，我觉得 Sphinx 没啥好配的，改个主题就好了，个人极其喜欢ReadtheDoc的主题。很简单，把 conf.py 里面的这句：
@@ -94,7 +94,7 @@ html_theme = 'alabaster'
 ```
 换成
 
-``` python 
+``` python
 html_theme = 'sphinx_rtd_theme'
 ```
 
@@ -145,7 +145,7 @@ html_theme = 'sphinx_rtd_theme'
 .. toctree::
     :maxdepth: 2
     :glob:
-    
+
     beginning/index
     base/index
     tool/index
@@ -154,7 +154,7 @@ html_theme = 'sphinx_rtd_theme'
 
 ``` shell
 mkdir beginning base tool
-touch beginning/index.rst base/index.rst tool/inde.rst 
+touch beginning/index.rst base/index.rst tool/inde.rst
 ```
 做完这步后，把书的大纲理一下，写到 BookData 目录底下的 README.md 文件里：
 
@@ -232,5 +232,3 @@ Jupyter 基础
 reStructureText 语法很简单，不建议刻意去学，如果习惯用 Markdown，建议用 [pandoc](http://pandoc.org/try/?text=%23+%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98%0A%23%23+%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98%0A%23%23+%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98%0A%0A%60%60%60%0A+%E4%BB%A3%E7%A0%81%E5%9D%97%0A%60%60%60&from=markdown&to=rst) 一键转化即可.
 
 ![](http://7xjuve.com1.z0.glb.clouddn.com/160327-pandoc.png?imageView2/2/w/720)
-
-
