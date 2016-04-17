@@ -247,7 +247,7 @@
 </code></pre>
 </div>
 
-<p>输入<code class="highlighter-rouge">sphinx-quickstart</code>，接下来程序会提示你输入一些选项，基本上按 Return 就好了，有些地方看提示注意下，不懂的话可以参考这里：<a href="http://jwch.sdut.edu.cn/book/tool/UseSphinx.html#id5">建立sphinx工程</a>。</p>
+<p>输入<code class="highlighter-rouge">sphinx-quickstart</code>，接下来程序会提示你输入一些选项，基本上按 Return 就好了，有些地方看提示注意下，比如 source 和 build 分离，语言选中文则输入<code class="highlighter-rouge">zh_CN</code>，不懂的话可以参考这里：<a href="http://jwch.sdut.edu.cn/book/tool/UseSphinx.html#id5">建立sphinx工程</a>。</p>
 
 <p>完成之后，</p>
 
@@ -265,7 +265,7 @@ Makefile build    make.bat <span class="nb">source</span>
   <li>makefile</li>
 </ul>
 
-<p>基本完成，使用 <code class="highlighter-rouge">make html</code> 命令就可以生成html形式的文档了。</p>
+<p>基本完成，使用 <code class="highlighter-rouge">make html</code> 命令就可以生成html形式的文档了，Win 系统输入<code class="highlighter-rouge">./make.bat html</code> 实现。</p>
 
 <h4 id="confpy">配置（conf.py）</h4>
 <p>如果没有什么特殊需要，我觉得 Sphinx 没啥好配的，改个主题就好了，个人极其喜欢ReadtheDoc的主题。很简单，把 conf.py 里面的这句：</p>
@@ -330,7 +330,7 @@ Makefile build    make.bat <span class="nb">source</span>
 <span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
     <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
     <span class="p">:</span><span class="n">glob</span><span class="p">:</span>
-    
+
     <span class="n">beginning</span><span class="o">/</span><span class="n">index</span>
     <span class="n">base</span><span class="o">/</span><span class="n">index</span>
     <span class="n">tool</span><span class="o">/</span><span class="n">index</span>
@@ -339,7 +339,7 @@ Makefile build    make.bat <span class="nb">source</span>
 <p>然后在 source 目录下创建 3个目录 ，每个目录下创建一个 index.rst 文件，也就是二级索引文件。</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>mkdir beginning base tool
-touch beginning/index.rst base/index.rst tool/inde.rst 
+touch beginning/index.rst base/index.rst tool/inde.rst
 </code></pre>
 </div>
 <p>做完这步后，把书的大纲理一下，写到 BookData 目录底下的 README.md 文件里：</p>
@@ -418,7 +418,6 @@ Jupyter 基础
 <p>reStructureText 语法很简单，不建议刻意去学，如果习惯用 Markdown，建议用 <a href="http://pandoc.org/try/?text=%23+%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98%0A%23%23+%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98%0A%23%23+%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98%0A%0A%60%60%60%0A+%E4%BB%A3%E7%A0%81%E5%9D%97%0A%60%60%60&amp;from=markdown&amp;to=rst">pandoc</a> 一键转化即可.</p>
 
 <p><img src="http://7xjuve.com1.z0.glb.clouddn.com/160327-pandoc.png?imageView2/2/w/720" alt="" /></p>
-
 
 
                 <hr>
@@ -512,6 +511,8 @@ Jupyter 基础
                 				<a href="/tags/#Linux" title="Linux" rel="2">
                                     Linux
                                 </a>
+                            
+        				
                             
         				
         			</div>
