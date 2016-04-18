@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 笨办法背单词
+title: 笨办法记单词（1）
 subtitle:   词汇图
 date:       2016-04-17
 author:     "Scott"
-header-img: "img/contact-bg.jpg"
+header-img: ""
 tags:
     - LearnEnglish
 ---
