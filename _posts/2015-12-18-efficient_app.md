@@ -36,15 +36,15 @@ tags:
 |科学上网工具|科学上网|ss|ss|
 
 **1.快速定位与文件快速查看工具**。日常工作中，你是否遇到这样的情况：多个软件与文件夹间频繁切换。若是全放在桌面，时间久了，桌面堆积太多快捷方式与文件夹，显得杂乱不堪，且电脑易卡；若是放在其他地方，桌面是干净了，但查找不易。Alfred 与 Wox 这类软件可以很好的解决类似问题，装上之后，妈妈再也不用担心我找不到软件了，Alfred 的工作流很有特色，Wox还可以通过自定义快捷键来快速搜索程序。
-![](http://7xjuve.com1.z0.glb.clouddn.com/alfred.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-alfred.png?imageView2/2/w/800)
 
 **2.写作工具。**自从用了 Markdown，几乎没怎么碰过 Word，关于 Markdown 的优势不做阐述，这类文章太多了，Google 一下吧。这篇文章是用 Markdown 的编辑器 Macdown 写成的。
-![](http://7xjuve.com1.z0.glb.clouddn.com/macdown.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-macdown.png?imageView2/2/w/800)
 
 **3.编辑器。**日常写代码用的较多的是 Sublime 3。
 
 **4.文字扩展工具。**写邮件时重复性文本比较多，传统方式 查找=》复制=》粘贴，实在太累。用 Atext 或 PhraseExpress 把文本编好，设定缩短字符，一键搞定。
-![](http://7xjuve.com1.z0.glb.clouddn.com/atext.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-atext.png?imageView2/2/w/800)
 
 **5.Chrome插件。**
 - Evernote 一键剪藏，浏览网页时，遇到喜欢的内容，想保存，一键搞定。
@@ -54,26 +54,26 @@ tags:
 
 **6.图床。**七牛云功能很强大，Dropdone让图片上传变得 so eazy。装好七牛云插件，一键上传图片，结合 aText 的缩短字符，快速输入到 Markdown 编辑器里。配置请看：[Mac OS 图床运用优化模式](http://azeril.me/blog/How-To-Use-Image-Hosting-Quickly.html)
 
-![](http://7xjuve.com1.z0.glb.clouddn.com/dropzone.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-dropzone.png?imageView2/2/w/800)
 
 **7.思维导图。**头脑风暴，想法在多，不需系统时可以用它。
 
 **8.幻灯片。**不想陷入 Keynote 与 PPT 孰优孰劣之争，相比来说，我更喜欢 Keynote 的简洁。
 下面是我自己运用 Keynote 仿微信聊天做的一个幻灯。
-![](http://7xjuve.com1.z0.glb.clouddn.com/keynote_wechat.gif?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-keynote_wechat.gif?imageView2/2/w/800)
 
 **9.清单工具。**之前一直用 Evernote 列清单，但 Evernote 太重，不适合用来写笔记、记录生活点滴想法。所以现在换成了 Workflowy ，足够简洁，写读书笔记时，用来整理知识点也非常不错。
-![](http://7xjuve.com1.z0.glb.clouddn.com/workflowy.png?imageView2/2/w/567)
+![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-workflowy.png?imageView2/2/w/567)
 
 **10.书签管理工具**，Decious + Delibar，「美味书签」简直不能更加美味，decious 收藏书签，设好 tag，Delibar 我设置的查找快捷键为 Shift + option + P, 正常查找一个书签不会超过 4 秒钟。
-![](http://7xjuve.com1.z0.glb.clouddn.com/delicous.png?imageView2/2/w/800)
+![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-delicous.png?imageView2/2/w/800)
 
 搜索：
 
-![](http://7xjuve.com1.z0.glb.clouddn.com/delibar.png?imageView2/2/w/567)
+![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-delibar.png?imageView2/2/w/567)
 
 **11.终端**，mac 系统终端略丑，装上 iterm 2 更加美观，再装上 Oh my zsh 就更加强大了。
-![](http://7xjuve.com1.z0.glb.clouddn.com/iterm_color.png?imageView2/2/w/567)
+![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-iterm_color.png?imageView2/2/w/567)
 
 我的配色是 solarized_light.
 
@@ -87,9 +87,9 @@ tags:
 
 **16.图标隐藏工具。**强迫症患者必备。
 
-隐藏前：![](http://7xjuve.com1.z0.glb.clouddn.com/batender_show.png?imageView2/2/w/567)
+隐藏前：![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-batender_show.png?imageView2/2/w/567)
 
-隐藏后：![](http://7xjuve.com1.z0.glb.clouddn.com/%20batender_hide.png?imageView2/2/w/400)
+隐藏后：![](http://7xjuve.com1.z0.glb.clouddn.com/image/151218-bartender_hide.png?imageView2/2/w/400)
 
 **17.词典。**欧路词典加载词库后非常好用，我的常用词库是：Collins Cobuild双解、LDOCE朗文当代5的英英版、剑桥高阶学习词典、韦伯斯特高阶学习词典。
 
