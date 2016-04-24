@@ -32,7 +32,7 @@ tags:
 
 ---
 
-Alfred 是一款快速定位与文件查看工具。在《卓有成效的程序员》里面提到「键盘输入总比导航快」，人的工作记忆是很有限的，你比较舒服的记忆层级最多 5 个，所以子目录一旦大于 4 个，你就很难记住了。而 Alfred 的快速搜索却很方便，按下 Option + Space，输入程序首字母，按下 Return，正常打开一个程序不会超过 3 秒钟；若搜索文件则需在字幕前加‘\`’
+Alfred 是一款快速定位与文件查看工具。在《卓有成效的程序员》里面提到「键盘输入总比导航快」，人的工作记忆是很有限的，你比较舒服的记忆层级最多 5 个，所以子目录一旦大于 4 个，你就很难记住了。而 Alfred 的快速搜索却很方便，按下 Option + Space，输入程序首字母，按下 Return，正常打开一个程序不会超过 3 秒钟；若搜索文件则需在字幕前加`<空格>`
 
 ### [Karabiner](https://pqrs.org/osx/karabiner/seil.html.en)/[Seil](https://pqrs.org/osx/karabiner/seil.html.en)
 
@@ -40,7 +40,7 @@ Alfred 是一款快速定位与文件查看工具。在《卓有成效的程序�
 
 ---
 
-「永远不要将你的双手从字符键上移开」是加速的重要原则，Vim 和 Emacs 的设计都符合这点，但日常办公，若用系统默认映射，想要做到这点是极难的。所幸我们有 Seil 和 Karabiner，这是一个很简单的修改键盘映射的小工具，具体操作方法可参考我这篇文章[让你的 Capslock 键更实用]()，参照修改过后，你基本可以摆脱鼠标。
+「永远不要将你的双手从字符键上移开」是加速的重要原则，Vim 和 Emacs 的设计都符合这点，但日常办公，若用系统默认映射，想要做到这点是极难的。所幸我们有 Seil 和 Karabiner，这是一个很简单的修改键盘映射的小工具，具体操作方法可参考我这篇文章[让你的 Capslock 键更实用](http://scottming.com/2016/01/01/remap_keyboard/)，参照修改过后，你基本可以摆脱鼠标。
 
 ### [Keyboard Maestro](https://www.keyboardmaestro.com/documentation/7/screenshots.html)
 
