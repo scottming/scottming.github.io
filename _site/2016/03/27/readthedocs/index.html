@@ -215,13 +215,13 @@
 
 <p>Mac 系统下安装极简，一行代码搞定</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>brew cask install sphinx
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>brew cask install sphinx
 </code></pre>
 </div>
 
 <p>或</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install sphinx
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>pip install sphinx
 </code></pre>
 </div>
 
@@ -233,7 +233,7 @@
 
 <h4 id="section-1">创建：</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>➜  2.创造乐趣 <span class="nb">pwd</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>➜  2.创造乐趣 <span class="nb">pwd</span>
 /Users/Scott/Documents/2.创造乐趣
 ➜  2.创造乐趣 mkdir BookData
 ➜  2.创造乐趣 ls
@@ -243,7 +243,7 @@
 
 <p>BookData 创建好了，进入该目录：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>➜  2.创造乐趣 <span class="nb">cd </span>BookData
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>➜  2.创造乐趣 <span class="nb">cd </span>BookData
 </code></pre>
 </div>
 
@@ -251,7 +251,7 @@
 
 <p>完成之后，</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>➜  BookData git:<span class="o">(</span>master<span class="o">)</span> ✗ ls
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>➜  BookData git:<span class="o">(</span>master<span class="o">)</span> ✗ ls
 Makefile build    make.bat <span class="nb">source</span>
 </code></pre>
 </div>
@@ -270,18 +270,18 @@ Makefile build    make.bat <span class="nb">source</span>
 <h4 id="confpy">配置（conf.py）</h4>
 <p>如果没有什么特殊需要，我觉得 Sphinx 没啥好配的，改个主题就好了，个人极其喜欢ReadtheDoc的主题。很简单，把 conf.py 里面的这句：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">html_theme</span> <span class="o">=</span> <span class="s">'alabaster'</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">html_theme</span> <span class="o">=</span> <span class="s">'alabaster'</span>
 </code></pre>
 </div>
 <p>换成</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">html_theme</span> <span class="o">=</span> <span class="s">'sphinx_rtd_theme'</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">html_theme</span> <span class="o">=</span> <span class="s">'sphinx_rtd_theme'</span>
 </code></pre>
 </div>
 
 <h4 id="sphnix--push--github">将 Sphnix 生成的文档和配置 push 到远程 github</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>➜  BookData git init
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>➜  BookData git init
 ➜  BookData git add .
 ➜  BookData git commit -m <span class="s2">"sphinx start"</span>
 ➜  BookData git remote add origin https://github.com/[yourusename]/[yourrepository].git
@@ -324,7 +324,7 @@ Makefile build    make.bat <span class="nb">source</span>
 
 <p>因为我要建的板块是3个，分别为数据科学「入门篇」、「基础篇」、「工具篇」，所以先把主索引 index.rst 改为：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">目录</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="err">目录</span><span class="p">:</span>
 <span class="o">^^^^^</span>
 
 <span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
@@ -338,13 +338,13 @@ Makefile build    make.bat <span class="nb">source</span>
 </div>
 <p>然后在 source 目录下创建 3个目录 ，每个目录下创建一个 index.rst 文件，也就是二级索引文件。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mkdir beginning base tool
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>mkdir beginning base tool
 touch beginning/index.rst base/index.rst tool/inde.rst
 </code></pre>
 </div>
 <p>做完这步后，把书的大纲理一下，写到 BookData 目录底下的 README.md 文件里：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># Python 和数据科学</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Python 和数据科学</span>
 
 <span class="c">### 全书目录：</span>
 
@@ -360,13 +360,13 @@ touch beginning/index.rst base/index.rst tool/inde.rst
 </div>
 <p>参照目录创建文件，如 入门篇，则在 beginning 目录下创建如下文件：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>touch 01_linux.rst 02_ipython.rst 03_numpy.rst 04_matplotlib.rst 05_seaborn.rst
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>touch 01_linux.rst 02_ipython.rst 03_numpy.rst 04_matplotlib.rst 05_seaborn.rst
 </code></pre>
 </div>
 
 <p>每个文件里写上 一级标题，然后检查下：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>➜  BookData git:<span class="o">(</span>master<span class="o">)</span> ✗ ls <span class="nb">source</span>/beginning
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>➜  BookData git:<span class="o">(</span>master<span class="o">)</span> ✗ ls <span class="nb">source</span>/beginning
 01_linux.rst      03_numpy.rst      05_seaborn.rst
 02_ipython.rst    04_matplotlib.rst index.rst
 ➜  BookData git:<span class="o">(</span>master<span class="o">)</span> ✗ cat <span class="nb">source</span>/beginning/<span class="k">*</span>
