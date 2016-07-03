@@ -51,6 +51,26 @@ write_csv 用于写入数据，不写入行名。
 write_csv(x, path, na = "NA", append = FALSE, col_names = !append)
 ```
 
+#### pandas 下的读取输出
+
+**读取重要参数**
+
+`pd.read_csv`
+
+- sep，默认 ','
+- header，默认 0，意为第一行作为列名，可设整数，或 None
+- index_col，把列设为 index，默认 None
+- usecols，输入列表，返回需要的子集
+- names，指定的列名
+- nrows，需要读取的行数
+
+**输出重要参数**
+
+`pd.DataFrame.to_csv`
+
+- header，默认 True
+- index，行名，默认 True，可设为 None
+
 ## 向量化操作之 apply 家族
 
 - 参考1：[掌握R语言中的apply函数族](http://blog.fens.me/r-apply/)

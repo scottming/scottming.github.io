@@ -169,221 +169,99 @@
             ">
     			
 <div class="post-preview">
-    <a href="/2016/04/18/ReciteTheWords003/">
+    <a href="/2016/07/03/dplyr/">
         <h2 class="post-title">
-            笨办法记单词（3）
+            R 语言常用包（2）
         </h2>
         
         <h3 class="post-subtitle">
-            词汇图
+            数据清理 dplyr
         </h3>
         
         <div class="post-content-preview">
-            805.lay
+            导入数据
 
-
-
-806.general
-
-
-
-808.standard
-
-
-
-809.bill
-
-
-
-811.fail
-
-
-
-812.outside
-
-
-
-813.arrive
-
-
-
-814.analysis
-
-
-
-815.benefit
-
-
-
-818.forward
-
-
-
-819.lawyer
-
-
-
-820.present
-
-
-
-821.section
-
-
-
-822.environm...
+# 用 readr 包把数据读取成 tbl 格式，省去转化的那一步。
+library(dplyr)
+#&gt; Warning: package 'dplyr' was built under R version 3.2.5
+#&gt; 
+#&gt; Attaching package: 'dplyr'
+#&gt; The following objects are masked...
         </div>
     </a>
     <p class="post-meta">
-        Posted by Scott on April 18, 2016
+        Posted by Scott on July 3, 2016
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/2016/04/18/ReciteTheWords002/">
+    <a href="/2016/06/29/r_read_write/">
         <h2 class="post-title">
-            笨办法记单词（2）
+            R 语言常用包（1）
         </h2>
         
         <h3 class="post-subtitle">
-            词汇图
+            读取、输出与向量化操作
         </h3>
         
         <div class="post-content-preview">
-            588.step
+            数据读取与输出
+
+读取 read.table
+
+读取普通数据可用 read.table，有6个参数比较重要：
 
 
-
-592.attention
-
-
-
-593.draw
-
-
-
-594.film
+  file：文件路径
+  sep：文件的分隔符，缺省无
+  skip：跳过开始的 skip 行开始读取
+  header：是否将第一行读取为列名，缺省 FALSE
+  nrows：读取的行数
+  fill：将缺失数据定为 NA, 缺省并无指定
 
 
+高阶包 readr
 
-595.Republican
-
-
-
-597.source
-
-
-
-600.organization
-
-
-
-602.cause
-
-
-
-606.century
-
-
-
-607.evidence
-
-
-
-612.culture
-
-
-
-613.billion
-
-
-
-616.energy
-
-
-
-617....
+也可用 ...
         </div>
     </a>
     <p class="post-meta">
-        Posted by Scott on April 18, 2016
+        Posted by Scott on June 29, 2016
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/2016/04/17/ReciteTheWords001/">
+    <a href="/2016/06/28/r_base/">
         <h2 class="post-title">
-            笨办法记单词（1）
+            R 语言数据结构
         </h2>
         
-        <h3 class="post-subtitle">
-            词汇图
-        </h3>
-        
         <div class="post-content-preview">
-            148.own
+            向量
+
+R 里面的向量看起来像 Python 的 list，但又不是 list，更像是Python 里一维的数组。
+
+向量入门
+
+基础
+
+vec &lt;- c(1, 2, 3, 6, 5, 4)
+vec[c(1, 2, 4)]
+#&gt; [1] 1 2 6
+class(vec)
+#&gt; [1] "numeric"
+vec[1:2] # 末尾包含
+#&gt; [1] 1 2
 
 
 
-163.group
-
-
-
-180.against
-
-
-
-231.area
-
-
-
-264.service
-
-
-
-273.hour
-
-
-
-278.political
-
-
-
-280.among
-
-
-
-288.law
-
-
-
-293.include
-
-
-
-297.community
-
-
-
-301.once
-
-
-
-302.white
-
-
-
-303.least
-
-
-
-304.pres...
+Py...
         </div>
     </a>
     <p class="post-meta">
-        Posted by Scott on April 17, 2016
+        Posted by Scott on June 28, 2016
     </p>
 </div>
 <hr>
@@ -577,8 +455,8 @@ IPython 是一个 Python REPl shell，环境远比 Python 自带的强大，而 
                             
                         
                             
-                                <a href="/tags/#LearnEnglish" title="LearnEnglish" rel="3">
-                                    LearnEnglish
+                                <a href="/tags/#R" title="R" rel="3">
+                                    R
                                 </a>
                             
                         
