@@ -1,0 +1,101 @@
+---
+title: "高效数据清理包 dplyr"
+output: html_document
+---
+
+## 导入数据
+```{r,collapse=TRUE,comment='#>'}
+# 用 readr 包把数据读取成 tbl 格式，省去转化的那一步。
+library(dplyr)
+library(readr)
+order <- read_csv('~/Nutstore/dplyr/dplyr-data/order.csv')[-1] # 去除空名的第一列
+order
+```
+
+## 数据筛选 filter，返回满足条件的观测值
+```{r,collapse=TRUE,comment='#>'}
+# 看 2009-10-15 日的数据
+filter(order, orderdate == '2009-10-13')
+
+# 更细的筛选
+filter(order, orderdate == '2009-10-13' & totalprice > 100) -> new_tbl
+new_tbl
+```
+
+## 子集选取 select，只保留选择的变量
+```{r,collapse=TRUE,comment='#>'}
+# 选取几个子集
+names(order)
+select(order, city, numunits, zipcode)
+
+# 换名, 提取选择的数据列
+select(order, date = orderdate, price = totalprice)
+names(order)
+
+# rename,换名，提取所有列
+rename(order, date = orderdate, price = totalprice)
+names(order)
+
+# 选取以 order 开始的变量
+select(order, starts_with('order'))
+
+# 选取包含id 的变量
+select(order, contains('id'))
+```
+
+## 数据排序 arrange 
+```{r,collapse=TRUE,comment='#>'}
+tbl <- select(order, date = orderdate, price = totalprice)
+arrange(tbl, date, desc(price))
+
+# 管道操作，更简便
+tbl <- select(order, date = orderdate, price = totalprice) %>%
+  arrange(date, desc(price))
+tbl
+```
+
+## 数据扩展 mutate
+```{r,collapse=TRUE,comment='#>'}
+tbl <- select(order, date = orderdate, price = totalprice) %>%
+  arrange(date,desc(price)) %>%
+  mutate(year = substr(date,1,4), month = substr(date,6,7), 
+       day = substr(date,9,10))
+tbl
+# transmute 则会删除原有的变量，如同 select 与 rename
+```
+
+## 数据汇总 summarise
+```{r,collapse=TRUE,comment='#>'}
+summarise(tbl, max = max(price),
+          min = min(price),
+          mean(price))
+
+summarise(tbl, fisrt = first(date),
+          last = last(date))
+
+# 管道操作
+df <- select(order, date = orderdate, price = totalprice) %>%
+  summarise(price_sum = sum(price), price_mean = mean(price))
+df
+```
+  
+## 数据连接 join
+
+- left_join 以左边为主，且保留所有值，用的最多，b 表追加在后面
+- inner_join 只保留匹配的
+- semi_join 只匹配左边的列
+- anti_join 与上面函数相反
+
+## 分组汇总 group_by 
+```{r,collapse=TRUE,comment='#>'}
+tbl <- select(order, date = orderdate, price = totalprice) %>%
+  mutate(year = substr(date,1,4), month = substr(date,6,7), 
+         day = substr(date,9,10))
+
+by_year <- group_by(tbl, year) %>%
+  summarise(mean(price), sum(price), max(month))
+
+by_year
+
+order_year <- group_by(tbl, year)
+```

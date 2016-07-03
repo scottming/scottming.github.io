@@ -1,0 +1,254 @@
+---
+title: "R 语言初探之常用包（1）"
+output: html_document
+---
+
+## 数据读取与输出
+
+#### 读取 read.table
+
+读取普通数据可用 read.table，有6个参数比较重要：
+
+- file：文件路径
+- sep：文件的分隔符，缺省无
+- skip：跳过开始的 skip 行开始读取
+- header：是否将第一行读取为列名，缺省 FALSE
+- nrows：读取的行数
+- fill：将缺失数据定为 NA, 缺省并无指定
+
+#### 高阶包 readr
+
+也可用 readr 包读取表格型数据，不仅速度快，且能直接读取为 tbl 格式。参考 [readr 介绍](http://www.xueqing.tv/cms/article/102)。
+
+```{r}
+library(readr)
+```
+
+read_csv 和 read_tsv 分别读取分隔符为逗号和制表符的数据，read_csv2 则是读取分号分割的数据，read_dlim 读取自定义的。
+
+函数定义：
+```r
+read_delim(file, delim, quote = "\"", escape_backslash = FALSE,
+  escape_double = TRUE, col_names = TRUE, col_types = NULL,
+  locale = default_locale(), na = c("", "NA"), comment = "", skip = 0,
+  n_max = -1, progress = interactive())
+```
+
+write_csv 用于写入数据，不写入行名。
+
+函数定义
+```r
+write_csv(x, path, na = "NA", append = FALSE, col_names = !append)
+```
+
+## 向量化操作之 apply 家族
+
+- 参考1：[掌握R语言中的apply函数族](http://blog.fens.me/r-apply/)
+- 参考2：[R Grouping functions: sapply vs. lapply vs. apply. vs. tapply vs. by vs. aggregate](http://stackoverflow.com/questions/3505701/r-grouping-functions-sapply-vs-lapply-vs-apply-vs-tapply-vs-by-vs-aggrega)
+- 参考3：[R语言apply家族函数的用法及其比较](http://www.xueqing.tv/cms/article/158)
+
+#### 循环迭代之 lapply/sapply
+
+**sapply，lapply 的简化版**
+
+第一参数是 X，官方解释说，可接收向量，list，或表达式对象，其他对象将被强制按 list，第二个参数则是函数，返回一个向量或矩阵。
+
+```{r,collapse=TRUE,comment='#>'}
+func <- function(x){
+  if (x %% 2 == 0){
+    ret <- 'even'
+  }
+  else {
+    ret <- 'odd'
+  }
+  return(ret)
+}
+vec <- round(runif(4)*100)
+func(vec)
+vec
+sapply(vec, func)
+```
+
+**lapply**
+
+跟 sapply 的区别在于返回的是列表
+
+```{r,collapse=TRUE,comment='#>'}
+lapply(vec, func)
+mylist <- as.list(iris[, 1:4]) # 不转list，也是强按
+yourdata <- iris[, 1:4]
+
+sapply(mylist, mean) # 还可以对列表进行计算
+lapply(mylist, mean) # return a list
+
+myfunc <- function(x) {
+  ret <- c(mean(x),sd(x))
+  return(ret)
+}
+result <- lapply(mylist, myfunc)
+result
+
+t(sapply(result, '[')) # list数据转 data.frame
+```
+
+#### 分组运算
+
+**apply**
+
+第一个参数接收数组或矩阵，MARGIN 参数按行或列计算
+
+```{r,collapse=TRUE,comment='#>'}
+set.seed(1)
+vec <- round(runif(12)*100)
+mat <- matrix(vec, nrow = 3, ncol = 4)
+apply(mat, MARGIN = 1, sum) # 1为行，2为列
+```
+
+**tapply**
+
+tapply用于分组的循环计算，通过INDEX参数可以把数据集X进行分组，相当于group by的操作。
+
+```{r,collapse=TRUE,comment='#>'}
+head(iris)
+with(iris, tapply(Sepal.Length, list(Species), mean))
+```
+
+**aggregate**
+
+比较友好，返回的是数据框
+
+```{r,collapse=TRUE,comment='#>'}
+aggregate(iris$Sepal.Length, list(iris$Species), mean)
+```
+
+#### 多参数运算
+
+**mapply**
+
+这个函数目前理解的还不是很透彻，待补。
+```{r,collapse=TRUE,comment='#>'}
+mapply(rep, times = 1:4, x = 4:1)
+```
+
+## 数据整理、转换
+#### reshape2
+
+```{r,collapse=TRUE,comment='#>'}
+subdata <-iris[,4:5]
+head(subdata)
+data_w <- unstack(subdata)
+colMeans(data_w)
+```
+
+实践中这种单纯的长宽格式并不多见，更常见的是直接一步得到结果，所以就需要强大的 reshape2 包
+
+参考[An Introduction to reshape2](http://seananderson.ca/2013/10/19/reshape.html)
+
+加载包和改数据名
+```{r,collapse=TRUE,comment='#>'}
+library(reshape2)
+names(airquality) <- tolower(names(airquality))
+head(airquality)
+```
+
+**melt 熔化转长格式**
+```{r,collapse=TRUE,comment='#>'}
+aql <- melt(airquality)
+tail(aql)
+head(aql)
+```
+
+设定不需要变 value 的变量
+```{r,collapse=TRUE,comment='#>'}
+aql <- melt(airquality,id.vars = c('month', 'day'))
+names(airquality)
+head(aql)
+```
+
+改名
+```{r,collapse=TRUE,comment='#>'}
+aql <- melt(airquality, id.vars = c("month", "day"),
+            variable.name = "climate_variable",
+            value.name = "climate_value")
+head(aql)
+head(airquality)
+```
+
+**dcast 重铸，长转宽**
+```{r,collapse=TRUE,comment='#>'}
+aql <- melt(airquality, id.vars = c("month", "day"))
+aqw  <- dcast(aql, month + day ~ variable)
+head(aql)
+head(aqw)
+```
+
+不足的id.var 会出错，会把值的数量统计出来
+```{r,collapse=TRUE,comment='#>'}
+dcast(aql, month ~ variable)
+```
+
+**fun,加上集合函数就能按正确方式集合了。**
+```{r,collapse=TRUE,comment='#>'}
+dcast(aql, month ~ variable, fun.aggregate = mean,
+      na.rm = TRUE)
+```
+
+#### tidyr
+新建一列数据
+```{r,collapse=TRUE,comment='#>'}
+mtcars$car <- rownames(mtcars)
+colnames(mtcars)
+mtcars <- mtcars[, c(12, 1:11)]
+head(mtcars)
+```
+
+**gather 聚合**
+```{r,collapse=TRUE,comment='#>'}
+library(tidyr)
+mtcarsNew <- mtcars %>%
+  gather(attribute, value, -car) #不仅聚合，且命名了。
+head(mtcarsNew)
+tail(mtcarsNew)
+```
+
+gather mpg:gear 之间的列
+```{r,collapse=TRUE,comment='#>'}
+mtcarsNew <- mtcars %>%
+  gather(attribute, value, mpg:gear)
+```
+
+**spread 铺开**
+```{r,collapse=TRUE,comment='#>'}
+mtcarsWide <- mtcarsNew %>%
+  spread(attribute, value)
+head(mtcarsWide)
+```
+
+**unite 合并**
+```{r,collapse=TRUE,comment='#>'}
+set.seed(1)
+date <- as.Date('2016-06-01') + 0:14
+
+hour <- sample(1:24, 15)
+min <- sample(1:60, 15)
+second <- sample(1:60, 15)
+event <- sample(letters, 15)
+df <- data.frame(date, hour, min, second, event)
+head(df)
+
+df1 <- df %>%
+  unite(datehour, date, hour, sep = ' ') %>%
+  unite(datetime, datehour, min, second, sep = ':')
+df1
+```
+
+**separate 拆分**
+```{r,collapse=TRUE,comment='#>'}
+df2 <- df1 %>%
+  separate(datetime, c('date', 'time'), sep = ' ') %>%
+  separate(time, c('hour', 'min', 'second'), sep = ':')
+df2
+
+```
+
+总的来说，tidyr 包比reshape语法更为简洁易懂， 更加方便。
