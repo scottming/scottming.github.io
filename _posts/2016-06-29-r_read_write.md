@@ -68,8 +68,10 @@ write_csv(x, path, na = "NA", append = FALSE, col_names = !append)
 
 `pd.DataFrame.to_csv`
 
-- header，默认 True
-- index，行名，默认 True，可设为 None
+- header，默认 True，可设为 None，也可用于重新修改列名，如 header=['a','b']
+- columns,用于取子集写入
+- index，设定是否需要写入索引，默认 True，可设为 None
+- index_label，用于设定 index 名称
 
 ## 向量化操作之 apply 家族
 
