@@ -5,9 +5,303 @@
     <description>cool blog</description>
     <link>http://scottming.github.io/</link>
     <atom:link href="http://scottming.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 04 Jul 2016 06:43:01 +0800</pubDate>
-    <lastBuildDate>Mon, 04 Jul 2016 06:43:01 +0800</lastBuildDate>
+    <pubDate>Thu, 28 Jul 2016 21:01:30 +0800</pubDate>
+    <lastBuildDate>Thu, 28 Jul 2016 21:01:30 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>小米路由科学上网记</title>
+        <description>&lt;p&gt;背景：&lt;/p&gt;
+
+&lt;p&gt;家里好几台电脑，有些配置了 ss，有些没，特别是 Linux，下载一些特别包速度很慢，配置几次 ss 都没成功，做运维的 &lt;a href=&quot;https://github.com/ibrother&quot;&gt;@ibrother&lt;/a&gt; 建议刷路由固件，以便家中全网科学上网，所幸有这位热心兄弟帮助，折腾几小时达成目标。&lt;/p&gt;
+
+&lt;p&gt;流程：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;小米路由升级为开发者版，备份原版 uboot&lt;/li&gt;
+  &lt;li&gt;刷入 breed bootload&lt;/li&gt;
+  &lt;li&gt;刷入 padavan 固件&lt;/li&gt;
+  &lt;li&gt;ss 设置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;电脑配置：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;有 SSH 工具的电脑一台，最好直接用 Linux 或 Mac 的终端，Win 可用 Xshell&lt;/li&gt;
+  &lt;li&gt;Win 一台，非必备，但有在修改 ip 阶段会更方便。&lt;/li&gt;
+  &lt;li&gt;U 盘 一个&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;uboot&quot;&gt;小米版本升级，备份官方原版 uboot&lt;/h2&gt;
+
+&lt;p&gt;此处用 U 盘下载 &lt;a href=&quot;https://d.miwifi.com/rom/ssh?userId=226348687&quot;&gt;SSH工具&lt;/a&gt;，按官方提示刷成开发者版，刷完后进入路由管理 IP，可看到已从稳定版变为开发者版。&lt;/p&gt;
+
+&lt;p&gt;ssh 进入小米路由&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh root@ip # ip 即你的路由内网ip，如 192.168.3.1，密码即 ssh 密码
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;复制小米固件,以后可以刷回来&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /tmp
+dd if=/dev/mtd1 of=uboot.bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;另外再开一个终端&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;scp root@ip:/tmp/uboot.bin ./
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样就算把原版 uboot 备份好了&lt;/p&gt;
+
+&lt;h2 id=&quot;bootloader&quot;&gt;刷入 bootloader&lt;/h2&gt;
+
+&lt;p&gt;在第一个终端依次输入，也就是 &lt;code class=&quot;highlighter-rouge&quot;&gt;/tmp&lt;/code&gt; 目录&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget http://breed.hackpascal.net/breed-mt7620-xiaomi-mini.bin
+mtd -r write breed-mt7620-xiaomi-mini.bin Bootloader
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;bootloader 即刷入成功。&lt;/p&gt;
+
+&lt;p&gt;进入 &lt;a href=&quot;http://pan.baidu.com/s/1qWr367y/&quot;&gt;百度云链接&lt;/a&gt;，选择日期文件夹，找到 xiaomimini 的固件，下载到 Win 电脑，然后把路由器断电，电脑连接路由 LAN 端口，
+电脑设置固定 ip 为 &lt;code class=&quot;highlighter-rouge&quot;&gt;192.168.1.3&lt;/code&gt;，子网掩码 &lt;code class=&quot;highlighter-rouge&quot;&gt;255.255.255.0&lt;/code&gt;，
+按住 reset 键，插入路由器电源，5 秒后松开。
+然后浏览器访问 &lt;code class=&quot;highlighter-rouge&quot;&gt;192.168.1.1&lt;/code&gt;，不懂设置的可参考此链接 &lt;a href=&quot;http://jingyan.baidu.com/article/a378c96070e070b32828302b.html&quot;&gt;ip 地址本地连接设置&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;padavan-&quot;&gt;刷入 padavan 固件&lt;/h2&gt;
+
+&lt;p&gt;进入 192.168.1.1 之后可看见下图
+&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160728-console.jpg?imageView2/2/w/600&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击固件备份，选择备份编程器固件和 eeprom，这样加上之前北方的 uboot.bin 有三个备份文件了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160728-select.jpg?imageView2/2/w/600&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;进入固件启动设置，选择常规固件，点击固件更新，选择之前下载的 trx 固件，闪存布局选择公版，然后点击上传。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160728-process.jpg?imageView2/2/w/600&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;进度条完全走完之后，路由器会重启，之后在 win 电脑改回 &lt;a href=&quot;http://jingyan.baidu.com/article/a378c96070e070b32828302b.html&quot;&gt;ip 自动获取&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;查看网络连接状态，适配器可查看当前电脑 ip，我的是 &lt;code class=&quot;highlighter-rouge&quot;&gt;192.168.123.1&lt;/code&gt;，进入即可。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;其他设置&lt;/h2&gt;
+
+&lt;p&gt;进入 &lt;code class=&quot;highlighter-rouge&quot;&gt;192.168.123.1&lt;/code&gt; 之后，路由器界面已经改变了。
+Wlan 部分设置下，继续 ss 设置，模式设为 GFWlist，加密方式最好用 chacha20，速度比较快。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xjuve.com1.z0.glb.clouddn.com/160728-ss.png?imageView2/2/w/601&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从此以后，便可全网科学上网了。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 28 Jul 2016 00:00:00 +0800</pubDate>
+        <link>http://scottming.github.io/2016/07/28/xiaomi/</link>
+        <guid isPermaLink="true">http://scottming.github.io/2016/07/28/xiaomi/</guid>
+        
+        <category>工具箱</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>用 Python 与 R 做英文书词频统计</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;背景&lt;/h3&gt;
+
+&lt;p&gt;最近在学 MIT 的线代课，教授讲的极好，但用的是英文教材，无奈我英文太烂，有些概念看不太懂，于是便想做个词频分析，方便熟悉概念和记忆数学高频词。&lt;/p&gt;
+
+&lt;p&gt;首先下载 pdf 文件，链接: https://pan.baidu.com/s/1qYEgcEw 密码: 3fby。然后把需要把 pdf 转为 txt，Linux 下有个小工具 python-pdfminer，可用&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install python-pdfminer&lt;/code&gt;下载。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;分析&lt;/h3&gt;
+
+&lt;p&gt;下载之后，转格式：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pdf2txt Gilbert_Strang_Introduction_to_Linear_Algebra__2009.pdf &amp;gt; MathLinearBook.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后再下载一个 Python 词频分析工具&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/Enaunimes/freeq.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;进入文件夹，把 txt 文件放进去，分析词频&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd Documents/freeq
+mv ~/MathLinearBook.txt ./
+./Documents/freeq/freeq.py -i MathLinearBook.txt -o MathLinearBookFreq.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;查看下文件:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;less MathLinearBookFreq.csv
+10066 the
+ 9994 a
+ 5411 be
+ 4030 and
+ 2817 to
+ 2370 in
+ 2173 matrix
+ 1801 are
+ 1497 by
+ 1451 row
+ 1421 that
+ 1278 this
+ 1263 have
+ 1207 column
+ 1128 vector
+ 1051 for
+ 1037 we
+  843 at
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;排版很舒服，但有两个问题，左列是右对齐，右列是左对齐，行首存在多个空格，不便于进一步分析；另外有大量高频词太简单了，如 the/a 等。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;数据清理&lt;/h3&gt;
+
+&lt;p&gt;考虑用 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt; filename | tr -s &#39; &#39; &amp;gt; newfile &lt;/code&gt; 做空格压缩，但压缩后，行首还是有空格，于是可以考虑 &lt;code class=&quot;highlighter-rouge&quot;&gt;tr&lt;/code&gt; 的加强版 &lt;code class=&quot;highlighter-rouge&quot;&gt;sed&lt;/code&gt; 直接删除行首多个空格，同时在首行插入列名。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sed -i &#39;s/^ *//g&#39; MathLinearBookFreq.csv # 第一个`/`后面是需替换内容，第二个`/`为空，表示删除，`-i` 表示替换原文件
+sed -i &#39;s/ /,/g&#39; MathLinearBookFreq.csv # 后面的空格替换成`,`
+sed -i &#39;1i/Frequency,Word&#39; head.csv # 插入列名
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;剔除熟悉词汇&lt;/h3&gt;
+
+&lt;p&gt;那么如何去除一些太简单的高频词呢？这个时候就需要 R 语言或 Python 来做匹配了，结合 COCA 的 5000 词频表，链接: https://pan.baidu.com/s/1migyoYG 密码: vv5x。&lt;/p&gt;
+
+&lt;p&gt;先创建一个 &lt;code class=&quot;highlighter-rouge&quot;&gt;WordFreq&lt;/code&gt; 目录存放需处理的文件，把所需文件移动到这个目录。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  ~ ls WordFreq 
+COCA_top5000.csv                                         MathLinearBookFreq.csv
+Gilbert_Strang_Introduction_to_Linear_Algebra__2009.pdf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;底下是 R 代码&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dplyr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; 
+#&amp;gt; Attaching package: &#39;dplyr&#39;
+#&amp;gt; The following objects are masked from &#39;package:stats&#39;:
+#&amp;gt; 
+#&amp;gt;     filter, lag
+#&amp;gt; The following objects are masked from &#39;package:base&#39;:
+#&amp;gt; 
+#&amp;gt;     intersect, setdiff, setequal, union
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;导入词汇表。&lt;/p&gt;
+
+&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;~/WordFreq/COCA_top5000.csv&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 选择 word 这一列
+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;~/WordFreq/MathLinearBookFreq.csv&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; # A tibble: 2,086 x 2
+#&amp;gt;    Frequency   Word
+#&amp;gt;        &amp;lt;int&amp;gt;  &amp;lt;chr&amp;gt;
+#&amp;gt; 1      10066    the
+#&amp;gt; 2       9994      a
+#&amp;gt; 3       5411     be
+#&amp;gt; 4       4030    and
+#&amp;gt; 5       2817     to
+#&amp;gt; 6       2370     in
+#&amp;gt; 7       2173 matrix
+#&amp;gt; 8       1801    are
+#&amp;gt; 9       1497     by
+#&amp;gt; 10      1451    row
+#&amp;gt; # ... with 2,076 more rows
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;采用 dplyr 里的anti_join 函数把 df2 里面不匹配 df1 前 1000 的单词挑出来，大白话就是把你不怎么认识的词挑出来&lt;/p&gt;
+
+&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anti_join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Word&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arrange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; # A tibble: 1,438 x 2
+#&amp;gt;    Frequency     Word
+#&amp;gt;        &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;
+#&amp;gt; 1       2173   matrix
+#&amp;gt; 2       1801      are
+#&amp;gt; 3       1451      row
+#&amp;gt; 4       1207   column
+#&amp;gt; 5       1128   vector
+#&amp;gt; 6        659 solution
+#&amp;gt; 7        589 equation
+#&amp;gt; 8        577     zero
+#&amp;gt; 9        547      ion
+#&amp;gt; 10       485    pivot
+#&amp;gt; # ... with 1,428 more rows
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt;    Frequency           Word          
+#&amp;gt;  Min.   :   1.00   Length:1438       
+#&amp;gt;  1st Qu.:   1.00   Class :character  
+#&amp;gt;  Median :   3.00   Mode  :character  
+#&amp;gt;  Mean   :  21.47                     
+#&amp;gt;  3rd Qu.:   9.00                     
+#&amp;gt;  Max.   :2173.00
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;但还有个问题，数学书里面有太多两位数的符号，属于无效单词，也可删除&lt;/p&gt;
+
+&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt;    Frequency           Word          
+#&amp;gt;  Min.   :   1.00   Length:1399       
+#&amp;gt;  1st Qu.:   1.00   Class :character  
+#&amp;gt;  Median :   3.00   Mode  :character  
+#&amp;gt;  Mean   :  20.58                     
+#&amp;gt;  3rd Qu.:   8.00                     
+#&amp;gt;  Max.   :2173.00
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; # A tibble: 1,399 x 2
+#&amp;gt;    Frequency     Word
+#&amp;gt;        &amp;lt;int&amp;gt;    &amp;lt;chr&amp;gt;
+#&amp;gt; 1       2173   matrix
+#&amp;gt; 2       1801      are
+#&amp;gt; 3       1451      row
+#&amp;gt; 4       1207   column
+#&amp;gt; 5       1128   vector
+#&amp;gt; 6        659 solution
+#&amp;gt; 7        589 equation
+#&amp;gt; 8        577     zero
+#&amp;gt; 9        547      ion
+#&amp;gt; 10       485    pivot
+#&amp;gt; # ... with 1,389 more rows
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;大功告成，写入文件，即可&lt;/p&gt;
+
+&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;write_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;~/WordFreq/LA_MIT_freq.csv&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;写了一个 Python 版的，分析了下 &lt;a href=&quot;https://github.com/rasbt/python-machine-learning-book&quot;&gt;Python 机器学习&lt;/a&gt; 这本书。&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/scottming/4b545bf271223c41305137a0ece89c2a.js&quot;&gt;&lt;/script&gt;
+
+</description>
+        <pubDate>Tue, 19 Jul 2016 00:00:00 +0800</pubDate>
+        <link>http://scottming.github.io/2016/07/19/word_freq/</link>
+        <guid isPermaLink="true">http://scottming.github.io/2016/07/19/word_freq/</guid>
+        
+        <category>R</category>
+        
+        
+      </item>
     
       <item>
         <title>R 语言常用包（2）</title>
@@ -327,7 +621,6 @@
 #&amp;gt; 5  2013    76.71011  1633004.8         12
 #&amp;gt; 6  2014    84.47190   429962.0         05
 &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order_year&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tbl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
@@ -404,8 +697,10 @@
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pd.DataFrame.to_csv&lt;/code&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;header，默认 True&lt;/li&gt;
-  &lt;li&gt;index，行名，默认 True，可设为 None&lt;/li&gt;
+  &lt;li&gt;header，默认 True，可设为 None，也可用于重新修改列名，如 header=[‘a’,’b’]&lt;/li&gt;
+  &lt;li&gt;columns,用于取子集写入&lt;/li&gt;
+  &lt;li&gt;index，设定是否需要写入索引，默认 True，可设为 None&lt;/li&gt;
+  &lt;li&gt;index_label，用于设定 index 名称&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;apply-&quot;&gt;向量化操作之 apply 家族&lt;/h2&gt;
@@ -571,7 +866,8 @@
 &lt;/div&gt;
 
 &lt;h2 id=&quot;section-3&quot;&gt;数据整理、转换&lt;/h2&gt;
-&lt;p&gt;#### reshape2&lt;/p&gt;
+
+&lt;h4 id=&quot;reshape2&quot;&gt;reshape2&lt;/h4&gt;
 
 &lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;subdata&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iris&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subdata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
