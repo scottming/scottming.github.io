@@ -1,6 +1,6 @@
 ---
 layout: post
-title: R 语言常用包（1）
+title: R 语言常用包
 subtitle: 读取、输出与向量化操作
 date:       2016-06-29
 author:     "Scott"
