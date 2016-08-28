@@ -5,9 +5,140 @@
     <description>cool blog</description>
     <link>http://scottming.github.io/</link>
     <atom:link href="http://scottming.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 31 Jul 2016 09:41:47 +0800</pubDate>
-    <lastBuildDate>Sun, 31 Jul 2016 09:41:47 +0800</lastBuildDate>
+    <pubDate>Wed, 10 Aug 2016 23:37:00 +0800</pubDate>
+    <lastBuildDate>Wed, 10 Aug 2016 23:37:00 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Git 常用命令</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;时光机&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;对比&lt;/h3&gt;
+
+&lt;p&gt;工作区、缓存区、最新 commit 之间的对比？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git diff # 工作区与缓存区的差异
+git diff -–cached # 缓存区与最新 commit 之间的差异
+git diff HEAD # 工作区与最新 commit 之间的差异
+git diff @ # 同上
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如何对比当前版本和上一个版本？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 以下三者皆可
+git diff @~..@
+git diff HEAD^ HEAD
+git show @
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如何对比当前版本和任意版本？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git diff commit_id HEAD
+git diff commit_id @
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其他的一些对比，参考 TLCL 的文本操作&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gh&quot;&gt;diff -c file1 file2 # 比较两个文件，上下文模式
+diff -u file1 file2 # 比较两个文件，统一模式
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;撤销与回退&lt;/h3&gt;
+
+&lt;p&gt;如何撤销工作区编辑？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global alias.co checkout # git checkout 比较常用，设个别名
+git co .
+git co -- filename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如何撤销缓存区？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset HEAD filename # add 之后，恢复后回到编辑状态。
+git reset @ filename # 同上
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;提交到版本库之后如何回退？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# 会把当前历史删除的做法
+git log --pretty=oneline # 查看最近的日志
+git reset --hard @~ # 直接回退到上一个版本
+git reset --hard HEAD^ # 同上 
+
+# 比较安全的做法
+git revert &amp;lt;$id&amp;gt;    # 恢复某次提交的状态，恢复动作本身也创建了一次提交对象，需重写 commit
+git revert HEAD     # 恢复最后一次提交的状态
+
+# 感觉自己这次写错了
+get reset @~ # 回到工作区的编辑状态，跟上方的 hard 还是有区别的。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;改变 git log 至标准输出&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config pager.log false
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;查看命令历史&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git log -1 @ # 简单查看最后的一次提交历史
+git config --global alias.last &#39;log -1 HEAD&#39; # 设置别名
+git last # 同 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git log --pretty=oneline # 一行显示
+git log --pretty=format:&quot;%h - %an, %ar : %s&quot; -5 # 定制式最近的 5 条记录
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git log -p -2 # 查看最近两次提交的差异
+git log --stat -2 # 查看最近两次提交的统计信息
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;分支管理&lt;/h2&gt;
+
+&lt;h3 id=&quot;git-&quot;&gt;搭建 git 服务器&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone --bare my_project my_project.git # 服务器新建空仓库
+sudo chown git:git -R # 改变仓库所有者
+git clone git@server:/home/scott/.gitrepo/sample.git # 克隆服务器仓库
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Fetch 分支、对比&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin master 
+git diff ..FETCH_HEAD # 对比当前版本库和 Fetch 的内容
+git diff @..FETCH_HEAD # 同上
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;其他待补。&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://robbinfan.com/blog/34/git-common-command&quot;&gt;常用命令参考&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013743862006503a1c5bf5a783434581661a3cc2084efa000&quot;&gt;廖雪峰的 Git 教程&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://git-scm.com/book/zh/v2&quot;&gt;Git Book&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 06 Aug 2016 00:00:00 +0800</pubDate>
+        <link>http://scottming.github.io/2016/08/06/git_tips/</link>
+        <guid isPermaLink="true">http://scottming.github.io/2016/08/06/git_tips/</guid>
+        
+        <category>Git</category>
+        
+        
+      </item>
     
       <item>
         <title>小米路由科学上网记</title>
@@ -98,9 +229,9 @@ Wlan 部分设置下，继续 ss 设置，模式设为 GFWlist，加密方式最
 
 &lt;p&gt;从此以后，便可全网科学上网了。&lt;/p&gt;
 </description>
-        <pubDate>Thu, 28 Jul 2016 00:00:00 +0800</pubDate>
-        <link>http://scottming.github.io/2016/07/28/xiaomi/</link>
-        <guid isPermaLink="true">http://scottming.github.io/2016/07/28/xiaomi/</guid>
+        <pubDate>Wed, 27 Jul 2016 00:00:00 +0800</pubDate>
+        <link>http://scottming.github.io/2016/07/27/xiaomi/</link>
+        <guid isPermaLink="true">http://scottming.github.io/2016/07/27/xiaomi/</guid>
         
         <category>工具箱</category>
         
@@ -292,6 +423,8 @@ Gilbert_Strang_Introduction_to_Linear_Algebra__2009.pdf
 &lt;p&gt;写了一个 Python 版的，分析了下 &lt;a href=&quot;https://github.com/rasbt/python-machine-learning-book&quot;&gt;Python 机器学习&lt;/a&gt; 这本书。&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/scottming/4b545bf271223c41305137a0ece89c2a.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://gist.github.com/scottming/ae455b373e5ce3da7adf905a5dbf9f70.js&quot;&gt;&lt;/script&gt;
 
 </description>
         <pubDate>Tue, 19 Jul 2016 00:00:00 +0800</pubDate>
