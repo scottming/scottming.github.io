@@ -17,20 +17,13 @@ tags:
     ``` 
 - **cmus**
     ```
-    $ brew install cmus
+    $ brew install --HEAD cmus
     ```
 
 ## 问题解决
 
-`:set output_plugin=coreaudio` 可解决 `-`、`+` 号键调节声音问题。
-
-```
-$ brew uninstall cmus
-$ brew install --HEAD cmus
-$ brew cleanup
-```
-
-cmus 里输入 `:set softvol=true` 可解决 Warnning 问题，[参考](https://github.com/cmus/cmus/issues/345)。
+- cmus 里面输入 `:set output_plugin=coreaudio` 可解决 `-`、`+` 号键调节声音问题;
+- 输入 `:set softvol=true` 可解决 Warnning 问题，[参考](https://github.com/cmus/cmus/issues/345)。
 
 ## 使用
 
@@ -70,6 +63,27 @@ $ id3v2 -A 'AAT_CD5' *.mp3
 `D`    |删除选中 Track
 `Page Down`|向下翻页
 `Page Up`  |向上翻页
+
+
+## 效果
+
+**cmus**
+
+![](http://7xjuve.com1.z0.glb.clouddn.com/cmus.jpeg?imageView2/2/w/800)
+
+**iOS Boom**
+
+![](http://7xjuve.com1.z0.glb.clouddn.com/Boom.jpeg?imageView2/2/w/360)
+
+## References
+
+- 官方文档
+	- [Wiki](https://github.com/cmus/cmus/wiki)
+	- [Tutorial](https://github.com/cmus/cmus/blob/master/Doc/cmus-tutorial.txt)
+	- [Doc](https://github.com/cmus/cmus/blob/master/Doc/cmus.txt)
+
+- 视频
+	- [Tutorial: cmus (C Music Player) - YouTube](https://www.youtube.com/watch?v=cGJZ5Cfaacg)
 
 
 
