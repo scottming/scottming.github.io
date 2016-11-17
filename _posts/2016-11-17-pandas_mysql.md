@@ -86,7 +86,7 @@ def zkquery(q):
             'mysql+mysqlconnector://{}:{}@{}:{}/{}'.format(
                 USERNAME, PASSWORD, HOSTNAME,
                 server.local_bind_port, DATABASE
-                ),echo=False)
+                ), echo=False)
         return pd.read_sql_query(q, engine)
 ```
 
@@ -104,7 +104,7 @@ def df2zkdb(df, table):
             'mysql+mysqlconnector://{}:{}@{}:{}/{}'.format(
                 USERNAME, PASSWORD, HOSTNAME,
                 server.local_bind_port, DATABASE
-                ),echo=False)
+                ), echo=False)
         df.to_sql(name=table, con=engine, if_exists='append', index=False)
         print("You have successfully pushed {0} records "
               "to the {1} table of zokoodb.".format(df.shape[0], table))
