@@ -69,7 +69,7 @@ PKEY_PATH = os.path.join(HOME_PATH, '.ssh', 'id_rsa')
 
 
 def zkquery(q):
-    """The function is support for quering zokoo's SQL.
+    """The function is support for quering zokoodb.
 
     Args:
     - q: quering string
