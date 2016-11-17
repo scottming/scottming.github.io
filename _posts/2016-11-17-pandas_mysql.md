@@ -98,7 +98,8 @@ def df2zkdb(df, table):
         (remoteip, port),
         ssh_username=username,
         ssh_pkey=PKEY_PATH,
-        remote_bind_address=('localhost', 3306)) as server:
+        remote_bind_address=('localhost', 3306)
+    ) as server:
         engine = create_engine(
             'mysql+mysqlconnector://{}:{}@{}:{}/{}'.format(
                 USERNAME, PASSWORD, HOSTNAME,
