@@ -151,6 +151,14 @@ git co branch file
 git commit -m "say something"
 ```
 
+
+推送两个 remote
+
+```
+git remote set-url --add --push origin git://original/repo.git
+git remote set-url --add --push origin git://another/repo.git
+```
+
 其他待补......
 
 ## References
