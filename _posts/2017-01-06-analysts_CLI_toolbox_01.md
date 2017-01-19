@@ -114,6 +114,8 @@ $ grep -cv scott /etc/passwd/
 43
 ```
 
+这点 csvgrep 不太一样，同样是 `--invert-match`, csvgrep 用的是 `-i` 作为简化参数。
+
 查找时忽略大小写
 
 ```
