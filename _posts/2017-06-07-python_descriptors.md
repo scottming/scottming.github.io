@@ -19,7 +19,7 @@ tags:
 ### LineItem 01 版
 
 
-```
+```python
 >>> class LineItem(object):
 ...
 ...     def __init__(self, description, weight, price):
@@ -34,7 +34,7 @@ tags:
 
 假设现在我们要买 10 斤黄葡萄干
 
-```
+```python
 >>> raisins = LineItem('Golden raisins', 10, 6.95)
 >>> raisins.subtotal()
 69.5
@@ -172,6 +172,10 @@ ValueError: value must be > 0
 >>> coconuts = LineItem('Brazilian coconut', 20, 17.95)
 >>> coconuts.price
 17.95
+>>> coconuts.weight = 0
+Traceback (most recent call last)
+...
+ValueError: value must be > 0
 ```
 
 现在不需要把托管属性的名称传给 `Quantity` 构造方法了，但有个问题，储存属性是类名+数字，这样难以调试，最好是能把名称显示的提示出来
@@ -223,7 +227,7 @@ ValueError: value must be > 0
 ```
 
 
-```
+```python
 >>> raisins = LineItem('Golden raisins', 5, 2.48)
 ... raisins.description, raisins.weight, raisins.price
 ...
@@ -301,7 +305,7 @@ ValueError: 'price' must be > 0
 运行正确、报错清晰、漂亮，所以这是很完美的解决方案，而且扩展性很强，比如若是我们对 `description` 也要做判定，只需加一个描述类，并在 named_field 里加一个判定就行
 
 
-```
+```python
 ... class Quantity:
 ...
 ...     def __set__(self, instance, value):
@@ -335,7 +339,7 @@ ValueError: 'price' must be > 0
 
 运行结果，有两种判定
 
-```
+```python
 >>> raisins = LineItem('', 5, 2.48)
 Traceback (most recent call last)
 ...
