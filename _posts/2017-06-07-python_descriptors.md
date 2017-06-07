@@ -347,7 +347,7 @@ ValueError: 'price' must be > 0
 ...
 ```
 
-运行结果，有两种判定
+运行结果，有两种描述符
 
 ```python
 >>> raisins = LineItem('', 5, 2.48)
