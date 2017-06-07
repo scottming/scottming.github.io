@@ -166,7 +166,7 @@ ValueError: value must be > 0
 >>> coconuts = LineItem('Brazilian coconut', 20, 17.95)
 ```
 
-因为托管属性的名称( `price` / `weight`) 与储存属性的名称( `_quantity_0` / `_quantity_1` )是不一样的，而且读者需做特殊处理，所以实现 `__get__` 方法时必要的，若是没有返回的就也是描述符自身了。
+因为托管属性的名称( `price` / `weight`) 与储存属性的名称( `_quantity_0` / `_quantity_1` )是不一样的，而且读者需做特殊处理，所以实现 `__get__` 方法时必要的，若是没实现，返回的就也是描述符自身了。
 
 ```python
 >>> coconuts = LineItem('Brazilian coconut', 20, 17.95)
@@ -302,11 +302,11 @@ Traceback (most recent call last)
 ValueError: 'price' must be > 0
 ```
 
-运行正确、报错清晰、漂亮，所以这是很完美的解决方案，而且扩展性很强，比如若是我们对 `description` 也要做判定，只需加一个描述类，并在 named_field 里加一个判定就行
+运行正确、报错清晰、漂亮，这一版算是挺完美的解决方案，而且扩展性很强，比如若是我们对 `description` 也要做判定，只需加一个描述类，并在 named_field 里加一个判定就行
 
 
 ```python
-... class Quantity:
+>>> class Quantity:
 ...
 ...     def __set__(self, instance, value):
 ...         if value <= 0:
