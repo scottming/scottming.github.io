@@ -132,7 +132,7 @@ html_theme = 'sphinx_rtd_theme'
 
 `make html`后，效果如下：
 
-![](http://7xjuve.com1.z0.glb.clouddn.com/blog/160327_rtd01.png?imageView2/2/w/720)
+![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160327_rtd01.png?imageView2/2/w/720)
 
 会发现明明是2个文档，左边却 有 3个标题，因为主索引是按一级标题的数量来索引的，所以这种方式不可取，标题一多会很乱，好的办法是创建二级索引：
 
@@ -223,7 +223,7 @@ Jupyter 基础
 ```
 
 同理于 base 和 tool 目录，都完成之后会是下图的效果：
-![](http://7xjuve.com1.z0.glb.clouddn.com/blog/160327_rtd02.png?imageView2/2/w/720)
+![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160327_rtd02.png?imageView2/2/w/720)
 
 链接：[BookData](http://bookdata.readthedocs.org/en/latest/)， 有三个索引，下一个，上一个都非常顺畅。
 
@@ -231,4 +231,4 @@ Jupyter 基础
 
 reStructureText 语法很简单，不建议刻意去学，如果习惯用 Markdown，建议用 [pandoc](http://pandoc.org/try/?text=%23+%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98%0A%23%23+%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98%0A%23%23+%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98%0A%0A%60%60%60%0A+%E4%BB%A3%E7%A0%81%E5%9D%97%0A%60%60%60&from=markdown&to=rst) 一键转化即可.
 
-![](http://7xjuve.com1.z0.glb.clouddn.com/blog/160327-pandoc.png?imageView2/2/w/720)
+![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160327-pandoc.png?imageView2/2/w/720)

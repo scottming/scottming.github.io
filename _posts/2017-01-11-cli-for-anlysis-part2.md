@@ -389,7 +389,7 @@ Row count: 244
 $ < tips.csv Rio -ge 'g+geom_histogram(aes(total_bill))' | display
 ```
 
-![](http://7xjuve.com1.z0.glb.clouddn.com/blog/170111-tips.png?imageView2/2/w/600)
+![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170111-tips.png?imageView2/2/w/600)
 
 
 用重定向也可保存图形

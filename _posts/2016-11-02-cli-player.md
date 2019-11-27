@@ -69,11 +69,11 @@ $ id3v2 -A 'AAT_CD5' *.mp3
 
 **cmus**
 
-![](http://7xjuve.com1.z0.glb.clouddn.com/cmus.jpeg?imageView2/2/w/800)
+![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/cmus.jpeg?imageView2/2/w/800)
 
 **iOS Boom**
 
-![](http://7xjuve.com1.z0.glb.clouddn.com/Boom.jpeg?imageView2/2/w/360)
+![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/Boom.jpeg?imageView2/2/w/360)
 
 ## References
 
