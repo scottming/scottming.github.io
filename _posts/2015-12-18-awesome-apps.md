@@ -28,7 +28,7 @@ tags:
 
 ### [Alfred](https://www.alfredapp.com/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Alfred.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Alfred.png?imageView2/2/w/720)
 
 ---
 
@@ -36,7 +36,7 @@ Alfred 是一款快速定位与文件查看工具。在《卓有成效的程序�
 
 ### [Karabiner](https://pqrs.org/osx/karabiner/seil.html.en)/[Seil](https://pqrs.org/osx/karabiner/seil.html.en)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Karabiner01.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Karabiner01.png?imageView2/2/w/720)
 
 ---
 
@@ -44,7 +44,7 @@ Alfred 是一款快速定位与文件查看工具。在《卓有成效的程序�
 
 ### [Keyboard Maestro](https://www.keyboardmaestro.com/documentation/7/screenshots.html)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-KeyboardMaestro.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-KeyboardMaestro.png?imageView2/2/w/720)
 
 ---
 
@@ -52,7 +52,7 @@ Alfred 是一款快速定位与文件查看工具。在《卓有成效的程序�
 
 ### [aText](http://www.trankynam.com/atext/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-aText.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-aText.png?imageView2/2/w/720)
 
 ---
 
@@ -64,7 +64,7 @@ Alfred 是一款快速定位与文件查看工具。在《卓有成效的程序�
 
 ### [A Better Finder Rename](http://www.publicspace.net/ABetterFinderRename/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-ABetterFinderRename.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-ABetterFinderRename.png?imageView2/2/w/720)
 
 ---
 
@@ -78,7 +78,7 @@ Alfred 是一款快速定位与文件查看工具。在《卓有成效的程序�
 
 ### [Paste](http://pasteapp.me/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Paste.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Paste.png?imageView2/2/w/720)
 
 ---
 
@@ -94,7 +94,7 @@ Alfred 是一款快速定位与文件查看工具。在《卓有成效的程序�
 
 ### [Atom](https://atom.io/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Atom.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Atom.png?imageView2/2/w/720)
 
 ---
 
@@ -102,7 +102,7 @@ GitHub 亲娘生的，是我见过的对 Markdown 文档的渲染效果最好的
 
 ### [Dropzone](https://aptonic.com/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Dropzone.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Dropzone.png?imageView2/2/w/720)
 
 ---
 
@@ -116,7 +116,7 @@ GitHub 亲娘生的，是我见过的对 Markdown 文档的渲染效果最好的
 
 ### [Pushbullet]()
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Pushbullet.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Pushbullet.png?imageView2/2/w/720)
 
 ---
 
@@ -124,7 +124,7 @@ GitHub 亲娘生的，是我见过的对 Markdown 文档的渲染效果最好的
 
 ### [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)/[Vimfx](https://addons.mozilla.org/en-US/firefox/addon/vimfx/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Vimum.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Vimum.png?imageView2/2/w/720)
 
 ---
 
@@ -137,7 +137,7 @@ GitHub 亲娘生的，是我见过的对 Markdown 文档的渲染效果最好的
 
 ### [iTerm 2](https://www.iterm2.com/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-iTerm2.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-iTerm2.png?imageView2/2/w/720)
 
 ---
 
@@ -145,7 +145,7 @@ GitHub 亲娘生的，是我见过的对 Markdown 文档的渲染效果最好的
 
 ### [Oh My ZSH](http://ohmyz.sh/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-OhMyZSH.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-OhMyZSH.png?imageView2/2/w/720)
 
 ---
 
@@ -153,7 +153,7 @@ GitHub 亲娘生的，是我见过的对 Markdown 文档的渲染效果最好的
 
 ### [Homebrew](http://brew.sh/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Homebrew.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Homebrew.png?imageView2/2/w/720)
 
 ---
 
@@ -167,7 +167,7 @@ GitHub 亲娘生的，是我见过的对 Markdown 文档的渲染效果最好的
 
 ### [欧陆词典](http://www.eudic.net/eudic/mac_dictionary.aspx)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-eudic.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-eudic.png?imageView2/2/w/720)
 
 ---
 
@@ -175,7 +175,7 @@ GitHub 亲娘生的，是我见过的对 Markdown 文档的渲染效果最好的
 
 ### [Sip](http://theolabrothers.com/sip/pro/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Sip.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Sip.png?imageView2/2/w/720)
 
 ---
 
@@ -183,7 +183,7 @@ GitHub 亲娘生的，是我见过的对 Markdown 文档的渲染效果最好的
 
 ### [Workflowy](https://workflowy.com/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Workflowy.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Workflowy.png?imageView2/2/w/720)
 
 ---
 
@@ -191,7 +191,7 @@ GitHub 亲娘生的，是我见过的对 Markdown 文档的渲染效果最好的
 
 ### [Bartender 2](https://www.macbartender.com/)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/160424-Bartender.png?imageView2/2/w/720)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/160424-Bartender.png?imageView2/2/w/720)
 
 ---
 

@@ -28,19 +28,19 @@ U 盘 live 体验没问题，即可开始安装。
 
 进入系统之后，看底部提示，进入 BISO 或 UEFI，然后选择 U 盘作为启动盘， 选择「高级选项」，然后「专家模式」。
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian01.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian01.JPG?imageView2/2/w/800)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian02.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian02.JPG?imageView2/2/w/800)
 
 
 #### 2. 选择语言
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian03.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian03.JPG?imageView2/2/w/800)
 
 
 选择 English - English，然后选择位置，other -> Asia -> China，接着选择 locales，这里一定不能选中文，选择 United Staates - en_US.UTF-8，然后 configure locales，空格选择以下 7 种：
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian04.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian04.JPG?imageView2/2/w/800)
 
 最后选择 en_US.UTF-8 作为系统语言。
 
@@ -50,7 +50,7 @@ American English，检测挂载，回车即可
 
 #### 4. 从 CD 加载安装程序组件
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian05.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian05.JPG?imageView2/2/w/800)
 
 
 空格选择以下 10 种：
@@ -70,7 +70,7 @@ American English，检测挂载，回车即可
 
 #### 5. 网络和镜像
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian06.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian06.JPG?imageView2/2/w/800)
 
 检测网络硬件，然后如果是 pppoe 则选择 pppoe，非则直接选择 configure the network，一直回车，然后选择镜像，选择中科大 http -> mirros.ustc.edu.cn。
 
@@ -78,7 +78,7 @@ American English，检测挂载，回车即可
 
 这里按正常设置就好，开启隐藏密码模式，不允许 root 登录。
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian07.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian07.JPG?imageView2/2/w/800)
 
 
 #### 7. 选择时钟
@@ -87,19 +87,19 @@ American English，检测挂载，回车即可
 
 #### 8. 分区
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian09.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian09.JPG?imageView2/2/w/800)
 
 简单点可以选择第二个 Guied - use entire disk and set up LVM，复杂点就选 use entire disk and set up encrypted LVM(我服务选这个，一直提示 boot 安装不成功)，然后强制写入 UIFE，选择 NO，分区方案，选 择第 3 个 Separate /home, /var and /tmp partitions，系统盘选择格式化。其他默认即可。
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian10.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian10.JPG?imageView2/2/w/800)
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian11.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian11.JPG?imageView2/2/w/800)
 
 #### 9. 安装基础系统
 
 选择 linux-image-amd64 -> target inclued drivers needed for the system。
 
-![](https://scottming-1253938325.cos.ap-chengdu.myqcloud.com/blog/170805-debian12.JPG?imageView2/2/w/800)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/170805-debian12.JPG?imageView2/2/w/800)
 
 
 #### 10. 管理包配置
