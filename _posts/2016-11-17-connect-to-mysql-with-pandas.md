@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pandas 和 MySQL，一对好基友
+title: Pandas 和 MySQL 搭配使用
 subtitle:   
 date: 2016-11-17
 author:     "Scott"

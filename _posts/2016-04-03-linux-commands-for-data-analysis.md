@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 用 Linux 处理数据
+title: 用 Linux 命令行做数据处理
 subtitle:   命令行中的数据科学
 date:       2016-04-03
 author:     "Scott"
@@ -69,7 +69,6 @@ ln #创建硬链接和符号链接
 - [《笨办法学 Python》](https://book.douban.com/subject/26264642/) 的附录 [Appendix A: Command Line Crash Course](http://learnpythonthehardway.org/book/appendixa.html)，Python 入门靠的就是它，Zed 的这书绝对是神书，附录的 Command Line 也是写的极好。
 - [The Linux Command Line](https://billie66.github.io/TLCL/book/), 命令行入门神书，循序渐进，语言幽默，此书激发了我学 Linux 的兴趣。
 - [《Linux 工具快速教程》](http://linuxtools-rst.readthedocs.org/zh_CN/latest/index.html)，这本书作者写的比较简洁，比较适合有一定编程经验的人。
-- [《鸟哥的 Linux 私房菜》](https://book.douban.com/subject/4889838/), 书虽有点老了，但当做速查手册，翻翻查查，挺好。
 - [《命令行中的数据科学》](https://book.douban.com/subject/26387975/), 如何用命令行分析数据的一本书。
 
 #### 重定向和管道符
