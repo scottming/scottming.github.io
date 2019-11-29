@@ -2,7 +2,7 @@
 layout: post
 title: 用 Absinthe 构建 GraphQL API
 subtitle:   
-date:       
+date:       2019-11-28
 author:     "Scott"
 header-img: "img/absinthe.png"
 catalog:    true
