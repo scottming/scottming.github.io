@@ -134,7 +134,7 @@ query {
 
 这个 query 其实会被 parse 成这样
 
-![](/Users/scottming/Desktop/tree.jpg)
+![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/191127-tree.jpg)
 
 query parse 成这样后，execute phases 首先会解析 articles 这一层，拿到所有 article 之后，再解析 title 这一层，当 comments 里的字段和 author 的字段都解析完了，最终会合并一个结果出来。
 
