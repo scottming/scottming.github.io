@@ -2,7 +2,7 @@
 layout: post
 title: 关于 joi
 subtitle: 一个用 Elixir 写成的验证库
-date:       2021-01-06
+date:       2021-02-13
 author:     "Scott"
 header-img: "img/joi.png"
 catalog:    true
