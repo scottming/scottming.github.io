@@ -4,7 +4,7 @@ title: 办公族自救指南
 subtitle: 用工具改善你的坐姿
 date:       2021-02-14
 author:     "Scott"
-header-img: "img/chair.jpg"
+header-img: "img/coding.jpg"
 catalog:    true
 tags:
   - Tools
