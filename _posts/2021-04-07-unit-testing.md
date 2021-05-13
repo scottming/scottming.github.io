@@ -1,4 +1,4 @@
----
+864499---
 layout: post
 title: 单元测试的原则、最佳实践和模式
 subtitle: 
@@ -69,7 +69,7 @@ def test_is_string_long():
 
 但是对于什么是单元，以及隔离的具体是什么？两个流派争议很大。伦敦流派倾向于认为一个类是一个单元，而且所有外部的依赖除非是不可变的值对象，其他都应该 mock 实现，而古典流派则是以一个类或一组类作为一个行为单元，而且只有共享依赖用测试双打的方式。
 
-伦敦流派的依赖替换
+**伦敦流派的依赖替换**
 
 ![london_deps1](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/2021-04-07-london_deps1.jpeg)
 
@@ -77,26 +77,28 @@ def test_is_string_long():
 
 ![london_test_suite](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/2021-04-07-london_test_suite.jpeg)
 
-古典流派的依赖替换
+**古典流派的依赖替换**
 
 ![classical_deps](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/2021-04-07-classical_deps.jpeg)
 
-小结：
+**小结:**
 
-school| Isolation of | A unit is Uses | test doubles for
-------|--------------|----------------|-----------
-London school| Units| A class|All but immutable dependencies
-Classical school| Unit tests|A class or a set of classes|Shared dependencies
+| school           | Isolation of | A unit is Uses              | test doubles for               |
+| ---------------- | ------------ | --------------------------- | ------------------------------ |
+| London school    | Units        | A class                     | All but immutable dependencies |
+| Classical school | Unit tests   | A class or a set of classes | Shared dependencies            |
 
 作者更加倾向于古典流派，因为伦敦流派的那种方式很容易让实现细节与测试耦合。
 
-所以用古典流派定义是这样的：
+所以用古典流派对于「单元测试」定义是这样的：
 
 * Verifies a single unit of behavior
 * Does it quickly
 * And does it in isolation from other tests
 
 ## 单元测试的结构
+
+首先看一段 Python 代码
 
 ```python
 def sum_two_numbers(first, second):
@@ -115,17 +117,21 @@ def test_sum_two_numbers():
     assert result == 3
 ```
 
-3A 模式，准备，动作，验证
+关于单元测试结构的缩写有很多，但基本都离不开这三步，用 3A 模式来描述则，准备，动作，验证
 
-一些原则：
+虽然步骤很简单，但有一些原则可以遵守：
 
-* 避免多个 arrange, act, assert，如果有多个 act，意味着有多个行为单元了
-* 避免 if 语句
+1. 避免多个 arrange, act, assert，如果有多个 act，意味着有多个行为单元了，这就极大降低了代码的可读性和测试的可维护性，同时
 
 ![multiple_aaa](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/2021-04-07-multiple_aaa.jpg)
 
+2. 避免 if 语句
 
-* 使用测试夹具(test fixture)要谨慎，非常容易造成测试之间的耦合，以及降低了可读性
+这个很好理解，多种情况完全应该隔离测试
+
+3. 使用测试夹具(test fixture)要谨慎，非常容易造成测试之间的耦合，以及降低了可读性
+
+看一段 csharp 代码：
 
 ```csharp
 public class CustomerTests
@@ -160,7 +166,23 @@ public class CustomerTests
 }
 ```
 
-重构之后：
+为了节省代码，在单元测试之前，预先定义了商店的库存数量 15 个 shampoo，但这种简化是有代价的，极大的牺牲了可读性(当你在阅读单个测试的时候根本不清楚上下文有哪些)，所以我个人在写 Elixir 代码时，单元测试除非必要，一般不用测试夹具，一般不做 setup。而在做集成测试时，也尽量把测试夹具的命名成声明式的，并直接写在每个测试的上方，如：
+
+```elixir
+  describe "list alive payment_methods" do
+    setup ~w(import_three_payment_methods enable_one_weixin_payment_method)a
+
+    @tag :integration
+    test "success" do
+      assert length(Pay.list_alive_payment_methods()) == 1
+      assert length(Pay.list_alive_payment_methods(%{label: :weixin})) == 1
+      assert length(Pay.list_alive_payment_methods(%{label: :offline})) == 0
+    end
+  end
+```
+
+
+所以上面的哪个 csharp 例子也可以重构为：
 
 ```csharp
 public class CustomerTests
@@ -351,10 +373,10 @@ public class UserController
 * 基于通信的
 
 
-type | Output-based|State-based| Communication-based
----|---|---|---
-Due diligence to maintain resistance to refactoring| Low | Medium | Medium
-Maintainability costs| Low | Medium  | High
+| type                                                | Output-based | State-based | Communication-based |
+| --------------------------------------------------- | ------------ | ----------- | ------------------- |
+| Due diligence to maintain resistance to refactoring | Low          | Medium      | Medium              |
+| Maintainability costs                               | Low          | Medium      | High                |
 
 
 基于输出的因为只需要验证输出的值，所以他的可维护性和耐重构都是最好的，这也是为什么我喜欢 commanded 框架的原因，你会发现无论是 aggregate 还是 process manager 都是进行纯函数式测试的。
