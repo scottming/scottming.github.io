@@ -10,7 +10,7 @@ tags:
   - coding
 ---
 
-讲编程的书很多，说大脑认知的书也很多，而 [<程序员的大脑>](https://www.manning.com/books/the-programmers-brain) 是为数不多两者结合一起讲的好书。前司是一家创新驱动的脑与认知科学的公司，所以「认知科学」接触已久，而在读本书时，常有「啊哈」之感。
+讲编程的书很多，说大脑认知的书也很多，而 [《程序员的大脑》](https://www.manning.com/books/the-programmers-brain) 是为数不多两者结合一起讲的好书。前司是一家创新驱动的脑与认知科学的公司，所以「认知科学」接触已久，而在读本书时，常有「啊哈」之感。
 
 这书主要是从认知的角度讲了 4 个部分的内容：
 
@@ -31,7 +31,7 @@ tags:
 
 > 工作记忆代表了大脑思考、形成新想法和解决问题的能力。我们可以把短时记忆比作计算机的 RAM， 把长时记忆比作硬盘。 按照这个比喻， 工作记忆就像大脑的处理器。
 
-关于工作记忆更深的描述，前司的一篇公开课 [<工作记忆背后的故事>](https://mp.weixin.qq.com/s/hwBVg_ecUQ2VR6hKpsoENQ) 讲得很深入。其中核心点就是工作记忆的广度是有限制的，大部分人是 4，极少部分人才能到 7，另外就是工作记忆在处理信息的时候，同时也会在长时记忆里面搜索，所以这就是为什么事情你越熟悉，你处理起来就越快。
+关于工作记忆更深的描述，前司的一篇公开课 [《工作记忆背后的故事》](https://mp.weixin.qq.com/s/hwBVg_ecUQ2VR6hKpsoENQ) 讲得很深入。其中核心点就是工作记忆的广度是有限制的，大部分人是 4，极少部分人才能到 7，另外就是工作记忆在处理信息的时候，同时也会在长时记忆里面搜索，所以这就是为什么事情你越熟悉，你处理起来就越快。
 
 
 ### 三重心智模型
@@ -50,7 +50,7 @@ tags:
 
 — 引自 [阳志平：九个角度理解疫情期间的人性](https://openmindclub.blog.caixin.com/archives/222035)
 
-仔细读一下讲 「算法心智」和「反省心智」前因后果的书 [<理性与反省心智 2011.2>](https://www.amazon.com/-/zh/dp/B00XWVHKFM/ref=sr_1_18?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&dchild=1&keywords=Keith+Stanovich&qid=1627775235&rnid=2941120011&s=books&sr=1-18) 和这书大量引用的书 [<Hypothetical Thinking: Dual Processes in Reasoning and Judgement-Routledge>](https://www.amazon.com/-/zh/gp/product/1841696609/ref=dbs_a_def_rwt_hsch_vapi_taft_p1_i2) ，你会发现，工作记忆和短时记忆发生在算法心智层面，而长时记忆的调用与搜索发生在自主心智模块。因为进程 1(即自主心智)的主要功能之一就是根据先前的信念(反省心智相关)来确定问题的背景，从长时记忆中检索和应用相关的知识。
+仔细读一下讲 「算法心智」和「反省心智」前因后果的书 [《理性与反省心智 2011.2》](https://www.amazon.com/-/zh/dp/B00XWVHKFM/ref=sr_1_18?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&dchild=1&keywords=Keith+Stanovich&qid=1627775235&rnid=2941120011&s=books&sr=1-18) 和这书大量引用的书 [《Hypothetical Thinking: Dual Processes in Reasoning and Judgement-Routledge》](https://www.amazon.com/-/zh/gp/product/1841696609/ref=dbs_a_def_rwt_hsch_vapi_taft_p1_i2) ，你会发现，工作记忆和短时记忆发生在算法心智层面，而长时记忆的调用与搜索发生在自主心智模块。因为进程 1(即自主心智)的主要功能之一就是根据先前的信念(反省心智相关)来确定问题的背景，从长时记忆中检索和应用相关的知识。
 
 理解了这点，就会发现书中给的很多建议都非常实用了，比如第十章提到的改善你的内隐记忆可以让你解决问题的速度变快很多，原因就是自主心智的调用不需要耗费你过多的脑力；而学习一个新库的时候，可以多了解下他的目标以及诞生的前因后果，因为目标和信念属于反省心智的层面，用正确的信念，去指导消耗极高算法心智工作，可以极大的减轻你的认知负担。而这本书的核心要点就是减轻认知负担。
 
