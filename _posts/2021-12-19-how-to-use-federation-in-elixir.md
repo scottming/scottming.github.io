@@ -2,7 +2,7 @@
 layout: post
 title: How to use Apollo Federation in Elixir
 subtitle: Scaling GraphQL in Absinthe
-date:       2021-08-11
+date:       2021-12-19
 author:     "Scott"
 header-img: "img/coding.jpg"
 catalog:    true
