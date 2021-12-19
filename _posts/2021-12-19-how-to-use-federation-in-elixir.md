@@ -293,7 +293,7 @@ Finally, publish your schema to your new graph.
 $ rover graph publish <your-new-graphid>@current --schema supergraph.graphql
 ```
 
-### Use `router` instead of `apollo`
+### Use `router` instead of `apollo@gateway`
 
 The other day Apollo released their second version of the gateway: [apollographql/router🚀](https://github.com/apollographql/router), and this is written by rust, which in performance, security, or bug rate reduction have been greatly improved.
 
