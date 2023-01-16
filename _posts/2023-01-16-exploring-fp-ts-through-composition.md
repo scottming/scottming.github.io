@@ -73,7 +73,7 @@ If we don't want to have so many variables, then we can write a compose function
 
 This is a higher-order function that takes two functions as arguments, returns a function that takes x, and returns the result of g and f operations on x.
 
-```js// compose2
+```js
 const compose2 = (f, g) => x => f(g(x));
 const add1AndDouble = compose2(double, add1);
 
