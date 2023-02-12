@@ -125,14 +125,11 @@ Bahrick 的这个研究带出了一个重要问题：较长的间隔总是更好
 
 必要难度带给我最大的启发就是测试(提取练习)比想象的有效也重要的多，一定要想尽办法把测试注入到各种学习中，另外则是「你以为你知道」和「你真的知道」是两码事，永远不要过度自信。希望读完这篇文章对你也有所启发。
 
-## References:
 
-* [^1]: Making things hard on yourself, but in a good way: Creating desirable difficulties to enhance learning
-https://www.researchgate.net/publication/284097727_Making_things_hard_on_yourself_but_in_a_good_way_Creating_desirable_difficulties_to_enhance_learning
-* [^3]: A new theory of disuse and an old theory of stimulus fluctuation
-https://www.researchgate.net/publication/281322665_A_new_theory_of_disuse_and_an_old_theory_of_stimulus_fluctuation
-* [^4]: Grasp: The Science Transforming How We Learn: 9780385541824: Sarma, Sanjay, Yoquinto, Luke https://www.amazon.com/Grasp-Science-Transforming-How-Learn/dp/0385541821
-* [^6]: Cepeda NJ, Vul E, Rohrer D, Wixted JT, Pashler H. Spacing Effects in Learning a Temporal Ridgeline of Optimal Retention.; 2008. http://laplab.ucsd.edu/articles/Cepeda%20et%20al%202008_psychsci.pdf
-* [^7]: Nakata T. Effects of expanding and equal spacing on second language vocabulary learning: Does gradually increasing... ResearchGate. Published December 2015. Accessed February 11, 2023. https://www.researchgate.net/publication/277612362_Effects_of_expanding_and_equal_spacing_on_second_language_vocabulary_learning_Does_gradually_increasing_spacing_increase_vocabulary_learning
-* [^8]: APA PsycNet. Apa.org. Published 2023. Accessed February 11, 2023. https://psycnet.apa.org/doiLanding?doi=10.1037%2F0278-7393.33.4.704
-* [^9]: Dewinstanley PA. A generation effect can be found during naturalistic learning. Psychonomic Bulletin & Review. 1995;2(4):538-541. doi:https://doi.org/10.3758/bf03210990
+[^1]: Making things hard on yourself, but in a good way: Creating desirable difficulties to enhance learning https://www.researchgate.net/publication/284097727_Making_things_hard_on_yourself_but_in_a_good_way_Creating_desirable_difficulties_to_enhance_learning
+[^3]: A new theory of disuse and an old theory of stimulus fluctuation https://www.researchgate.net/publication/281322665_A_new_theory_of_disuse_and_an_old_theory_of_stimulus_fluctuation
+[^4]: Grasp: The Science Transforming How We Learn: 9780385541824: Sarma, Sanjay, Yoquinto, Luke https://www.amazon.com/Grasp-Science-Transforming-How-Learn/dp/0385541821
+[^6]: Cepeda NJ, Vul E, Rohrer D, Wixted JT, Pashler H. Spacing Effects in Learning a Temporal Ridgeline of Optimal Retention.; 2008. http://laplab.ucsd.edu/articles/Cepeda%20et%20al%202008_psychsci.pdf
+[^7]: Nakata T. Effects of expanding and equal spacing on second language vocabulary learning: Does gradually increasing... ResearchGate. Published December 2015. Accessed February 11, 2023. https://www.researchgate.net/publication/277612362_Effects_of_expanding_and_equal_spacing_on_second_language_vocabulary_learning_Does_gradually_increasing_spacing_increase_vocabulary_learning
+[^8]: APA PsycNet. Apa.org. Published 2023. Accessed February 11, 2023. https://psycnet.apa.org/doiLanding?doi=10.1037%2F0278-7393.33.4.704
+[^9]: Dewinstanley PA. A generation effect can be found during naturalistic learning. Psychonomic Bulletin & Review. 1995;2(4):538-541. doi:https://doi.org/10.3758/bf03210990
