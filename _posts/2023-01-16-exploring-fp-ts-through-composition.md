@@ -204,11 +204,11 @@ In the Normal world, In fact, you have some common types that can then be conver
 
 ![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/2023-01-16-230116-normal-world.png?imageView2/2/w/800)
 
-**OptionWord**
+**Option World**
 
 ![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/2023-01-16-230116-option-world.png?imageView2/2/w/800)
 
-**Either**
+**Either World**
 
 ![](https://scottming-blog-1253938325.cos.ap-beijing.myqcloud.com/2023-01-16-230116-either-world.png?imageView2/2/w/800)
 
