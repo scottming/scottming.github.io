@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 创造困难来增强学习
+title: 创造「必要难度」来增强学习
 subtitle: 
 date:       2023-02-12
 author:     "Scott"
