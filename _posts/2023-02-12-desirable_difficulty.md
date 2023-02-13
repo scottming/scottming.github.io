@@ -111,7 +111,7 @@ Bahrick 的这个研究带出了一个重要问题：较长的间隔总是更好
 
 ## 认知偏差
 
-如 Bjork 的同行所言，他提出的理论仿佛充满悖论，但他总能以优雅的方式论证给你看。最初接触「必要难度」的时候我也觉得困惑，既然它那么重要，为什么却一直不受重视呢？直到在 Grasp[^4] 这本书里看到心理学家提到人类的几个主要偏见才明白这个道理：
+如 Bjork 的同行所言，他提出的理论仿佛充满悖论，但他总能以优雅的方式论证给你看。最初接触「必要难度」的时候我也觉得困惑，既然它那么重要，为什么却一直不受重视呢？直到在 Grasp[^4] 这本书里看到心理学家提到人类的几个主要偏见才明白这个道理：
 
 * 马后炮偏见(hindsight bias)：也叫事后诸葛偏见，当知识摆在你面前的时候，你以为你一直拥有这个知识——考试中经常发生的问题，因为你知道的知识都在教科书里，而不在你的记忆里。
 * 预知性偏见(foresight bias)：当一个知识在有提示线索的时候很容易提取，你会以为没有线索也能容易提取。
@@ -131,5 +131,9 @@ Bahrick 的这个研究带出了一个重要问题：较长的间隔总是更好
 [^4]: Grasp: The Science Transforming How We Learn: 9780385541824: Sarma, Sanjay, Yoquinto, Luke https://www.amazon.com/Grasp-Science-Transforming-How-Learn/dp/0385541821
 [^6]: Cepeda NJ, Vul E, Rohrer D, Wixted JT, Pashler H. Spacing Effects in Learning a Temporal Ridgeline of Optimal Retention.; 2008. http://laplab.ucsd.edu/articles/Cepeda%20et%20al%202008_psychsci.pdf
 [^7]: Nakata T. Effects of expanding and equal spacing on second language vocabulary learning: Does gradually increasing... ResearchGate. Published December 2015. Accessed February 11, 2023. https://www.researchgate.net/publication/277612362_Effects_of_expanding_and_equal_spacing_on_second_language_vocabulary_learning_Does_gradually_increasing_spacing_increase_vocabulary_learning
-[^8]: APA PsycNet. Apa.org. Published 2023. Accessed February 11, 2023. https://psycnet.apa.org/doiLanding?doi=10.1037%2F0278-7393.33.4.704
+[^8]: Expanding retrieval practice promotes short-term retention, but equally spaced retrieval enhances long-term retention. https://psycnet.apa.org/doiLanding?doi=10.1037%2F0278-7393.33.4.704
 [^9]: Dewinstanley PA. A generation effect can be found during naturalistic learning. Psychonomic Bulletin & Review. 1995;2(4):538-541. doi:https://doi.org/10.3758/bf03210990
+[^10]: Make it Stick: The Science of Successful Learning – Retrieval Practice https://www.retrievalpractice.org/make-it-stick
+[^11]: Applying science of learning in education: Infusing psychological science into the curriculum https://scholars.unh.edu/cgi/viewcontent.cgi?article=1286&context=psych_facpub
+[^12]: Successful Remembering and Successful Forgetting: A Festschrift in Honor of Robert A. Bjork https://www.amazon.com/Successful-Remembering-Forgetting-Festschrift-Robert/dp/1848728913
+[^13]: Interleaving: How Mixed Practice Can Boost Learning https://effectiviology.com/interleaving/
