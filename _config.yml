@@ -2,7 +2,7 @@
 title: Scott's Blog
 SEOTitle: 明生的博客 | Scott's Blog
 header-img: img/home-bg.jpg
-email: xiaowan5219@gmail.com
+email: TheRealScottMing@gmail.com
 description: "cool blog"
 keyword: ""
 url: "http://scottming.github.io"              # your host, for absolute URL
@@ -14,9 +14,7 @@ baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 RSS: false
 #weibo_username:     huxpro
 github_username:    scottming
-zhihu_username:     ming1979
-twitter_username:   scottming1990
-facebook_username:  scottming1990
+twitter_username:   iscottming
 
 
 
@@ -68,8 +66,8 @@ ga_domain: scottming
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "写写代码，玩玩数据"
-sidebar-avatar: img/me.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "Input less, Output more."
+sidebar-avatar: img/me.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -81,17 +79,4 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 
 # Friends
 friends: [
-    {
-        title: "iBrother",
-        href: "http://ibrother.me/"
-    },{
-        title: "Bamboom",
-        href: "http://bambooom.github.io/"
-    },{
-        title: "Shen Lang",
-        href: "http://xpgeng.xyz/"
-    },{
-        title: "Timelady",
-        href: "http://favfavfav.com"
-    }
 ]
